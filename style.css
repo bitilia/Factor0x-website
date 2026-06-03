@@ -5077,8 +5077,8 @@ footer {
 }
 
 @media (max-width: 820px) and (orientation: portrait) {
-  #nav:not(.scrolled) .logo {
-    font-size: 32px;
+  .brand-first-slide img {
+    width: 118vw;
   }
 
   .brand-hero-actions {
