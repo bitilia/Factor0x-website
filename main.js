@@ -10,45 +10,6 @@ if (nav) {
   }, { passive: true });
 }
 
-// ── FIRST SLIDE SUBTITLE FIT ───────────────
-function fitBrandHeroSubtitle() {
-  const headlineLine = document.querySelector('.brand-hero-content h1 span:last-child');
-  const subtitle = document.querySelector('.brand-hero-content p');
-  if (!headlineLine || !subtitle) return;
-
-  subtitle.style.fontSize = '';
-  if (getComputedStyle(subtitle).whiteSpace !== 'nowrap') return;
-
-  const targetWidth = headlineLine.getBoundingClientRect().width;
-  if (!targetWidth) return;
-
-  let low = 8;
-  let high = 48;
-  for (let i = 0; i < 24; i += 1) {
-    const mid = (low + high) / 2;
-    subtitle.style.fontSize = `${mid}px`;
-    if (subtitle.getBoundingClientRect().width > targetWidth) {
-      high = mid;
-    } else {
-      low = mid;
-    }
-  }
-  subtitle.style.fontSize = `${Math.max(8, low - 0.15).toFixed(2)}px`;
-}
-
-let subtitleFitFrame;
-function scheduleBrandHeroSubtitleFit() {
-  cancelAnimationFrame(subtitleFitFrame);
-  subtitleFitFrame = requestAnimationFrame(fitBrandHeroSubtitle);
-}
-
-window.addEventListener('resize', scheduleBrandHeroSubtitleFit);
-if (document.fonts?.ready) {
-  document.fonts.ready.then(scheduleBrandHeroSubtitleFit);
-} else {
-  window.addEventListener('load', scheduleBrandHeroSubtitleFit);
-}
-
 // ── REVEAL ON SCROLL ─────────────────────────
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -1075,7 +1036,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       document.documentElement.lang = supportedLangs.includes(lang) ? lang : 'ru';
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       updateDocumentLinks(lang);
-      scheduleBrandHeroSubtitleFit();
     }
 
     languageTrigger.addEventListener('click', event => {
