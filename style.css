@@ -5080,7 +5080,12 @@ footer {
 }
 
 @media (max-width: 820px) and (orientation: portrait) {
+  .brand-hero-content {
+    top: 33%;
+  }
+
   .brand-first-slide img {
+    top: 24%;
     width: 118vw;
   }
 
