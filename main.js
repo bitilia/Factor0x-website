@@ -730,6 +730,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   const walletButton = document.querySelector('.wallet-toggle');
   const contributionButtons = document.querySelectorAll('.invoice-actions button:first-child');
   const viewMoreButtons = document.querySelectorAll('.view-more-btn');
+  const invoiceListLinks = document.querySelectorAll('[data-open-invoice-list]');
   const moreInvoices = document.getElementById('moreInvoices');
   const languageSelect = document.querySelector('.language-select');
   const languageTrigger = document.querySelector('.language-trigger');
@@ -778,24 +779,36 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   if (viewMoreButtons.length && moreInvoices) {
     const invoiceHero = moreInvoices.closest('.invoice-hero');
     const offersTitle = invoiceHero?.querySelector('.offers-title');
+    const setInvoiceTableOpen = isOpen => {
+      invoiceHero?.classList.toggle('show-invoice-table', isOpen);
+      moreInvoices.setAttribute('aria-hidden', String(!isOpen));
+      const buttonText = isOpen
+        ? currentLang === 'en' ? 'View less' : 'Скрыть'
+        : currentLang === 'en' ? 'View more' : 'Смотреть еще';
+      viewMoreButtons.forEach(button => {
+        button.setAttribute('aria-expanded', String(isOpen));
+        button.textContent = buttonText;
+      });
+      if (offersTitle) {
+        offersTitle.textContent = isOpen
+          ? currentLang === 'en' ? 'Offer list' : 'Список предложений'
+          : currentLang === 'en' ? 'Top offers' : 'ТОП предложения';
+        offersTitle.classList.toggle('plain', isOpen);
+      }
+    };
 
     viewMoreButtons.forEach(viewMoreButton => {
       viewMoreButton.addEventListener('click', () => {
-        const isOpen = invoiceHero?.classList.toggle('show-invoice-table');
-        moreInvoices.setAttribute('aria-hidden', String(!isOpen));
-        const buttonText = isOpen
-          ? currentLang === 'en' ? 'View less' : 'Скрыть'
-          : currentLang === 'en' ? 'View more' : 'Смотреть еще';
-        viewMoreButtons.forEach(button => {
-          button.setAttribute('aria-expanded', String(isOpen));
-          button.textContent = buttonText;
+        setInvoiceTableOpen(!invoiceHero?.classList.contains('show-invoice-table'));
+      });
+    });
+
+    invoiceListLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setInvoiceTableOpen(true);
+        requestAnimationFrame(() => {
+          moreInvoices.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
-        if (offersTitle) {
-          offersTitle.textContent = isOpen
-            ? currentLang === 'en' ? 'Offer list' : 'Список предложений'
-            : currentLang === 'en' ? 'Top offers' : 'ТОП предложения';
-          offersTitle.classList.toggle('plain', Boolean(isOpen));
-        }
       });
     });
   }
@@ -1067,6 +1080,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'Выбрать сеть': 'Select network',
         'Открыть меню': 'Open menu',
         'Мобильная навигация': 'Mobile navigation',
+        'Открыть список инвойсов': 'Open invoice list',
         'Закрыть': 'Close',
         'Итан Уокер': 'Ethan Walker',
         'Дэниел Чен': 'Daniel Chen',
