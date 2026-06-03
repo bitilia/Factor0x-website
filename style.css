@@ -310,6 +310,9 @@ em { font-style: normal; color: var(--accent); }
 .mobile-menu-invoice {
   display: none;
 }
+.mobile-menu-invoice-link {
+  display: none;
+}
 
 /* ========== FIRST SLIDE ========== */
 .brand-first-slide {
@@ -4493,12 +4496,19 @@ footer {
     font-weight: 700;
     letter-spacing: 0;
   }
+  .mobile-menu-invoice-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(160px, 42vw);
+    margin-top: 4px;
+    line-height: 0;
+  }
   .mobile-menu-invoice {
     display: block;
-    width: min(128px, 34vw);
-    max-height: 128px;
+    width: 100%;
+    max-height: 160px;
     height: auto;
-    margin-top: 4px;
     opacity: 0.86;
     object-fit: contain;
     filter: brightness(1.08) contrast(1.04) drop-shadow(0 12px 18px rgba(0,0,0,0.30));
