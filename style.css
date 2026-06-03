@@ -5084,9 +5084,9 @@ footer {
 
   .brand-hero-actions a {
     min-height: 66px;
-    padding: 18px 24px;
+    padding: 18px 50px;
     border-radius: 9px;
-    font-size: clamp(16px, 4.25vw, 18px);
+    font-size: 23px;
     line-height: 1;
     letter-spacing: 0;
     white-space: nowrap;
