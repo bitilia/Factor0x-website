@@ -349,7 +349,7 @@ em { font-style: normal; color: var(--accent); }
 }
 .brand-hero-content h1 {
   max-width: 760px;
-  margin: 0 auto 20px;
+  margin: 0 auto 8px;
   color: var(--white);
   font-size: clamp(46px, 2.85vw, 58px);
   font-weight: 700;
@@ -4731,7 +4731,7 @@ footer {
   .brand-hero-content h1 {
     font-size: 28px;
     max-width: 360px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     line-height: 1.2;
   }
   .brand-hero-content h1 span {
