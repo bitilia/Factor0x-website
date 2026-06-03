@@ -5212,11 +5212,11 @@ footer {
   }
 
   .quick-flow-card:not(.center) .business-pictogram {
-    left: calc(50% - 112px);
+    left: calc(50% - 128px);
   }
 
   .quick-flow-card:not(.center) .investor-pictogram {
-    left: calc(50% - 134px);
+    left: calc(50% - 150px);
   }
 
   .offers-head {
