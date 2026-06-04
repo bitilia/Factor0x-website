@@ -5225,7 +5225,7 @@ footer {
   .brand-mobile-tvl {
     display: flex;
     width: min(100%, 340px);
-    margin: 18px auto 0;
+    margin: 30px auto 0;
   }
 
   .market-header > .tvl-strip {
