@@ -5195,6 +5195,22 @@ footer {
     width: 92px;
   }
 
+  #hero {
+    padding-top: 56px;
+  }
+
+  #invoices {
+    gap: 8px;
+  }
+
+  #invoices .market-header {
+    gap: 8px;
+  }
+
+  #invoices .market-header .hero-title {
+    margin-bottom: 6px;
+  }
+
   .brand-hero-content {
     top: 33%;
   }
@@ -5269,6 +5285,9 @@ footer {
 
   .offers-head {
     align-items: center;
+    gap: 8px;
+    margin-top: -2px;
+    padding-top: 0;
     text-align: center;
   }
 
