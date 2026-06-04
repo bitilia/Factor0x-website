@@ -555,6 +555,9 @@ body .policy {
   color: var(--white);
   overflow: visible;
 }
+.brand-mobile-tvl {
+  display: none;
+}
 .tvl-strip::after {
   content: '';
   position: absolute;
@@ -5217,6 +5220,16 @@ footer {
   html[lang="en"] .brand-hero-actions a {
     padding: 18px 50px;
     font-size: 23px;
+  }
+
+  .brand-mobile-tvl {
+    display: flex;
+    width: min(100%, 340px);
+    margin: 18px auto 0;
+  }
+
+  .market-header > .tvl-strip {
+    display: none;
   }
 
   .quick-flow .quick-flow-card:not(.center) > .quick-flow-node {
