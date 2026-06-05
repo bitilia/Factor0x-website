@@ -5374,6 +5374,11 @@ footer {
     text-align: left;
   }
 
+  .invoice-visual-section {
+    margin-top: -38px;
+    padding-top: 22px;
+  }
+
   .invoice-visual-copy h2 {
     margin-left: 0;
     text-align: left;
@@ -5382,6 +5387,18 @@ footer {
   .invoice-visual-copy h2::after {
     margin-left: 0;
     margin-right: auto;
+  }
+
+  .verification-list {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .verification-list p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
   }
 
   .quick-how-section {
