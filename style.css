@@ -792,6 +792,11 @@ body .policy {
   font-size: 16px;
   margin-bottom: 0;
 }
+@media (min-width: 769px) {
+  .market-header .hero-desc {
+    font-size: 20px;
+  }
+}
 .offers-head {
   display: flex;
   align-items: end;

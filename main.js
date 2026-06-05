@@ -994,7 +994,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'Заявка': 'Apply',
         'Подробнее': 'Flow',
         'Инвестировать': 'Earn',
-        'Участвуйте в краткосрочном финансировании реального бизнеса.': 'Participate in short-term financing for real businesses.',
+        'Краткосрочное финансировании реального бизнеса.': 'Short-term financing for real businesses.',
         'Проверенные': 'Finance verified',
         'B2B инвойсы': 'B2B invoices',
         'ТОП предложения': 'Top offers',
