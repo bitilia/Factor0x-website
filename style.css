@@ -488,6 +488,7 @@ html[lang="en"] .brand-hero-actions a {
     z-index: 2;
     display: block;
     flex: 0 0 auto;
+    margin-top: 32px;
     width: min(63vw, 1122px, calc((100svh - 330px) * 1743 / 355));
     aspect-ratio: 1743 / 355;
     overflow: visible;
@@ -5272,7 +5273,7 @@ footer {
   }
 
   .brand-hero-content {
-    top: 33%;
+    top: 34.5%;
   }
 
   .brand-first-slide img {
