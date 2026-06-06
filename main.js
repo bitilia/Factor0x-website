@@ -1036,7 +1036,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'Оцениваем срок, сумму, отрасль и качество сделки.': 'We assess term, amount, sector, and deal quality.',
         'On-chain прослеживаемость': 'On-chain Tracking',
         'Фиксируем статус сделки, repayment и распределения.': 'We record deal status, repayment, and distributions.',
-        'Заработок': 'Earning',
+        'Заработок': 'Yield Source',
         'Реальные активы': 'Real assets',
         'Пулы связаны с реальными бизнес-сделками.': 'Pools are linked to real business deals.',
         'Понятные условия': 'Clear terms',
