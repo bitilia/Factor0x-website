@@ -3801,6 +3801,14 @@ body .policy {
   color: var(--white);
   white-space: nowrap;
 }
+#hubs .section-head h2::after {
+  content: '';
+  display: block;
+  width: 168px;
+  height: 2px;
+  margin-top: 22px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(255,255,255,0.08));
+}
 #hubs .section-head h2 em {
   color: rgba(255,255,255,0.46);
 }
@@ -5751,6 +5759,11 @@ footer {
     line-height: 1;
     text-align: center;
     white-space: nowrap;
+  }
+
+  html[lang="ru"] #hubs .section-head h2::after {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .team-section {
