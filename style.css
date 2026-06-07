@@ -5706,6 +5706,16 @@ footer {
     margin-top: 4px;
   }
 
+  html[lang="ru"] #hubs .section-head h2 {
+    width: calc(100vw - 28px);
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(30px, 9.4vw, 40px);
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
   .team-section {
     padding-bottom: 42px;
   }
