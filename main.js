@@ -1082,7 +1082,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'Адриан Моро': 'Adrian Moreau',
         'Стратегический советник': 'Strategic Advisor',
         'Привлечение капитала, партнёрства, выход на новые рынки': 'Capital raising, partnerships, expansion into new markets',
-        'Елена Маркова': 'Elena Markova',
+        'Майя Рейнольдс': 'Maya Reynolds',
         'Развитие партнерств, бизнес-связей': 'Partnership development, business relations',
         'Модель двух хабов': 'Dual-hub model',
         'Дубай — операционный центр Factor0x для потока сделок и привлечения ликвидности.': 'Dubai is the Factor0x operating hub for deal flow and liquidity sourcing.',
@@ -1123,7 +1123,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'София Лоран': 'Sophia Laurent',
         'Маркус Беннетт': 'Marcus Bennett',
         'Адриан Моро': 'Adrian Moreau',
-        'Елена Маркова': 'Elena Markova'
+        'Майя Рейнольдс': 'Maya Reynolds'
       }
     };
 
