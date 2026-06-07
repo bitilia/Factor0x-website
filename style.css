@@ -5753,10 +5753,10 @@ footer {
   }
 
   html[lang="ru"] .quick-how-title {
-    width: calc(100vw - 44px);
+    width: calc(100vw - 64px);
     margin-left: 50%;
     transform: translateX(-50%);
-    font-size: clamp(28px, 8.8vw, 38px);
+    font-size: clamp(26px, 8.1vw, 36px);
     line-height: 1;
     text-align: center;
     white-space: nowrap;
