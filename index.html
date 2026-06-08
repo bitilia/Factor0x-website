@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260606-61">
+<link rel="stylesheet" href="style.css?v=20260606-62">
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
@@ -476,6 +476,16 @@
         <p>Связывает бизнес, капитал и процесс выплат в единую управляемую инфраструктуру.</p>
         <button type="button" class="quick-card-action silver flow-toggle" aria-expanded="false" aria-controls="flowPanel">Подробнее</button>
       </article>
+      <div class="flow-panel" id="flowPanel" aria-hidden="true">
+        <div class="flow-panel-inner">
+          <span class="flow-step invoice-step">Инвойс<img src="assets/flow-invoice.png" alt="" aria-hidden="true"></span>
+          <span class="flow-step">Проверка<img src="assets/flow-check.png" alt="" aria-hidden="true"></span>
+          <span class="flow-step">Финансирование<img src="assets/flow-funding.png" alt="" aria-hidden="true"></span>
+          <span class="flow-step">Погашение<img src="assets/flow-repayment.png" alt="" aria-hidden="true"></span>
+          <span class="flow-step">Доход<img src="assets/flow-yield.png" alt="" aria-hidden="true"></span>
+        </div>
+        <p class="flow-micro-label">Каждый этап фиксируется в системе и отображается инвестору в статусе сделки.</p>
+      </div>
       <article class="quick-flow-card">
         <div class="quick-flow-node">
           <span class="investor-pictogram" aria-hidden="true">
@@ -496,16 +506,6 @@
         <p>Финансируют реальные торговые сделки и получают доход после их погашения.</p>
         <a href="#invoices" class="quick-card-action gold">Инвестировать</a>
       </article>
-    </div>
-    <div class="flow-panel" id="flowPanel" aria-hidden="true">
-      <div class="flow-panel-inner">
-        <span class="flow-step invoice-step">Инвойс<img src="assets/flow-invoice.png" alt="" aria-hidden="true"></span>
-        <span class="flow-step">Проверка<img src="assets/flow-check.png" alt="" aria-hidden="true"></span>
-        <span class="flow-step">Финансирование<img src="assets/flow-funding.png" alt="" aria-hidden="true"></span>
-        <span class="flow-step">Погашение<img src="assets/flow-repayment.png" alt="" aria-hidden="true"></span>
-        <span class="flow-step">Доход<img src="assets/flow-yield.png" alt="" aria-hidden="true"></span>
-      </div>
-      <p class="flow-micro-label">Каждый этап фиксируется в системе и отображается инвестору в статусе сделки.</p>
     </div>
     <div class="apply-panel" id="applyPanel" aria-hidden="true">
       <form class="apply-form" novalidate>
