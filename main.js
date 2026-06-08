@@ -180,12 +180,11 @@ if (nav) {
   const portraitQuery = window.matchMedia('(max-width: 820px) and (orientation: portrait)');
   let frame;
 
-  function setSliderIndex(index) {
-    const max = Math.max(steps.length - 1, 0);
-    const clamped = Math.min(Math.max(index, 0), max);
-    slider.max = String(max);
+  function setSliderPosition(position) {
+    const clamped = Math.min(Math.max(position, 0), 1);
+    slider.max = '1';
     slider.value = String(clamped);
-    slider.style.setProperty('--carousel-progress', max ? `${(clamped / max) * 100}%` : '0%');
+    slider.style.setProperty('--carousel-progress', clamped ? '100%' : '0%');
   }
 
   function scrollToStep(index, behavior = 'smooth') {
@@ -204,7 +203,7 @@ if (nav) {
     frame = requestAnimationFrame(() => {
       if (!portraitQuery.matches) {
         steps.forEach(step => step.classList.remove('is-flow-visible'));
-        setSliderIndex(Math.min(Number(slider.value) || 0, Math.max(steps.length - 1, 0)));
+        setSliderPosition(Number(slider.value) ? 1 : 0);
         return;
       }
 
@@ -237,21 +236,19 @@ if (nav) {
       });
 
       if (isFirstVisible) {
-        setSliderIndex(0);
-      } else if (isLastVisible) {
-        setSliderIndex(steps.length - 1);
+        setSliderPosition(0);
       } else {
-        setSliderIndex(steps.indexOf(activeStep));
+        setSliderPosition(1);
       }
     });
   }
 
-  setSliderIndex(0);
+  setSliderPosition(0);
   updateActiveStep();
   slider.addEventListener('input', () => {
-    const index = Number(slider.value);
-    setSliderIndex(index);
-    scrollToStep(index);
+    const position = Number(slider.value) ? 1 : 0;
+    setSliderPosition(position);
+    scrollToStep(position ? steps.length - 1 : 0);
   });
   track.addEventListener('scroll', updateActiveStep, { passive: true });
   window.addEventListener('resize', updateActiveStep);
