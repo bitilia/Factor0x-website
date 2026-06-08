@@ -6081,10 +6081,10 @@ footer {
     border-radius: 999px;
     background: linear-gradient(
       90deg,
-      rgba(255,255,255,0.82) 0%,
-      rgba(244,210,132,0.98) var(--carousel-progress),
-      rgba(255,255,255,0.16) var(--carousel-progress),
-      rgba(255,255,255,0.16) 100%
+      rgba(5,5,5,0.88) 0%,
+      rgba(5,5,5,0.88) var(--carousel-progress),
+      rgba(5,5,5,0.18) var(--carousel-progress),
+      rgba(5,5,5,0.18) 100%
     );
   }
 
@@ -6092,12 +6092,12 @@ footer {
     width: 28px;
     height: 8px;
     margin-top: -3px;
-    border: 1px solid rgba(255,255,255,0.72);
+    border: 1px solid rgba(255,255,255,0.84);
     border-radius: 999px;
-    background: linear-gradient(90deg, #F3D989 0%, #C89A3A 58%, #8F641D 100%);
+    background: linear-gradient(90deg, #171717 0%, #4A4A4A 100%);
     box-shadow:
-      0 5px 14px rgba(0,0,0,0.20),
-      inset 0 1px 0 rgba(255,255,255,0.58);
+      0 5px 14px rgba(0,0,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.22);
     -webkit-appearance: none;
     appearance: none;
   }
@@ -6106,24 +6106,24 @@ footer {
     height: 2px;
     border: 0;
     border-radius: 999px;
-    background: rgba(255,255,255,0.16);
+    background: rgba(5,5,5,0.18);
   }
 
   .invoice-carousel-slider::-moz-range-progress {
     height: 2px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.82) 0%, rgba(244,210,132,0.98) 100%);
+    background: linear-gradient(90deg, rgba(5,5,5,0.88) 0%, rgba(5,5,5,0.88) 100%);
   }
 
   .invoice-carousel-slider::-moz-range-thumb {
     width: 28px;
     height: 8px;
-    border: 1px solid rgba(255,255,255,0.72);
+    border: 1px solid rgba(255,255,255,0.84);
     border-radius: 999px;
-    background: linear-gradient(90deg, #F3D989 0%, #C89A3A 58%, #8F641D 100%);
+    background: linear-gradient(90deg, #171717 0%, #4A4A4A 100%);
     box-shadow:
-      0 5px 14px rgba(0,0,0,0.20),
-      inset 0 1px 0 rgba(255,255,255,0.58);
+      0 5px 14px rgba(0,0,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.22);
   }
 
   .view-more-btn-mobile {
