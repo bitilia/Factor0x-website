@@ -2525,7 +2525,8 @@ body .policy {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 34px;
+  column-gap: 34px;
+  row-gap: 0;
   align-items: stretch;
 }
 .quick-flow-card {
@@ -2678,6 +2679,51 @@ body .policy {
   letter-spacing: 0;
   text-transform: none;
 }
+.quick-flow > .flow-panel {
+  grid-column: 2;
+  grid-row: 2;
+}
+.quick-flow > .flow-panel.open {
+  max-height: 760px;
+}
+.quick-flow > .flow-panel .flow-panel-inner {
+  grid-template-columns: 1fr;
+  gap: 8px;
+  min-height: 0;
+  padding: 18px;
+}
+.quick-flow > .flow-panel .flow-panel-inner span {
+  flex-direction: row;
+  justify-content: flex-start;
+  min-height: 54px;
+  gap: 12px;
+  font-size: 15px;
+  text-align: left;
+}
+.quick-flow > .flow-panel .flow-panel-inner span img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.quick-flow > .flow-panel .flow-panel-inner span:not(:last-child)::after {
+  right: auto;
+  left: 16px;
+  bottom: -12px;
+  top: auto;
+  width: 12px;
+  height: 12px;
+  transform: rotate(135deg);
+}
+.quick-flow > .flow-panel .flow-panel-inner span:not(:last-child)::before {
+  right: auto;
+  left: 22px;
+  top: auto;
+  bottom: -4px;
+  width: 1px;
+  height: 18px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.36));
+  transform: none;
+}
 .quick-flow-card.center .brand-node span {
   color: var(--gray);
 }
@@ -2710,6 +2756,11 @@ body .policy {
   transform: translateX(12px);
   border-left-color: rgba(5,5,5,0.16);
   color: rgba(5,5,5,0.62);
+}
+@media (min-width: 821px) {
+  .quick-flow-card.center .brand-node {
+    transform: translateY(8px);
+  }
 }
 .quick-card-action {
   position: relative;
@@ -4801,6 +4852,10 @@ footer {
     grid-template-columns: 1fr;
     gap: 18px;
   }
+  .quick-flow > .flow-panel {
+    grid-column: 1;
+    grid-row: auto;
+  }
   .quick-flow-card {
     min-height: 220px;
   }
@@ -5553,7 +5608,7 @@ footer {
   .invoice-paper-shape {
     left: 50%;
     right: auto;
-    top: 39%;
+    top: 41%;
     width: min(248px, 64vw);
     transform: translate(-50%, -50%);
     animation: invoice-paper-mobile-float 5.8s ease-in-out infinite;
