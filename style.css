@@ -4855,7 +4855,9 @@ footer {
   .quick-flow > .flow-panel {
     grid-column: 1;
     grid-row: auto;
-    width: 100%;
+    width: calc(100% + 18px);
+    margin-left: -9px;
+    margin-right: -9px;
   }
   .quick-flow-card {
     min-height: 220px;
@@ -4901,7 +4903,7 @@ footer {
   .flow-panel-inner {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0;
-    padding: 14px 10px;
+    padding: 14px 4px;
   }
   .flow-panel.open {
     max-height: 420px;
@@ -4933,14 +4935,14 @@ footer {
     transform: translateY(-50%);
   }
   .quick-flow > .flow-panel .flow-panel-inner span {
-    min-height: 88px;
-    gap: 6px;
+    min-height: 98px;
+    gap: 7px;
     font-size: 10px;
     line-height: 1.12;
   }
   .quick-flow > .flow-panel .flow-panel-inner span img {
-    width: 24px;
-    height: 24px;
+    width: 34px;
+    height: 34px;
   }
   .quick-flow > .flow-panel .flow-panel-inner span:not(:last-child)::after {
     right: -5px;
