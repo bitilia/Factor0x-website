@@ -4240,7 +4240,7 @@ footer {
 }
 .footer-copy {
   grid-column: 1 / -1;
-  margin: -34px 0 0 !important;
+  margin: -44px 0 0 !important;
   font-size: 13px;
   color: var(--text3);
   line-height: 1.6;
@@ -5301,11 +5301,11 @@ footer {
   }
   .footer-links {
     order: 2;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px 22px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
   }
   .footer-col:nth-child(3) {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
   .footer-left {
     order: 1;
