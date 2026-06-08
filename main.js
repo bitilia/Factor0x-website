@@ -170,6 +170,77 @@ if (nav) {
   requestAnimationFrame(() => scrollToInitialCard());
 })();
 
+// ── MOBILE FLOW DETAILS CAROUSEL ───────────
+(() => {
+  const track = document.querySelector('.flow-panel-inner');
+  const slider = document.querySelector('.flow-carousel-slider');
+  if (!track || !slider) return;
+
+  const steps = Array.from(track.querySelectorAll('.flow-step'));
+  const portraitQuery = window.matchMedia('(max-width: 820px) and (orientation: portrait)');
+  let frame;
+
+  function setSliderIndex(index) {
+    const max = Math.max(steps.length - 1, 0);
+    const clamped = Math.min(Math.max(index, 0), max);
+    slider.max = String(max);
+    slider.value = String(clamped);
+    slider.style.setProperty('--carousel-progress', max ? `${(clamped / max) * 100}%` : '0%');
+  }
+
+  function scrollToStep(index, behavior = 'smooth') {
+    const step = steps[index];
+    if (!portraitQuery.matches || !step) return;
+
+    const targetLeft = step.offsetLeft - ((track.clientWidth - step.offsetWidth) / 2);
+    track.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior
+    });
+  }
+
+  function updateActiveStep() {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      if (!portraitQuery.matches) {
+        setSliderIndex(Math.min(Number(slider.value) || 0, Math.max(steps.length - 1, 0)));
+        return;
+      }
+
+      const trackRect = track.getBoundingClientRect();
+      const trackCenter = trackRect.left + trackRect.width / 2;
+      let activeStep = steps[0];
+      let activeDistance = Infinity;
+
+      steps.forEach(step => {
+        const rect = step.getBoundingClientRect();
+        const stepCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(stepCenter - trackCenter);
+        if (distance < activeDistance) {
+          activeDistance = distance;
+          activeStep = step;
+        }
+      });
+
+      setSliderIndex(steps.indexOf(activeStep));
+    });
+  }
+
+  setSliderIndex(0);
+  slider.addEventListener('input', () => {
+    const index = Number(slider.value);
+    setSliderIndex(index);
+    scrollToStep(index);
+  });
+  track.addEventListener('scroll', updateActiveStep, { passive: true });
+  window.addEventListener('resize', updateActiveStep);
+  if (portraitQuery.addEventListener) {
+    portraitQuery.addEventListener('change', updateActiveStep);
+  } else {
+    portraitQuery.addListener(updateActiveStep);
+  }
+})();
+
 // ── FAQ ACCORDION ───────────────────────────
 (() => {
   document.querySelectorAll('.faq-card').forEach(card => {
@@ -1157,6 +1228,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'Мобильная навигация': 'Mobile navigation',
         'Открыть список инвойсов': 'Open invoice list',
         'Позиция инвойса': 'Invoice position',
+        'Позиция этапа': 'Step position',
         'Закрыть': 'Close',
         'Реальный доход': 'Real Yield',
         'Итан Уокер': 'Ethan Walker',
