@@ -1461,6 +1461,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   function closeModal() {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('details-modal-open');
   }
 
   document.querySelectorAll('.details-btn').forEach(button => {
@@ -1494,6 +1495,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('details-modal-open');
     });
   });
 
