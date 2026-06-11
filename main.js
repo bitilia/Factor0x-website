@@ -1169,6 +1169,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       text: {
         'О нас': 'About',
         'Контакты': 'Contacts',
+        'TVL —капитал, размещённый в активных invoice financing deals.': 'TVL is capital allocated to active invoice financing deals.',
         'Подключить кошелек': 'Connect wallet',
         'Капитал для бизнеса': 'Capital for business',
         'Доход для инвестора': 'Yield for investors',
@@ -1297,6 +1298,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'Открыть меню': 'Open menu',
         'Мобильная навигация': 'Mobile navigation',
         'Открыть список инвойсов': 'Open invoice list',
+        'Что такое TVL': 'What is TVL',
         'Позиция инвойса': 'Invoice position',
         'Позиция этапа': 'Step position',
         'Закрыть': 'Close',
