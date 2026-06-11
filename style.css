@@ -4567,6 +4567,9 @@ footer {
 .modal-actions button:active {
   transform: translateY(0);
 }
+.modal-contribute-btn {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.76);
+}
 .modal-grid {
   position: relative;
   z-index: 1;
@@ -5588,26 +5591,27 @@ footer {
   }
   .modal-title {
     height: 42px;
-    max-width: 116px;
-    padding: 0 13px;
+    max-width: 94px;
+    padding: 0 11px;
     border-radius: 12px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
     white-space: nowrap;
   }
   .modal-actions {
-    gap: 7px;
+    gap: 5px;
   }
   .modal-actions button:not(.modal-close) {
-    min-width: 86px;
+    min-width: 72px;
     min-height: 34px;
-    font-size: 12px;
+    padding: 0 8px;
+    font-size: 10.5px;
   }
   .modal-close {
-    flex-basis: 34px;
-    width: 34px;
-    height: 34px;
-    font-size: 24px;
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 23px;
   }
   .modal-summary h2 { font-size: 26px; }
   .modal-summary p { font-size: 15px; }
