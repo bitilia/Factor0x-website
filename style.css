@@ -4434,28 +4434,27 @@ footer {
   letter-spacing: 0.4px;
 }
 .modal-close {
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(255,255,255,0.36);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(5,5,5,0.12);
   border-radius: 50%;
-  background: rgba(255,255,255,0.14);
-  backdrop-filter: blur(8px);
-  color: var(--white);
+  background: none;
+  color: rgba(5,5,5,0.38);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   font-family: Arial, sans-serif;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1;
   cursor: pointer;
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 .modal-close:hover,
 .modal-close:focus-visible {
   transform: scale(1.08);
-  border-color: rgba(255,255,255,0.62);
-  background: rgba(255,255,255,0.22);
+  border-color: rgba(5,5,5,0.28);
+  color: rgba(5,5,5,0.82);
 }
 .modal-close:active {
   transform: scale(1);
@@ -4511,9 +4510,16 @@ footer {
     linear-gradient(180deg, rgba(5,5,5,0.20), rgba(5,5,5,0.56));
 }
 .modal-card-photo .modal-title {
+  color: rgba(255,255,255,0.44);
+}
+.modal-card-photo .modal-close {
   border-color: rgba(255,255,255,0.22);
-  background: rgba(5,5,5,0.78);
-  box-shadow: 0 16px 42px rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.52);
+}
+.modal-card-photo .modal-close:hover,
+.modal-card-photo .modal-close:focus-visible {
+  border-color: rgba(255,255,255,0.58);
+  color: rgba(255,255,255,1);
 }
 .modal-card-photo .modal-actions button {
   border-color: rgba(255,255,255,0.32);
@@ -4549,25 +4555,19 @@ footer {
 .modal-top {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 22px;
+  padding: 0 6px;
+  margin-bottom: 18px;
 }
 .modal-title {
-  width: fit-content;
-  height: 46px;
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--black);
-  color: var(--white);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  padding: 0 22px;
+  color: rgba(5,5,5,0.36);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
 }
 .modal-actions {
   display: flex;
