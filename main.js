@@ -1420,6 +1420,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       cardClass: 'modal-card modal-card-photo modal-card-gulf',
       name: 'Gulf Trade Logistics',
       description: 'UAE-based logistics operator financing verified cross-border receivables from a Singapore trade counterparty. The invoice is backed by shipping documents, KYB review, and obligor confirmation before funding.',
+      investment: {
+        amount: '$420,000',
+        apr: '6.2%',
+        dueDays: '58 days',
+        fill: '64.0%',
+        risk: 'Low Risk',
+        minContribution: '$1,000'
+      },
       facts: [
         ['Borrower', 'Gulf Trade Logistics LLC'],
         ['Obligor', 'Singapore Distribution Pte. Ltd.'],
@@ -1434,6 +1442,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       cardClass: 'modal-card modal-card-photo modal-card-asia',
       name: 'Asia Components Ltd',
       description: 'Electronics components supplier using invoice financing to bridge working capital between shipment and payment settlement. Medium-risk profile reflects sector cyclicality and a shorter counterparty history.',
+      investment: {
+        amount: '$315,000',
+        apr: '9.4%',
+        dueDays: '40 days',
+        fill: '38.5%',
+        risk: 'Medium Risk',
+        minContribution: '$500'
+      },
       facts: [
         ['Borrower', 'Asia Components Ltd'],
         ['Obligor', 'GCC Manufacturing Group'],
@@ -1448,6 +1464,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       cardClass: 'modal-card modal-card-photo modal-card-desert',
       name: 'Desert Cloud Services',
       description: 'Recurring SaaS receivable from an enterprise services contract. The invoice has a low-risk profile due to confirmed service delivery, repeat payment history, and a diversified obligor base.',
+      investment: {
+        amount: '$250,000',
+        apr: '5.4%',
+        dueDays: '24 days',
+        fill: '81.0%',
+        risk: 'Low Risk',
+        minContribution: '$250'
+      },
       facts: [
         ['Borrower', 'Desert Cloud Services FZCO'],
         ['Obligor', 'Regional Enterprise Client'],
@@ -1459,6 +1483,72 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       ]
     }
   };
+
+  function parseNumber(value) {
+    return Number(String(value || '').replace(/[^0-9.]/g, '')) || 0;
+  }
+
+  function formatCurrency(value) {
+    return `$${Math.round(value).toLocaleString('en-US')}`;
+  }
+
+  function normalizeMoney(value) {
+    const amount = parseNumber(value);
+    return amount ? formatCurrency(amount) : value;
+  }
+
+  function getInvestmentMeta(details, row) {
+    const fill = details.investment?.fill || row?.children?.[4]?.textContent?.trim() || '0%';
+    return {
+      amount: details.investment?.amount || row?.dataset.amount || '$0',
+      apr: details.investment?.apr || row?.dataset.apr || '0%',
+      dueDays: details.investment?.dueDays || row?.dataset.dueDate || '0 days',
+      fill,
+      risk: details.investment?.risk || row?.dataset.risk || 'Risk pending',
+      minContribution: details.investment?.minContribution || row?.dataset.minContribution || '$100'
+    };
+  }
+
+  function renderInvestmentPanel(meta) {
+    const amount = parseNumber(meta.amount);
+    const apr = parseNumber(meta.apr);
+    const dueDays = parseNumber(meta.dueDays);
+    const fillPercent = Math.min(Math.max(parseNumber(meta.fill), 0), 100);
+    const raised = amount * fillPercent / 100;
+    const remaining = Math.max(amount - raised, 0);
+    const expectedYield = amount * (apr / 100) * (dueDays / 365);
+    const riskClass = meta.risk.toLowerCase().includes('medium') ? 'medium' : 'low';
+
+    return `
+      <div class="modal-investment-panel">
+        <div class="modal-investment-top">
+          <div>
+            <span>APR</span>
+            <strong>${meta.apr} annual</strong>
+          </div>
+          <div class="modal-risk ${riskClass}">${meta.risk}</div>
+        </div>
+        <div class="modal-funding">
+          <div class="modal-funding-copy">
+            <span>Funded ${fillPercent.toFixed(1)}%</span>
+            <strong>${formatCurrency(raised)} raised · ${formatCurrency(remaining)} left</strong>
+          </div>
+          <div class="modal-progress" aria-hidden="true"><span style="width:${fillPercent}%"></span></div>
+        </div>
+        <div class="modal-return-grid">
+          <div>
+            <span>Time to repayment</span>
+            <strong>${dueDays} days</strong>
+          </div>
+          <div>
+            <span>Est. deal yield</span>
+            <strong>${formatCurrency(expectedYield)}</strong>
+          </div>
+        </div>
+        <button class="modal-contribute-btn modal-invest-cta" type="button">Contribute from ${normalizeMoney(meta.minContribution)}</button>
+      </div>
+    `;
+  }
 
   function closeModal() {
     modal.classList.remove('open');
@@ -1485,6 +1575,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       } : null);
       if (!details) return;
 
+      const investment = getInvestmentMeta(details, row);
       card.className = details.cardClass || 'modal-card';
       title.textContent = details.name;
       description.textContent = details.description;
@@ -1493,7 +1584,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
           <div class="fact-label">${label}</div>
           <div class="fact-value">${value}</div>
         </div>
-      `).join('');
+      `).join('') + renderInvestmentPanel(investment);
 
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
