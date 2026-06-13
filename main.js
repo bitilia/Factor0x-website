@@ -1695,38 +1695,66 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
     function rawFromInput() { return parseFloat(inputEl.value.replace(/,/g, '')) || 0; }
 
-    function setOutputs(val) {
-      const isMax = val >= maxInvest;
-      if (maxBtn)    maxBtn.classList.toggle('active', isMax);
-      if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">${meta.apr}<span class="calc-return-apr-unit"> APR</span></strong><span class="calc-return-apr">+${termPct}% over ${dynDays} days</span>`;
-      if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}`;
-      if (ctaBtn)    ctaBtn.innerHTML      = `Contribute $${fmt(val)} <span class="btn-arrow" aria-hidden="true">→</span>`;
+    function setEmpty() {
+      sliderEl.value = '0';
+      if (maxBtn)    maxBtn.classList.remove('active');
+      if (returnEl)  returnEl.innerHTML = '—';
+      if (receiveEl) receiveEl.textContent = '—';
+      if (ctaBtn)    { ctaBtn.disabled = true; ctaBtn.innerHTML = 'Enter an amount'; }
     }
-    function update(rawVal) {
-      const val = clamp(isNaN(rawVal) || rawVal <= 0 ? minInvest : rawVal);
-      inputEl.value  = fmt(val);
+
+    function setBelowMin() {
+      sliderEl.value = '0';
+      if (maxBtn)    maxBtn.classList.remove('active');
+      if (returnEl)  returnEl.innerHTML = '—';
+      if (receiveEl) receiveEl.textContent = '—';
+      if (ctaBtn)    { ctaBtn.disabled = true; ctaBtn.innerHTML = `Min $${fmt(minInvest)}`; }
+    }
+
+    function setValid(val) {
       sliderEl.value = amountToSlider(val).toFixed(3);
-      setOutputs(val);
+      if (maxBtn)    maxBtn.classList.toggle('active', val >= maxInvest);
+      if (returnEl)  returnEl.innerHTML = `<strong class="calc-return-pct">${meta.apr}<span class="calc-return-apr-unit"> APR</span></strong><span class="calc-return-apr">+${termPct}% over ${dynDays} days</span>`;
+      if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}`;
+      if (ctaBtn)    { ctaBtn.disabled = false; ctaBtn.innerHTML = `Contribute $${fmt(val)} <span class="btn-arrow" aria-hidden="true">→</span>`; }
     }
 
-    update(5000);
+    // Init: empty state
+    inputEl.value = '';
+    inputEl.placeholder = '0';
+    setEmpty();
 
-    inputEl.addEventListener('focus', () => { inputEl.value = String(Math.round(clamp(rawFromInput() || 5000))); inputEl.select(); });
-    inputEl.addEventListener('blur',  () => update(rawFromInput()));
+    inputEl.addEventListener('focus', () => {
+      const raw = rawFromInput();
+      if (raw > 0) { inputEl.value = String(Math.round(raw)); inputEl.select(); }
+    });
+
+    inputEl.addEventListener('blur', () => {
+      const raw = rawFromInput();
+      if (!raw || raw <= 0) { inputEl.value = ''; setEmpty(); return; }
+      if (raw < minInvest) { setBelowMin(); return; }
+      const val = clamp(raw);
+      inputEl.value = fmt(val);
+      setValid(val);
+    });
+
     inputEl.addEventListener('input', () => {
       const raw = parseFloat(inputEl.value.replace(/,/g, ''));
-      if (!isNaN(raw)) {
-        const val = clamp(raw);
-        sliderEl.value = amountToSlider(val).toFixed(3);
-        setOutputs(val);
-      }
+      if (isNaN(raw) || raw <= 0) { sliderEl.value = '0'; setEmpty(); return; }
+      if (raw < minInvest) { setBelowMin(); return; }
+      setValid(clamp(raw));
     });
+
     sliderEl.addEventListener('input', () => {
       const val = clamp(sliderToAmount(parseFloat(sliderEl.value)));
       inputEl.value = fmt(val);
-      setOutputs(val);
+      setValid(val);
     });
-    if (maxBtn) maxBtn.addEventListener('click', () => update(maxInvest));
+
+    if (maxBtn) maxBtn.addEventListener('click', () => {
+      inputEl.value = fmt(maxInvest);
+      setValid(maxInvest);
+    });
   }
 
   function getFocusable() {
