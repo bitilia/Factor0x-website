@@ -4941,8 +4941,17 @@ footer {
   display: grid;
   gap: 8px;
 }
+.deal-calc-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.deal-calc-top-row .deal-calc-input-wrap {
+  width: 48%;
+  flex-shrink: 0;
+}
 .deal-calc-header {
-  display: block;
   color: var(--text3);
   font-family: 'DM Mono', monospace;
   font-size: 10px;
