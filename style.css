@@ -5063,8 +5063,6 @@ footer {
   gap: 0 10px;
   align-items: center;
 }
-.rc-checks .modal-check-item { flex: 1; min-width: 0; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
-.rc-checks .modal-check-icon { color: var(--text3); width: 12px; height: 12px; flex-shrink: 0; }
 .rc-checks .modal-check-text {
   font-family: 'Manrope', sans-serif;
   font-size: 10px;
