@@ -1566,10 +1566,13 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const maxInvest = Math.max(minInvest, Math.floor(remaining / 100) * 100);
     const dueDays = parseNumber(meta.dueDays);
     return `<div class="deal-calc" id="dealCalc">
-      <div class="deal-calc-input-wrap">
-        <span class="deal-calc-prefix" aria-hidden="true">$</span>
-        <input type="text" inputmode="numeric" id="calcAmount" class="deal-calc-input"
-          aria-label="Investment amount in USD">
+      <div class="deal-calc-top-row">
+        <span class="deal-calc-header">Your investment</span>
+        <div class="deal-calc-input-wrap">
+          <span class="deal-calc-prefix" aria-hidden="true">$</span>
+          <input type="text" inputmode="numeric" id="calcAmount" class="deal-calc-input"
+            aria-label="Investment amount in USD">
+        </div>
       </div>
       <input type="range" id="calcSlider" class="deal-calc-slider"
         min="${minInvest}" max="${maxInvest}" step="100" value="${minInvest}"
