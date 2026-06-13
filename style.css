@@ -5209,8 +5209,10 @@ footer {
   font-weight: 600;
   color: rgba(5,5,5,0.65);
 }
-.modal-card-photo .modal-check-icon { color: #4ADE80; }
-.modal-card-photo .modal-check-text { color: rgba(255,255,255,0.80); }
+.modal-card-photo .modal-summary .modal-check-icon { color: #4ADE80; }
+.modal-card-photo .modal-summary .modal-check-text { color: rgba(255,255,255,0.80); }
+.modal-card-photo .rc-checks .modal-check-icon { color: #16A34A; }
+.modal-card-photo .rc-checks .modal-check-text { color: rgba(5,5,5,0.65); }
 
 /* ── DEAL CALCULATOR (right column) ── */
 .deal-calc {
