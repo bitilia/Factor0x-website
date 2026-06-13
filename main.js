@@ -1583,6 +1583,24 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         </span>
         ${renderRiskMeter(meta.risk)}
       </div>
+    </div>
+    <div class="modal-verif">
+      <div class="modal-verif-item">
+        <span class="modal-verif-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="5.5" width="10" height="7.5" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M7 1.5L12 5.5H2L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><rect x="4.5" y="7" width="2" height="2" rx="0.3" fill="currentColor" opacity="0.7"/><rect x="7.5" y="7" width="2" height="2" rx="0.3" fill="currentColor" opacity="0.7"/><path d="M6 10.5h2v3H6z" stroke="currentColor" stroke-width="1" fill="none"/></svg></span>
+        <span class="modal-verif-label">KYB Completed</span>
+      </div>
+      <div class="modal-verif-item">
+        <span class="modal-verif-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="1" width="8" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 4.5h3M4.5 6.5h3M4.5 8.5h1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><path d="M9 10l1.5 1.5 2-2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="modal-verif-label">Invoice Verified</span>
+      </div>
+      <div class="modal-verif-item">
+        <span class="modal-verif-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><circle cx="4.5" cy="7" r="1.5" stroke="currentColor" stroke-width="1"/><path d="M7 5.5h3.5M7 7h2.5M7 8.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg></span>
+        <span class="modal-verif-label">Obligor Confirmed</span>
+      </div>
+      <div class="modal-verif-item">
+        <span class="modal-verif-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5l5 1.8v3.5C12 9.5 9.8 11.8 7 12.5 4.2 11.8 2 9.5 2 6.8V3.3L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M4.5 7l1.5 1.5 3.5-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="modal-verif-label">Bank Account Verified</span>
+      </div>
     </div>`;
   }
 
@@ -1634,12 +1652,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         </div>
       </div>
       <div class="rc-spacer" aria-hidden="true"></div>
-      <div class="rc-trust-strip">
-        <span class="rc-trust-item">KYB Completed</span>
-        <span class="rc-trust-item">Invoice Verified</span>
-        <span class="rc-trust-item">Obligor Confirmed</span>
-        <span class="rc-trust-item">Bank Account Verified</span>
-      </div>
       <button class="modal-contribute-btn modal-invest-cta rc-contribute" type="button" id="calcCtaBtn">Contribute</button>
       <div class="rc-escrow">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="8" height="5.5" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6V4.5a2 2 0 014 0V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
