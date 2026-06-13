@@ -1523,11 +1523,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   function renderRiskMeter(riskValue) {
     const level = riskValue.toLowerCase().includes('medium') ? 'medium'
       : riskValue.toLowerCase().includes('high') ? 'high' : 'low';
-    return `<div class="risk-meter">
-      <span class="risk-seg risk-low${level === 'low' ? ' active' : ''}">Low</span>
-      <span class="risk-seg risk-med${level === 'medium' ? ' active' : ''}">Medium</span>
-      <span class="risk-seg risk-high${level === 'high' ? ' active' : ''}">High</span>
-    </div>`;
+    const filled = level === 'low' ? 1 : level === 'medium' ? 2 : 3;
+    const labels = { low: 'Low', medium: 'Medium', high: 'High' };
+    const segs = Array.from({ length: 3 }, (_, i) =>
+      `<span class="risk-gauge-seg${i < filled ? ' filled' : ''}" aria-hidden="true"></span>`
+    ).join('');
+    return `<div class="risk-gauge risk-gauge-${level}" role="img" aria-label="Risk level: ${level}, ${filled} of 3"><div class="risk-gauge-track" aria-hidden="true">${segs}</div><span class="risk-gauge-label">${labels[level]}</span></div>`;
   }
 
   function renderInvestmentPanel(meta) {
