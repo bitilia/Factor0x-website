@@ -4674,7 +4674,19 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 34px;
+  align-items: stretch;
 }
+.modal-summary {
+  display: flex;
+  flex-direction: column;
+}
+.modal-metrics {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.lc-apr-block, .lc-progress-block, .lc-metrics-row { flex-shrink: 0; }
 .modal-summary-head {
   display: flex;
   align-items: center;
@@ -4858,10 +4870,9 @@ footer {
 .modal-facts {
   position: relative;
   z-index: 1;
-  display: grid;
-  gap: 0;
-  align-content: start;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
   border: 1px solid rgba(5,5,5,0.08);
   border-radius: 18px;
   background: rgba(255,255,255,0.98);
@@ -5042,25 +5053,55 @@ footer {
   cursor: pointer;
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
 }
-.modal-invest-cta:hover,
-.modal-invest-cta:focus-visible {
+.modal-invest-cta:hover {
   transform: translateY(-2px);
+  background: linear-gradient(135deg, #E8C873 0%, #FFF0B8 48%, #BD903F 100%) !important;
+  box-shadow: 0 20px 48px rgba(180,128,28,0.38), inset 0 1px 0 rgba(255,255,255,0.84) !important;
 }
-.modal-invest-cta:active {
-  transform: translateY(0);
+.modal-invest-cta:hover .btn-arrow { transform: translateX(4px); }
+.modal-invest-cta:active { transform: translateY(0); }
+.modal-invest-cta:focus-visible {
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(197,146,43,0.45), 0 16px 36px rgba(180,128,28,0.32) !important;
+}
+.btn-arrow {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.18s ease;
 }
 
 /* ── RIGHT COLUMN (rc-*) ── */
-.rc-facts { margin-bottom: 10px; }
+.rc-facts { margin-bottom: 8px; }
+.rc-spacer { flex: 1; min-height: 8px; }
 .rc-trust-strip {
-  text-align: center;
-  font-family: 'Manrope', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--text3);
-  line-height: 1.4;
-  padding: 2px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px 12px;
+  padding: 6px 0;
 }
+.rc-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(5,5,5,0.70);
+}
+.rc-trust-item::before {
+  content: '✓';
+  color: #16A34A;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1;
+}
+.lc-investors-count {
+  font-weight: 700;
+  color: var(--black);
+}
+.modal-card-photo .lc-investors-count { color: rgba(255,255,255,0.92); }
 .rc-fact-row {
   display: flex;
   justify-content: space-between;

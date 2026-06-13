@@ -1505,6 +1505,15 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     return '$' + Math.round(value).toLocaleString('en-US');
   }
 
+  function daysUntil(dateStr) {
+    if (!dateStr) return null;
+    const due = new Date(dateStr);
+    if (isNaN(due.getTime())) return null;
+    due.setHours(0, 0, 0, 0);
+    const now = new Date(); now.setHours(0, 0, 0, 0);
+    return Math.max(0, Math.ceil((due - now) / 86400000));
+  }
+
   function getInvestmentMeta(details, row) {
     const fill = details.investment?.fill || row?.children?.[4]?.textContent?.trim() || '0%';
     return {
@@ -1534,10 +1543,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   function renderMetrics(meta) {
     const amount = parseNumber(meta.amount);
     const apr = parseNumber(meta.apr);
-    const dueDays = parseNumber(meta.dueDays);
     const fillPercent = Math.min(Math.max(parseNumber(meta.fill), 0), 100);
     const raised = amount * fillPercent / 100;
-    const poolYield = amount * (apr / 100) * (dueDays / 365);
+    const dynDays = daysUntil(meta.dueDate) ?? parseNumber(meta.dueDays);
+    const poolYield = amount * (apr / 100) * (dynDays / 365);
+    const infoSvg = `<svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg>`;
     return `
     <div class="lc-apr-block">
       <span class="lc-apr-number">${meta.apr}</span>
@@ -1546,7 +1556,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     <div class="lc-progress-block">
       <div class="lc-progress-meta">
         <span class="lc-progress-stat">${fillPercent.toFixed(1)}% funded</span>
-        ${meta.contributors ? `<span class="lc-progress-stat">${meta.contributors} investors already in</span>` : ''}
+        ${meta.contributors ? `<span class="lc-progress-stat"><span class="lc-investors-count">${meta.contributors}</span> investors already in</span>` : ''}
       </div>
       <div class="modal-progress" aria-hidden="true"><span style="width:${fillPercent}%"></span></div>
       <span class="lc-progress-amounts">${formatCurrency(raised)} of ${formatCurrency(amount)}</span>
@@ -1554,21 +1564,21 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     <div class="lc-metrics-row">
       <div class="lc-metric-cell">
         <span class="lc-metric-label lc-metric-label-info">Time to repayment
-          <button class="lc-info-btn" type="button" aria-label="About repayment date"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></button>
+          <button class="lc-info-btn" type="button" aria-label="About repayment date">${infoSvg}</button>
           <span class="lc-tooltip" role="tooltip">Expected maturity date — yield accrual ends on this day</span>
         </span>
-        <span class="lc-metric-value">${meta.dueDate || dueDays + ' days'}</span>
+        <span class="lc-metric-value">${dynDays} days${meta.dueDate ? ` · ${meta.dueDate}` : ''}</span>
       </div>
       <div class="lc-metric-cell">
         <span class="lc-metric-label lc-metric-label-info">Pool yield
-          <button class="lc-info-btn" type="button" aria-label="What is pool yield?"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></button>
+          <button class="lc-info-btn" type="button" aria-label="What is pool yield?">${infoSvg}</button>
           <span class="lc-tooltip" role="tooltip">Total interest earned across the full deal term</span>
         </span>
         <span class="lc-metric-value">${formatCurrency(poolYield)}</span>
       </div>
       <div class="lc-metric-cell">
         <span class="lc-metric-label lc-metric-label-info">Risk level
-          <button class="lc-info-btn" type="button" aria-label="About risk level"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></button>
+          <button class="lc-info-btn" type="button" aria-label="About risk level">${infoSvg}</button>
           <span class="lc-tooltip" role="tooltip">Platform score based on borrower profile, obligor quality & deal structure</span>
         </span>
         ${renderRiskMeter(meta.risk)}
@@ -1583,8 +1593,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const raised = amount * fillPercent / 100;
     const remaining = Math.max(amount - raised, 0);
     const minInvest = 500;
-    const maxInvest = Math.max(minInvest, Math.floor(remaining / 100) * 100);
-    const dueDays = parseNumber(meta.dueDays);
+    const maxInvest = Math.max(minInvest, Math.round(remaining));
+    const dynDays = daysUntil(meta.dueDate) ?? parseNumber(meta.dueDays);
     const facts = [
       ctx.obligor       && ['Obligor',        ctx.obligor],
       ctx.sector        && ['Sector',          ctx.sector],
@@ -1608,12 +1618,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
           <button type="button" id="calcMaxBtn" class="rc-max-btn">Max</button>
         </div>
         <input type="range" id="calcSlider" class="deal-calc-slider"
-          min="${minInvest}" max="${maxInvest}" step="100"
+          min="0" max="100" step="any"
           aria-label="Adjust investment amount">
         <span class="rc-hint">${formatCurrency(maxInvest)} available · Min ${formatCurrency(minInvest)}</span>
         <div class="rc-outputs">
           <div class="rc-output-row">
-            <span class="rc-output-label">Return · ${dueDays}d</span>
+            <span class="rc-output-label">Return · ${dynDays}d</span>
             <span class="rc-output-value" id="calcReturn">—</span>
           </div>
           <div class="rc-output-row">
@@ -1622,7 +1632,13 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
           </div>
         </div>
       </div>
-      <div class="rc-trust-strip">KYB Completed · Invoice Verified · Obligor Confirmed · Bank Account Verified</div>
+      <div class="rc-spacer" aria-hidden="true"></div>
+      <div class="rc-trust-strip">
+        <span class="rc-trust-item">KYB Completed</span>
+        <span class="rc-trust-item">Invoice Verified</span>
+        <span class="rc-trust-item">Obligor Confirmed</span>
+        <span class="rc-trust-item">Bank Account Verified</span>
+      </div>
       <button class="modal-contribute-btn modal-invest-cta rc-contribute" type="button" id="calcCtaBtn">Contribute</button>
       <div class="rc-escrow">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="8" height="5.5" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6V4.5a2 2 0 014 0V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -1633,13 +1649,13 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   function initCalculator(meta) {
     const amount = parseNumber(meta.amount);
     const apr = parseNumber(meta.apr);
-    const dueDays = parseNumber(meta.dueDays);
     const fillPercent = Math.min(Math.max(parseNumber(meta.fill), 0), 100);
     const raised = amount * fillPercent / 100;
     const remaining = Math.max(amount - raised, 0);
     const minInvest = 500;
-    const maxInvest = Math.max(minInvest, Math.floor(remaining / 100) * 100);
-    const termRatio = (apr / 100) * (dueDays / 365);
+    const maxInvest = Math.max(minInvest, Math.round(remaining));
+    const dynDays = daysUntil(meta.dueDate) ?? parseNumber(meta.dueDays);
+    const termRatio = (apr / 100) * (dynDays / 365);
     const termPct = (termRatio * 100).toFixed(2);
 
     const inputEl   = document.getElementById('calcAmount');
@@ -1650,37 +1666,53 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const ctaBtn    = document.getElementById('calcCtaBtn');
     if (!inputEl || !sliderEl) return;
 
+    const minLog = Math.log(minInvest);
+    const maxLog = Math.log(maxInvest);
+
     function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
-    function clamp(val) { return Math.max(minInvest, Math.min(maxInvest, Math.round(val / 100) * 100)); }
+    function clamp(val) {
+      if (val >= maxInvest) return maxInvest;
+      return Math.max(minInvest, Math.min(maxInvest, Math.round(val / 100) * 100));
+    }
+    function amountToSlider(a) {
+      return ((Math.log(Math.max(minInvest, Math.min(maxInvest, a))) - minLog) / (maxLog - minLog)) * 100;
+    }
+    function sliderToAmount(s) {
+      return Math.exp(minLog + (s / 100) * (maxLog - minLog));
+    }
     function rawFromInput() { return parseFloat(inputEl.value.replace(/,/g, '')) || 0; }
 
-    function update(rawVal) {
-      const val = clamp(isNaN(rawVal) || rawVal <= 0 ? minInvest : rawVal);
+    function setOutputs(val) {
       const isMax = val >= maxInvest;
-      inputEl.value  = fmt(val);
-      sliderEl.value = val;
       if (maxBtn)    maxBtn.classList.toggle('active', isMax);
       if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">+${termPct}%</strong><span class="calc-return-apr">${meta.apr} APR</span>`;
       if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}${meta.dueDate ? ` · ${meta.dueDate}` : ''}`;
-      if (ctaBtn)    ctaBtn.textContent    = `Contribute $${fmt(val)}`;
+      if (ctaBtn)    ctaBtn.innerHTML      = `Contribute $${fmt(val)} <span class="btn-arrow" aria-hidden="true">→</span>`;
+    }
+    function update(rawVal) {
+      const val = clamp(isNaN(rawVal) || rawVal <= 0 ? minInvest : rawVal);
+      inputEl.value  = fmt(val);
+      sliderEl.value = amountToSlider(val).toFixed(3);
+      setOutputs(val);
     }
 
-    update(clamp(5000));
+    update(5000);
 
-    inputEl.addEventListener('focus', () => { inputEl.value = String(clamp(rawFromInput() || 5000)); inputEl.select(); });
+    inputEl.addEventListener('focus', () => { inputEl.value = String(Math.round(clamp(rawFromInput() || 5000))); inputEl.select(); });
     inputEl.addEventListener('blur',  () => update(rawFromInput()));
     inputEl.addEventListener('input', () => {
       const raw = parseFloat(inputEl.value.replace(/,/g, ''));
       if (!isNaN(raw)) {
         const val = clamp(raw);
-        sliderEl.value = val;
-        if (maxBtn)    maxBtn.classList.toggle('active', val >= maxInvest);
-        if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">+${termPct}%</strong><span class="calc-return-apr">${meta.apr} APR</span>`;
-        if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}${meta.dueDate ? ` · ${meta.dueDate}` : ''}`;
-        if (ctaBtn)    ctaBtn.textContent    = `Contribute $${fmt(val)}`;
+        sliderEl.value = amountToSlider(val).toFixed(3);
+        setOutputs(val);
       }
     });
-    sliderEl.addEventListener('input', () => update(parseFloat(sliderEl.value)));
+    sliderEl.addEventListener('input', () => {
+      const val = clamp(sliderToAmount(parseFloat(sliderEl.value)));
+      inputEl.value = fmt(val);
+      setOutputs(val);
+    });
     if (maxBtn) maxBtn.addEventListener('click', () => update(maxInvest));
   }
 
