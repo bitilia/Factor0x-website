@@ -1438,7 +1438,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         ['Sector', 'Trade Logistics'],
         ['Risk Level', 'Low Risk'],
         ['Jurisdiction', 'Dubai, UAE'],
-        ['Invoice Amount', '$420 000'],
+        ['Invoice Amount', '$420,000'],
         ['Due Date', '2026/07/18'],
         ['APR', '6.2% annual']
       ]
@@ -1464,7 +1464,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         ['Sector', 'Electronics'],
         ['Risk Level', 'Medium Risk'],
         ['Jurisdiction', 'Singapore'],
-        ['Invoice Amount', '$315 000'],
+        ['Invoice Amount', '$315,000'],
         ['Due Date', '2026/06/30'],
         ['APR', '9.4% annual']
       ]
@@ -1490,7 +1490,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         ['Sector', 'SaaS Contract'],
         ['Risk Level', 'Low Risk'],
         ['Jurisdiction', 'UAE Free Zone'],
-        ['Invoice Amount', '$250 000'],
+        ['Invoice Amount', '$250,000'],
         ['Due Date', '2026/06/14'],
         ['APR', '5.4% annual']
       ]
@@ -1502,7 +1502,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   }
 
   function formatCurrency(value) {
-    return '$' + Math.round(value).toLocaleString('en-US').replace(/,/g, ' ');
+    return '$' + Math.round(value).toLocaleString('en-US');
   }
 
   function getInvestmentMeta(details, row) {
@@ -1585,45 +1585,63 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     </div>`;
   }
 
-  function renderCalculator(meta) {
+  function renderCalculator(meta, ctx) {
+    ctx = ctx || {};
     const amount = parseNumber(meta.amount);
     const fillPercent = Math.min(Math.max(parseNumber(meta.fill), 0), 100);
     const raised = amount * fillPercent / 100;
     const remaining = Math.max(amount - raised, 0);
-    const minInvest = Math.max(500, parseNumber(meta.minContribution) || 500);
+    const minInvest = 500;
     const maxInvest = Math.max(minInvest, Math.floor(remaining / 100) * 100);
     const dueDays = parseNumber(meta.dueDays);
-    return `<div class="deal-calc" id="dealCalc">
-      <div class="deal-calc-top-row">
-        <span class="deal-calc-header">Your investment</span>
-        <div class="deal-calc-input-col">
-          <div class="deal-calc-input-wrap">
+    const facts = [
+      ctx.obligor       && ['Obligor',        ctx.obligor],
+      ctx.sector        && ['Sector',          ctx.sector],
+      ctx.jurisdiction  && ['Jurisdiction',    ctx.jurisdiction],
+      ctx.invoiceAmount && ['Invoice Amount',  ctx.invoiceAmount, true],
+    ].filter(Boolean);
+    return `
+      <div class="rc-facts">
+        ${facts.map(([label, value, bold]) => `
+          <div class="rc-fact-row">
+            <span class="rc-fact-label">${label}</span>
+            <span class="rc-fact-value${bold ? ' rc-fact-bold' : ''}">${value}</span>
+          </div>`).join('')}
+      </div>
+      <div class="rc-calc">
+        <span class="rc-calc-label">Your investment</span>
+        <div class="rc-input-row">
+          <div class="deal-calc-input-wrap" style="flex:1">
             <span class="deal-calc-prefix" aria-hidden="true">$</span>
             <input type="text" inputmode="numeric" id="calcAmount" class="deal-calc-input"
               aria-label="Investment amount in USD">
           </div>
-          <input type="range" id="calcSlider" class="deal-calc-slider"
-            min="${minInvest}" max="${maxInvest}" step="100" value="${minInvest}"
-            aria-label="Adjust investment amount">
-          <span class="deal-calc-hint">Available: ${formatCurrency(maxInvest)} · Min: ${formatCurrency(minInvest)}</span>
+          <button type="button" id="calcMaxBtn" class="rc-max-btn">Max</button>
+        </div>
+        <input type="range" id="calcSlider" class="deal-calc-slider"
+          min="${minInvest}" max="${maxInvest}" step="100"
+          aria-label="Adjust investment amount">
+        <span class="rc-hint">${formatCurrency(maxInvest)} available · Min ${formatCurrency(minInvest)}</span>
+        <div class="rc-outputs">
+          <div class="rc-output-row">
+            <span class="rc-output-label">Return · ${dueDays}d</span>
+            <span class="rc-output-value" id="calcReturn">—</span>
+          </div>
+          <div class="rc-output-row">
+            <span class="rc-output-label">You receive at maturity</span>
+            <span class="rc-output-value" id="calcReceive">—</span>
+          </div>
         </div>
       </div>
-      <div class="deal-calc-outputs">
-        <div class="deal-calc-row">
-          <span class="deal-calc-row-label">Projected profit · ${dueDays}d</span>
-          <span class="deal-calc-row-value" id="calcProfit">—</span>
-        </div>
-        <div class="deal-calc-row deal-calc-row-return">
-          <span class="deal-calc-row-label">Return · ${dueDays}d</span>
-          <span class="deal-calc-row-value" id="calcReturn">—</span>
-        </div>
-        <div class="deal-calc-row">
-          <span class="deal-calc-row-label">You receive at maturity</span>
-          <span class="deal-calc-row-value" id="calcReceive">—</span>
-        </div>
+      <div class="rc-urgency">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ${formatCurrency(maxInvest)} left · closes in ${dueDays} days
       </div>
-      <button class="modal-contribute-btn modal-invest-cta" type="button">Contribute</button>
-    </div>`;
+      <button class="modal-contribute-btn modal-invest-cta rc-contribute" type="button" id="calcCtaBtn">Contribute</button>
+      <div class="rc-escrow">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="8" height="5.5" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6V4.5a2 2 0 014 0V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Funds held in escrow until maturity
+      </div>`;
   }
 
   function initCalculator(meta) {
@@ -1633,57 +1651,51 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const fillPercent = Math.min(Math.max(parseNumber(meta.fill), 0), 100);
     const raised = amount * fillPercent / 100;
     const remaining = Math.max(amount - raised, 0);
-    const minInvest = Math.max(500, parseNumber(meta.minContribution) || 500);
+    const minInvest = 500;
     const maxInvest = Math.max(minInvest, Math.floor(remaining / 100) * 100);
     const termRatio = (apr / 100) * (dueDays / 365);
     const termPct = (termRatio * 100).toFixed(2);
 
-    const inputEl  = document.getElementById('calcAmount');
-    const sliderEl = document.getElementById('calcSlider');
-    const profitEl = document.getElementById('calcProfit');
-    const returnEl = document.getElementById('calcReturn');
+    const inputEl   = document.getElementById('calcAmount');
+    const sliderEl  = document.getElementById('calcSlider');
+    const maxBtn    = document.getElementById('calcMaxBtn');
+    const returnEl  = document.getElementById('calcReturn');
     const receiveEl = document.getElementById('calcReceive');
-    const ctaBtn   = document.getElementById('dealCalc')?.querySelector('.modal-invest-cta');
+    const ctaBtn    = document.getElementById('calcCtaBtn');
     if (!inputEl || !sliderEl) return;
 
-    function clamp(val) {
-      return Math.max(minInvest, Math.min(maxInvest, Math.round(val / 100) * 100));
-    }
-    function fmt(n) { return Math.round(n).toLocaleString('en-US').replace(/,/g, ' '); }
+    function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+    function clamp(val) { return Math.max(minInvest, Math.min(maxInvest, Math.round(val / 100) * 100)); }
+    function rawFromInput() { return parseFloat(inputEl.value.replace(/,/g, '')) || 0; }
 
     function update(rawVal) {
       const val = clamp(isNaN(rawVal) || rawVal <= 0 ? minInvest : rawVal);
+      const isMax = val >= maxInvest;
       inputEl.value  = fmt(val);
       sliderEl.value = val;
-      if (profitEl)  profitEl.textContent  = formatCurrency(val * termRatio);
+      if (maxBtn)    maxBtn.classList.toggle('active', isMax);
       if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">+${termPct}%</strong><span class="calc-return-apr">${meta.apr} APR</span>`;
-      if (receiveEl) receiveEl.textContent = `${formatCurrency(val + val * termRatio)}${meta.dueDate ? ` · ${meta.dueDate}` : ''}`;
+      if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}${meta.dueDate ? ` · ${meta.dueDate}` : ''}`;
       if (ctaBtn)    ctaBtn.textContent    = `Contribute $${fmt(val)}`;
     }
 
-    function rawFromInput() {
-      return parseFloat(inputEl.value.replace(/,/g, '')) || 0;
-    }
+    update(clamp(5000));
 
-    update(minInvest);
-
-    inputEl.addEventListener('focus', () => {
-      inputEl.value = String(clamp(rawFromInput() || minInvest));
-      inputEl.select();
-    });
+    inputEl.addEventListener('focus', () => { inputEl.value = String(clamp(rawFromInput() || 5000)); inputEl.select(); });
     inputEl.addEventListener('blur',  () => update(rawFromInput()));
     inputEl.addEventListener('input', () => {
       const raw = parseFloat(inputEl.value.replace(/,/g, ''));
       if (!isNaN(raw)) {
-        sliderEl.value = clamp(raw);
         const val = clamp(raw);
-        if (profitEl)  profitEl.textContent  = formatCurrency(val * termRatio);
+        sliderEl.value = val;
+        if (maxBtn)    maxBtn.classList.toggle('active', val >= maxInvest);
         if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">+${termPct}%</strong><span class="calc-return-apr">${meta.apr} APR</span>`;
-        if (receiveEl) receiveEl.textContent = `${formatCurrency(val + val * termRatio)}${meta.dueDate ? ` · ${meta.dueDate}` : ''}`;
+        if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}${meta.dueDate ? ` · ${meta.dueDate}` : ''}`;
         if (ctaBtn)    ctaBtn.textContent    = `Contribute $${fmt(val)}`;
       }
     });
     sliderEl.addEventListener('input', () => update(parseFloat(sliderEl.value)));
+    if (maxBtn) maxBtn.addEventListener('click', () => update(maxInvest));
   }
 
   function getFocusable() {
@@ -1716,17 +1728,16 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       if (!details) return;
 
       const investment = getInvestmentMeta(details, row);
-      const compactFactLabels = new Set(['APR', 'Due Date', 'Risk', 'Min Contribution', 'Risk Level']);
-      const visibleFacts = details.facts.filter(([label]) => !compactFactLabels.has(label));
+      const getFact = (label) => (details.facts.find(([l]) => l === label) || [])[1] || '';
       card.className = details.cardClass || 'modal-card';
       title.textContent = details.name;
       description.textContent = details.description;
-      facts.innerHTML = visibleFacts.map(([label, value]) => {
-        const valueHtml = label === 'Risk Level'
-          ? `<div style="justify-self:end">${renderRiskMeter(value)}</div>`
-          : `<div class="fact-value">${value}</div>`;
-        return `<div class="fact-row"><div class="fact-label">${label}</div>${valueHtml}</div>`;
-      }).join('') + renderCalculator(investment);
+      facts.innerHTML = renderCalculator(investment, {
+        obligor:       getFact('Obligor'),
+        sector:        getFact('Sector'),
+        jurisdiction:  getFact('Jurisdiction'),
+        invoiceAmount: getFact('Invoice Amount'),
+      });
       if (metrics) metrics.innerHTML = renderMetrics(investment);
       initCalculator(investment);
 
