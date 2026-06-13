@@ -4859,21 +4859,21 @@ footer {
   height: 28px;
   flex-shrink: 0;
   border-radius: 8px;
-  background: rgba(5,5,5,0.06);
-  color: rgba(5,5,5,0.55);
+  background: rgba(168,124,47,0.10);
+  color: #A87C2F;
 }
 .modal-card-photo .modal-verif-icon {
-  background: rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.80);
+  background: rgba(215,180,94,0.15);
+  color: #D7B45E;
 }
 .modal-verif-label {
   font-family: 'Manrope', sans-serif;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 500;
   line-height: 1.3;
-  color: rgba(5,5,5,0.55);
+  color: rgba(5,5,5,0.62);
 }
-.modal-card-photo .modal-verif-label { color: rgba(255,255,255,0.65); }
+.modal-card-photo .modal-verif-label { color: rgba(255,255,255,0.72); }
 .lc-metric-value {
   font-family: 'Manrope', sans-serif;
   font-size: 22px;
