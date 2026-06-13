@@ -1553,21 +1553,24 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     </div>
     <div class="lc-metrics-row">
       <div class="lc-metric-cell">
-        <span class="lc-metric-label">Time to repayment</span>
+        <span class="lc-metric-label lc-metric-label-info">Time to repayment
+          <button class="lc-info-btn" type="button" aria-label="About repayment date"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></button>
+          <span class="lc-tooltip" role="tooltip">Expected maturity date — yield accrual ends on this day</span>
+        </span>
         <span class="lc-metric-value">${meta.dueDate || dueDays + ' days'}</span>
       </div>
       <div class="lc-metric-cell">
-        <span class="lc-metric-label lc-metric-label-info">
-          Pool yield
-          <button class="lc-info-btn" type="button" aria-label="What is pool yield?">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg>
-          </button>
-          <span class="lc-tooltip" role="tooltip">Total yield for full deal period</span>
+        <span class="lc-metric-label lc-metric-label-info">Pool yield
+          <button class="lc-info-btn" type="button" aria-label="What is pool yield?"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></button>
+          <span class="lc-tooltip" role="tooltip">Total interest earned across the full deal term</span>
         </span>
         <span class="lc-metric-value">${formatCurrency(poolYield)}</span>
       </div>
       <div class="lc-metric-cell">
-        <span class="lc-metric-label">Risk level</span>
+        <span class="lc-metric-label lc-metric-label-info">Risk level
+          <button class="lc-info-btn" type="button" aria-label="About risk level"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></button>
+          <span class="lc-tooltip" role="tooltip">Platform score based on borrower profile, obligor quality & deal structure</span>
+        </span>
         ${renderRiskMeter(meta.risk)}
       </div>
     </div>`;
@@ -1744,15 +1747,18 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       });
       if (metrics) {
         metrics.innerHTML = renderMetrics(investment);
-        const infoBtn = metrics.querySelector('.lc-info-btn');
-        if (infoBtn) {
-          const tooltip = infoBtn.nextElementSibling;
-          infoBtn.addEventListener('click', (e) => {
+        metrics.querySelectorAll('.lc-info-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            tooltip.classList.toggle('open');
+            const tip = btn.nextElementSibling;
+            const isOpen = tip.classList.contains('open');
+            metrics.querySelectorAll('.lc-tooltip').forEach(t => t.classList.remove('open'));
+            if (!isOpen) tip.classList.add('open');
           });
-          document.addEventListener('click', () => tooltip.classList.remove('open'), { capture: true, once: false });
-        }
+        });
+        document.addEventListener('click', () => {
+          metrics.querySelectorAll('.lc-tooltip').forEach(t => t.classList.remove('open'));
+        });
       }
       initCalculator(investment);
 

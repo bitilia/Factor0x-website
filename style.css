@@ -4786,19 +4786,21 @@ footer {
 .lc-info-btn:hover { opacity: 1; }
 .lc-tooltip {
   position: absolute;
-  bottom: calc(100% + 6px);
+  bottom: calc(100% + 7px);
   left: 0;
   z-index: 10;
-  background: rgba(5,5,5,0.88);
-  color: #fff;
+  background: var(--white);
+  color: var(--black);
+  border: 1px solid rgba(5,5,5,0.12);
+  box-shadow: 0 4px 14px rgba(5,5,5,0.10);
   font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   white-space: nowrap;
-  padding: 5px 9px;
-  border-radius: 7px;
+  padding: 6px 10px;
+  border-radius: 8px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease;
@@ -5053,13 +5055,18 @@ footer {
   padding: 8px 2px;
   border-top: 0.5px solid rgba(5,5,5,0.07);
   border-bottom: 0.5px solid rgba(5,5,5,0.07);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px 12px;
 }
-.rc-checks .modal-check-icon { color: var(--text3); width: 14px; height: 14px; }
+.rc-checks .modal-check-item { flex: 1; min-width: 0; }
+.rc-checks .modal-check-icon { color: var(--text3); width: 13px; height: 13px; flex-shrink: 0; }
 .rc-checks .modal-check-text {
   font-family: 'Manrope', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
   color: var(--black);
+  white-space: nowrap;
 }
 .rc-fact-row {
   display: flex;
