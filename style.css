@@ -4809,6 +4809,9 @@ footer {
   opacity: 1;
   pointer-events: auto;
 }
+.lc-metrics-row .lc-metric-cell:nth-child(1) .lc-tooltip { left: 0; right: auto; transform: none; }
+.lc-metrics-row .lc-metric-cell:nth-child(2) .lc-tooltip { left: 50%; right: auto; transform: translateX(-50%); }
+.lc-metrics-row .lc-metric-cell:nth-child(3) .lc-tooltip { left: auto; right: 0; transform: none; }
 .lc-metric-value {
   font-family: 'Manrope', sans-serif;
   font-size: 22px;
@@ -5059,14 +5062,14 @@ footer {
   flex-wrap: nowrap;
   gap: 4px 12px;
 }
-.rc-checks .modal-check-item { flex: 1; min-width: 0; }
-.rc-checks .modal-check-icon { color: var(--text3); width: 13px; height: 13px; flex-shrink: 0; }
+.rc-checks .modal-check-item { flex: 1; min-width: 0; align-items: flex-start; }
+.rc-checks .modal-check-icon { color: var(--text3); width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; }
 .rc-checks .modal-check-text {
   font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 400;
   color: var(--black);
-  white-space: nowrap;
+  line-height: 1.35;
 }
 .rc-fact-row {
   display: flex;
