@@ -1567,7 +1567,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
           <button class="lc-info-btn" type="button" aria-label="About repayment date">${infoSvg}</button>
           <span class="lc-tooltip" role="tooltip">Expected maturity date — yield accrual ends on this day</span>
         </span>
-        <span class="lc-metric-value">${dynDays} days${meta.dueDate ? `<span class="lc-metric-date">${meta.dueDate}</span>` : ''}</span>
+        <span class="lc-metric-value">${dynDays} days${meta.dueDate ? ` · <span class="lc-metric-date">${meta.dueDate}</span>` : ''}</span>
       </div>
       <div class="lc-metric-cell">
         <span class="lc-metric-label lc-metric-label-info">Pool yield

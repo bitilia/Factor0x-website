@@ -4770,18 +4770,17 @@ footer {
 .lc-metrics-row {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr;
   gap: 16px 12px;
   align-items: start;
 }
 .lc-metric-cell { display: grid; gap: 6px; align-content: start; }
 .lc-metric-date {
-  display: block;
+  display: inline;
   font-family: 'Manrope', sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: var(--text3);
-  margin-top: 3px;
 }
 .modal-card-photo .lc-metric-date { color: rgba(255,255,255,0.50); }
 .lc-metric-label {
