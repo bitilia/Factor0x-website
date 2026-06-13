@@ -1592,7 +1592,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const fillPercent = Math.min(Math.max(parseNumber(meta.fill), 0), 100);
     const raised = amount * fillPercent / 100;
     const remaining = Math.max(amount - raised, 0);
-    const minInvest = 500;
     const minInvest = Math.max(100, parseNumber(meta.minContribution) || 500);
     const maxInvest = Math.max(minInvest, Math.round(remaining));
     const dynDays = daysUntil(meta.dueDate) ?? parseNumber(meta.dueDays);
