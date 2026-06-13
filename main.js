@@ -1557,14 +1557,19 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         <span class="lc-metric-value">${meta.dueDate || dueDays + ' days'}</span>
       </div>
       <div class="lc-metric-cell">
-        <span class="lc-metric-label lc-metric-label-info">Pool yield <svg class="lc-info-icon" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></span>
+        <span class="lc-metric-label lc-metric-label-info">
+          Pool yield
+          <button class="lc-info-btn" type="button" aria-label="What is pool yield?">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg>
+          </button>
+          <span class="lc-tooltip" role="tooltip">Total yield for full deal period</span>
+        </span>
         <span class="lc-metric-value">${formatCurrency(poolYield)}</span>
-        <span class="lc-metric-sub">Total yield for full deal period</span>
       </div>
-    </div>
-    <div class="lc-risk-block">
-      <span class="lc-metric-label">Risk level</span>
-      ${renderRiskMeter(meta.risk)}
+      <div class="lc-metric-cell">
+        <span class="lc-metric-label">Risk level</span>
+        ${renderRiskMeter(meta.risk)}
+      </div>
     </div>`;
   }
 
@@ -1737,7 +1742,18 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         jurisdiction:  getFact('Jurisdiction'),
         invoiceAmount: getFact('Invoice Amount'),
       });
-      if (metrics) metrics.innerHTML = renderMetrics(investment);
+      if (metrics) {
+        metrics.innerHTML = renderMetrics(investment);
+        const infoBtn = metrics.querySelector('.lc-info-btn');
+        if (infoBtn) {
+          const tooltip = infoBtn.nextElementSibling;
+          infoBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            tooltip.classList.toggle('open');
+          });
+          document.addEventListener('click', () => tooltip.classList.remove('open'), { capture: true, once: false });
+        }
+      }
       initCalculator(investment);
 
       modal.classList.add('open');
