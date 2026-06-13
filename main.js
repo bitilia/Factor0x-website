@@ -1567,7 +1567,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
           <button class="lc-info-btn" type="button" aria-label="About repayment date">${infoSvg}</button>
           <span class="lc-tooltip" role="tooltip">Expected maturity date — yield accrual ends on this day</span>
         </span>
-        <span class="lc-metric-value">${dynDays} days${meta.dueDate ? ` · <span class="lc-metric-date">${meta.dueDate}</span>` : ''}</span>
+        <span class="lc-metric-value">${dynDays} days</span>
       </div>
       <div class="lc-metric-cell">
         <span class="lc-metric-label lc-metric-label-info">Pool yield
@@ -1600,6 +1600,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       ctx.sector        && ['Sector',          ctx.sector],
       ctx.jurisdiction  && ['Jurisdiction',    ctx.jurisdiction],
       ctx.invoiceAmount && ['Invoice Amount',  ctx.invoiceAmount, true],
+      meta.dueDate      && ['Maturity date',   meta.dueDate],
     ].filter(Boolean);
     return `
       <div class="rc-facts">
@@ -1686,7 +1687,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       const isMax = val >= maxInvest;
       if (maxBtn)    maxBtn.classList.toggle('active', isMax);
       if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">${meta.apr}<span class="calc-return-apr-unit"> APR</span></strong><span class="calc-return-apr">+${termPct}% over ${dynDays} days</span>`;
-      if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)} · in ${dynDays} days`;
+      if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}`;
       if (ctaBtn)    ctaBtn.innerHTML      = `Contribute $${fmt(val)} <span class="btn-arrow" aria-hidden="true">→</span>`;
     }
     function update(rawVal) {
