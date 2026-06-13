@@ -1554,11 +1554,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     <div class="lc-metrics-row">
       <div class="lc-metric-cell">
         <span class="lc-metric-label">Time to repayment</span>
-        <span class="lc-metric-value">${dueDays} days${meta.dueDate ? ` · ${meta.dueDate}` : ''}</span>
+        <span class="lc-metric-value">${meta.dueDate || dueDays + ' days'}</span>
       </div>
       <div class="lc-metric-cell">
-        <span class="lc-metric-label">Pool yield · ${dueDays}d</span>
+        <span class="lc-metric-label lc-metric-label-info">Pool yield <svg class="lc-info-icon" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="3.8" r="0.6" fill="currentColor"/></svg></span>
         <span class="lc-metric-value">${formatCurrency(poolYield)}</span>
+        <span class="lc-metric-sub">Total yield for full deal period</span>
       </div>
     </div>
     <div class="lc-risk-block">
