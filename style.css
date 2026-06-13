@@ -22,6 +22,14 @@
   --text:       var(--black);
   --text2:      #555555;
   --text3:      #8A8A8A;
+
+  --risk-low-fill:  #16A34A;
+  --risk-low-text:  #0E7A52;
+  --risk-med-fill:  #F59E0B;
+  --risk-med-text:  #B45309;
+  --risk-high-fill: #E04438;
+  --risk-high-text: #C0352B;
+  --risk-empty:     #E5E3DD;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -4801,40 +4809,37 @@ footer {
   background: rgba(197,146,43,0.12);
   color: #7A5C00;
 }
-.risk-meter {
+.risk-gauge {
   display: inline-flex;
-  gap: 4px;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+  user-select: none;
+}
+.risk-gauge-track {
+  display: flex;
+  gap: 5px;
   align-items: center;
 }
-.risk-seg {
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: transparent;
-  color: rgba(5,5,5,0.25);
+.risk-gauge-seg {
+  width: 22px;
+  height: 7px;
+  border-radius: 3px;
+  background: var(--risk-empty);
+  flex-shrink: 0;
+}
+.risk-gauge-label {
   font-family: 'Manrope', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
 }
-.risk-seg.active {
-  font-weight: 700;
-}
-.risk-seg.active::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-right: 5px;
-  vertical-align: middle;
-  margin-bottom: 1px;
-}
-.risk-seg.risk-low.active  { background: #E6F5EE; color: #0E7A52; }
-.risk-seg.risk-med.active  { background: #FCEFD8; color: #B45309; }
-.risk-seg.risk-high.active { background: #FBE7E5; color: #C0352B; }
-.risk-seg.risk-low.active::before  { background: #16A34A; }
-.risk-seg.risk-med.active::before  { background: #F59E0B; }
-.risk-seg.risk-high.active::before { background: #E04438; }
+.risk-gauge-low    .risk-gauge-seg.filled { background: var(--risk-low-fill); }
+.risk-gauge-medium .risk-gauge-seg.filled { background: var(--risk-med-fill); }
+.risk-gauge-high   .risk-gauge-seg.filled { background: var(--risk-high-fill); }
+.risk-gauge-low    .risk-gauge-label { color: var(--risk-low-text); }
+.risk-gauge-medium .risk-gauge-label { color: var(--risk-med-text); }
+.risk-gauge-high   .risk-gauge-label { color: var(--risk-high-text); }
 .modal-funding {
   display: grid;
   gap: 6px;
