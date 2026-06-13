@@ -1567,7 +1567,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
           <button class="lc-info-btn" type="button" aria-label="About repayment date">${infoSvg}</button>
           <span class="lc-tooltip" role="tooltip">Expected maturity date — yield accrual ends on this day</span>
         </span>
-        <span class="lc-metric-value">${dynDays} days${meta.dueDate ? ` · ${meta.dueDate}` : ''}</span>
+        <span class="lc-metric-value">${dynDays} days${meta.dueDate ? `<span class="lc-metric-date">${meta.dueDate}</span>` : ''}</span>
       </div>
       <div class="lc-metric-cell">
         <span class="lc-metric-label lc-metric-label-info">Pool yield
@@ -1593,6 +1593,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const raised = amount * fillPercent / 100;
     const remaining = Math.max(amount - raised, 0);
     const minInvest = 500;
+    const minInvest = Math.max(100, parseNumber(meta.minContribution) || 500);
     const maxInvest = Math.max(minInvest, Math.round(remaining));
     const dynDays = daysUntil(meta.dueDate) ?? parseNumber(meta.dueDays);
     const facts = [
@@ -1652,7 +1653,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const fillPercent = Math.min(Math.max(parseNumber(meta.fill), 0), 100);
     const raised = amount * fillPercent / 100;
     const remaining = Math.max(amount - raised, 0);
-    const minInvest = 500;
+    const minInvest = Math.max(100, parseNumber(meta.minContribution) || 500);
     const maxInvest = Math.max(minInvest, Math.round(remaining));
     const dynDays = daysUntil(meta.dueDate) ?? parseNumber(meta.dueDays);
     const termRatio = (apr / 100) * (dynDays / 365);

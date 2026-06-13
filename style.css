@@ -4768,8 +4768,18 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px 12px;
+  align-items: start;
 }
-.lc-metric-cell { display: grid; gap: 6px; }
+.lc-metric-cell { display: grid; gap: 6px; align-content: start; }
+.lc-metric-date {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text3);
+  margin-top: 3px;
+}
+.modal-card-photo .lc-metric-date { color: rgba(255,255,255,0.50); }
 .lc-metric-label {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
