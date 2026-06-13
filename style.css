@@ -4775,7 +4775,6 @@ footer {
   align-items: start;
 }
 .lc-metric-cell { display: grid; gap: 6px; align-content: start; }
-.lc-metric-cell .risk-gauge { margin-top: 10px; }
 .lc-metric-date {
   display: inline;
   font-family: 'Manrope', sans-serif;
