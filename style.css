@@ -4515,7 +4515,7 @@ footer {
     linear-gradient(180deg, rgba(5,5,5,0.20), rgba(5,5,5,0.56));
 }
 .modal-card-photo .modal-title {
-  color: rgba(255,255,255,0.44);
+  color: rgba(255,255,255,0.78);
 }
 .modal-card-photo .modal-close {
   border-color: rgba(255,255,255,0.52);
@@ -4575,7 +4575,7 @@ footer {
   margin-bottom: 18px;
 }
 .modal-title {
-  color: rgba(5,5,5,0.36);
+  color: rgba(5,5,5,0.62);
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   font-weight: 500;
