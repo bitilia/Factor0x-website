@@ -1624,7 +1624,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         <div class="rc-outputs">
           <div class="rc-output-row">
             <span class="rc-output-label">Return · ${dynDays}d</span>
-            <span class="rc-output-value" id="calcReturn">—</span>
+            <span class="rc-output-value rc-return-value" id="calcReturn">—</span>
           </div>
           <div class="rc-output-row">
             <span class="rc-output-label">You receive at maturity</span>
@@ -1685,8 +1685,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     function setOutputs(val) {
       const isMax = val >= maxInvest;
       if (maxBtn)    maxBtn.classList.toggle('active', isMax);
-      if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">+${termPct}%</strong><span class="calc-return-apr">${meta.apr} APR</span>`;
-      if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)}${meta.dueDate ? ` · ${meta.dueDate}` : ''}`;
+      if (returnEl)  returnEl.innerHTML    = `<strong class="calc-return-pct">${meta.apr}<span class="calc-return-apr-unit"> APR</span></strong><span class="calc-return-apr">+${termPct}% over ${dynDays} days</span>`;
+      if (receiveEl) receiveEl.textContent = `$${fmt(val + val * termRatio)} · in ${dynDays} days`;
       if (ctaBtn)    ctaBtn.innerHTML      = `Contribute $${fmt(val)} <span class="btn-arrow" aria-hidden="true">→</span>`;
     }
     function update(rawVal) {
