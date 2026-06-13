@@ -4930,6 +4930,19 @@ footer {
 }
 .modal-card-photo .modal-metric-label { color: rgba(255,255,255,0.52); }
 .modal-card-photo .modal-metric-value { color: rgba(255,255,255,0.92); }
+.modal-checks {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 10px;
+}
+.modal-check-item {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(5,5,5,0.65);
+}
+.modal-card-photo .modal-check-item { color: rgba(255,255,255,0.80); }
 
 /* ── DEAL CALCULATOR (right column) ── */
 .deal-calc {

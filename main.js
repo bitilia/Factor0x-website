@@ -1554,6 +1554,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         <span class="modal-metric-label">Time to repayment</span>
         <strong class="modal-metric-value">${dueDays} days${meta.dueDate ? ` · ${meta.dueDate}` : ''}</strong>
       </div>
+    </div>
+    <div class="modal-checks">
+      <div class="modal-check-item">✅ KYB Completed</div>
+      <div class="modal-check-item">✅ Invoice Verified</div>
+      <div class="modal-check-item">✅ Obligor Confirmed</div>
+      <div class="modal-check-item">✅ Bank Account Verified</div>
     </div>`;
   }
 
