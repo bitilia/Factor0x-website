@@ -1599,12 +1599,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
             <span class="rc-fact-value${bold ? ' rc-fact-bold' : ''}">${value}</span>
           </div>`).join('')}
       </div>
-      <div class="rc-checks">
-        <span class="modal-check-text">KYB Completed</span>
-        <span class="modal-check-text">Invoice Verified</span>
-        <span class="modal-check-text">Obligor Confirmed</span>
-        <span class="modal-check-text">Bank Account Verified</span>
-      </div>
       <div class="rc-calc">
         <span class="rc-calc-label">Your investment</span>
         <div class="rc-input-group">
@@ -1629,6 +1623,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         </div>
       </div>
       <button class="modal-contribute-btn modal-invest-cta rc-contribute" type="button" id="calcCtaBtn">Contribute</button>
+      <div class="rc-trust-strip">KYB Completed · Invoice Verified · Obligor Confirmed · Bank Account Verified</div>
       <div class="rc-escrow">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="8" height="5.5" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6V4.5a2 2 0 014 0V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         Funds held in escrow until maturity
