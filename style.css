@@ -4744,9 +4744,9 @@ footer {
   color: var(--text3);
 }
 .lc-progress-block {
-  margin-top: 30px;
+  margin-top: 20px;
   display: grid;
-  gap: 9px;
+  gap: 7px;
 }
 .lc-progress-meta {
   display: flex;
@@ -4768,13 +4768,13 @@ footer {
   color: var(--text3);
 }
 .lc-metrics-row {
-  margin-top: 30px;
+  margin-top: 18px;
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr;
-  gap: 16px 12px;
+  gap: 10px 12px;
   align-items: start;
 }
-.lc-metric-cell { display: grid; gap: 6px; align-content: start; }
+.lc-metric-cell { display: grid; gap: 4px; align-content: start; }
 .lc-metric-date {
   display: inline;
   font-family: 'Manrope', sans-serif;
@@ -4840,9 +4840,9 @@ footer {
 .modal-verif {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 9px 16px;
-  margin-top: 24px;
-  padding-top: 18px;
+  gap: 7px 12px;
+  margin-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid rgba(5,5,5,0.10);
 }
 .modal-card-photo .modal-verif { border-top-color: rgba(255,255,255,0.12); }
