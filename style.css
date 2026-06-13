@@ -5023,8 +5023,13 @@ footer {
   border-top: 0.5px solid rgba(5,5,5,0.07);
   border-bottom: 0.5px solid rgba(5,5,5,0.07);
 }
-.rc-checks .modal-check-icon { color: #16A34A; }
-.rc-checks .modal-check-text { color: rgba(5,5,5,0.65); }
+.rc-checks .modal-check-icon { color: var(--text3); width: 14px; height: 14px; }
+.rc-checks .modal-check-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--black);
+}
 .rc-fact-row {
   display: flex;
   justify-content: space-between;
@@ -5230,8 +5235,8 @@ footer {
 }
 .modal-card-photo .modal-summary .modal-check-icon { color: #4ADE80; }
 .modal-card-photo .modal-summary .modal-check-text { color: rgba(255,255,255,0.80); }
-.modal-card-photo .rc-checks .modal-check-icon { color: #16A34A; }
-.modal-card-photo .rc-checks .modal-check-text { color: rgba(5,5,5,0.65); }
+.modal-card-photo .rc-checks .modal-check-icon { color: var(--text3); }
+.modal-card-photo .rc-checks .modal-check-text { color: var(--black); }
 
 /* ── DEAL CALCULATOR (right column) ── */
 .deal-calc {
