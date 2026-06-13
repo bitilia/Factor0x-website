@@ -4774,8 +4774,18 @@ footer {
 }
 .lc-risk-block {
   margin-top: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.lc-risk-left {
   display: grid;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.lc-risk-checks {
+  margin-top: 0;
+  flex: 1;
 }
 .lc-risk-note {
   font-family: 'Manrope', sans-serif;
