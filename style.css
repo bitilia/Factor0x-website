@@ -4713,10 +4713,10 @@ footer {
 }
 .lc-apr-number {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 56px;
+  font-size: 72px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
   color: var(--black);
 }
 .lc-apr-label {
@@ -4728,9 +4728,9 @@ footer {
   color: var(--text3);
 }
 .lc-progress-block {
-  margin-top: 24px;
+  margin-top: 30px;
   display: grid;
-  gap: 8px;
+  gap: 9px;
 }
 .lc-progress-meta {
   display: flex;
@@ -4747,17 +4747,17 @@ footer {
 }
 .lc-progress-amounts {
   font-family: 'Manrope', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text3);
 }
 .lc-metrics-row {
-  margin-top: 24px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px 16px;
+  gap: 16px 16px;
 }
-.lc-metric-cell { display: grid; gap: 5px; }
+.lc-metric-cell { display: grid; gap: 6px; }
 .lc-metric-label {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
@@ -4768,12 +4768,12 @@ footer {
 }
 .lc-metric-value {
   font-family: 'Manrope', sans-serif;
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--black);
 }
 .lc-risk-block {
-  margin-top: 26px;
+  margin-top: 32px;
   display: grid;
   gap: 10px;
 }
@@ -4990,6 +4990,15 @@ footer {
 
 /* ── RIGHT COLUMN (rc-*) ── */
 .rc-facts { margin-bottom: 10px; }
+.rc-checks {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 8px 2px;
+  border-top: 0.5px solid rgba(5,5,5,0.07);
+  border-bottom: 0.5px solid rgba(5,5,5,0.07);
+}
+.rc-checks .modal-check-icon { color: #16A34A; }
+.rc-checks .modal-check-text { color: rgba(5,5,5,0.65); }
 .rc-fact-row {
   display: flex;
   justify-content: space-between;
