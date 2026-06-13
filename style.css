@@ -5052,25 +5052,14 @@ footer {
 
 /* ── RIGHT COLUMN (rc-*) ── */
 .rc-facts { margin-bottom: 10px; }
-.rc-checks {
-  margin-top: 0;
-  margin-bottom: 10px;
-  padding: 8px 2px;
-  border-top: 0.5px solid rgba(5,5,5,0.07);
-  border-bottom: 0.5px solid rgba(5,5,5,0.07);
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0 10px;
-  align-items: center;
-}
-.rc-checks .modal-check-text {
+.rc-trust-strip {
+  text-align: center;
   font-family: 'Manrope', sans-serif;
   font-size: 10px;
   font-weight: 400;
-  color: var(--black);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: var(--text3);
+  line-height: 1.4;
+  padding: 2px 0;
 }
 .rc-fact-row {
   display: flex;
