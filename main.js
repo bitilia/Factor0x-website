@@ -1562,6 +1562,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       </div>
     </div>
     <div class="lc-risk-block">
+      <span class="lc-metric-label">Risk level</span>
       ${renderRiskMeter(meta.risk)}
       ${meta.riskNote ? `<p class="lc-risk-note">${meta.riskNote}</p>` : ''}
     </div>`;
@@ -1698,7 +1699,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       if (!details) return;
 
       const investment = getInvestmentMeta(details, row);
-      const compactFactLabels = new Set(['APR', 'Due Date', 'Risk', 'Min Contribution']);
+      const compactFactLabels = new Set(['APR', 'Due Date', 'Risk', 'Min Contribution', 'Risk Level']);
       const visibleFacts = details.facts.filter(([label]) => !compactFactLabels.has(label));
       card.className = details.cardClass || 'modal-card';
       title.textContent = details.name;
