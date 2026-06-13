@@ -5110,6 +5110,13 @@ footer {
 }
 .modal-invest-cta:hover .btn-arrow { transform: translateX(4px); }
 .modal-invest-cta:active { transform: translateY(0); }
+.modal-invest-cta:disabled,
+.modal-invest-cta:disabled:hover {
+  opacity: 0.42;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none !important;
+}
 .modal-invest-cta:focus-visible {
   outline: none;
   transform: translateY(-2px);
