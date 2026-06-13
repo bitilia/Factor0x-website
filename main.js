@@ -1437,7 +1437,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         ['Sector', 'Trade Logistics'],
         ['Risk Level', 'Low Risk'],
         ['Jurisdiction', 'Dubai, UAE'],
-        ['Invoice Amount', '$420,000'],
+        ['Invoice Amount', '$420 000'],
         ['Due Date', '2026/07/18'],
         ['APR', '6.2% annual']
       ]
@@ -1462,7 +1462,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         ['Sector', 'Electronics'],
         ['Risk Level', 'Medium Risk'],
         ['Jurisdiction', 'Singapore'],
-        ['Invoice Amount', '$315,000'],
+        ['Invoice Amount', '$315 000'],
         ['Due Date', '2026/06/30'],
         ['APR', '9.4% annual']
       ]
@@ -1487,7 +1487,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         ['Sector', 'SaaS Contract'],
         ['Risk Level', 'Low Risk'],
         ['Jurisdiction', 'UAE Free Zone'],
-        ['Invoice Amount', '$250,000'],
+        ['Invoice Amount', '$250 000'],
         ['Due Date', '2026/06/14'],
         ['APR', '5.4% annual']
       ]
@@ -1499,7 +1499,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   }
 
   function formatCurrency(value) {
-    return '$' + Math.round(value).toLocaleString('en-US');
+    return '$' + Math.round(value).toLocaleString('en-US').replace(/,/g, ' ');
   }
 
   function getInvestmentMeta(details, row) {
@@ -1566,7 +1566,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const maxInvest = Math.max(minInvest, Math.floor(remaining / 100) * 100);
     const dueDays = parseNumber(meta.dueDays);
     return `<div class="deal-calc" id="dealCalc">
-      <span class="deal-calc-header">Your investment</span>
       <div class="deal-calc-input-wrap">
         <span class="deal-calc-prefix" aria-hidden="true">$</span>
         <input type="text" inputmode="numeric" id="calcAmount" class="deal-calc-input"
@@ -1617,7 +1616,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     function clamp(val) {
       return Math.max(minInvest, Math.min(maxInvest, Math.round(val / 100) * 100));
     }
-    function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+    function fmt(n) { return Math.round(n).toLocaleString('en-US').replace(/,/g, ' '); }
 
     function update(rawVal) {
       const val = clamp(isNaN(rawVal) || rawVal <= 0 ? minInvest : rawVal);
