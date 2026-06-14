@@ -1035,9 +1035,13 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
 
     function hideRotateHint() {
-      if (!rotateHint) return;
+      if (!rotateHint || rotateHint.hasAttribute('hidden')) return;
       rotateHint.classList.remove('visible');
-      rotateHint.setAttribute('hidden', '');
+      rotateHint.classList.add('hiding');
+      setTimeout(() => {
+        rotateHint.classList.remove('hiding');
+        rotateHint.setAttribute('hidden', '');
+      }, 220);
     }
 
     function openLandscapeModal() {
@@ -1079,7 +1083,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     viewMoreButtons.forEach(viewMoreButton => {
       viewMoreButton.addEventListener('click', () => {
         if (isPortraitMobile()) {
-          showRotateHint();
+          if (rotateHint && !rotateHint.hasAttribute('hidden')) {
+            hideRotateHint();
+          } else {
+            showRotateHint();
+          }
         } else {
           hideRotateHint();
           setInvoiceTableOpen(!invoiceHero?.classList.contains('show-invoice-table'));

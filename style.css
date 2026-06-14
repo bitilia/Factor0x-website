@@ -881,9 +881,23 @@ body .policy {
   text-align: center;
   animation: rotate-hint-in 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
+.rotate-hint.hiding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 48px 24px 52px;
+  text-align: center;
+  animation: rotate-hint-out 0.22s ease both;
+}
 @keyframes rotate-hint-in {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes rotate-hint-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(8px); }
 }
 .rotate-hint-phone {
   position: relative;
