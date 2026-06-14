@@ -1083,6 +1083,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
           _miOriginalNextSibling = null;
         }
       }
+      // Scroll back to the top offers section
+      const invoicesSection = document.getElementById('invoices');
+      if (invoicesSection) {
+        invoicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
     if (landscapeModalClose) {
