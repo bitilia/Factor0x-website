@@ -900,25 +900,10 @@ body .policy {
   animation: rotate-hint-phone 2.4s ease-in-out infinite;
   transform-origin: center center;
 }
-.rotate-hint-arrow {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 26px;
-  height: 26px;
-  color: rgba(5,5,5,0.28);
-  animation: rotate-hint-arrow-pulse 2.4s ease-in-out infinite;
-}
 @keyframes rotate-hint-phone {
-  0%, 20%  { transform: rotate(0deg); }
-  55%, 80% { transform: rotate(-90deg); }
+  0%, 15%  { transform: rotate(0deg); }
+  55%, 80% { transform: rotate(90deg); }
   100%     { transform: rotate(0deg); }
-}
-@keyframes rotate-hint-arrow-pulse {
-  0%, 20%  { opacity: 0.3; }
-  40%      { opacity: 1; }
-  80%      { opacity: 0.3; }
-  100%     { opacity: 0.3; }
 }
 .rotate-hint-text {
   margin: 0;
@@ -7324,5 +7309,42 @@ footer {
 
   .team-card p {
     display: none;
+  }
+}
+
+/* ── LANDSCAPE MOBILE: invoice table fits viewport ── */
+@media (max-width: 960px) and (orientation: landscape) {
+  .invoice-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .invoice-table {
+    min-width: 0;
+    width: 100%;
+    font-size: 11px;
+  }
+  .invoice-table th,
+  .invoice-table td {
+    padding: 8px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .invoice-table th {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+  .table-actions {
+    gap: 4px;
+  }
+  .table-actions .table-contribute-btn,
+  .table-actions .details-btn {
+    min-height: 26px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+  .invoice-hero.show-invoice-table .more-invoices {
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 }
