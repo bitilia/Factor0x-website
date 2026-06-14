@@ -1023,6 +1023,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     function showRotateHint() {
       if (!rotateHint) return;
+      const isEn = currentLang === 'en';
+      const textEl = rotateHint.querySelector('.rotate-hint-text');
+      const subEl  = rotateHint.querySelector('.rotate-hint-sub');
+      if (textEl) textEl.textContent = isEn ? 'Rotate your phone to landscape' : 'Переверните телефон горизонтально';
+      if (subEl)  subEl.textContent  = isEn ? 'The deals table fits better in landscape mode' : 'Таблица сделок лучше смотрится в альбомном режиме';
       rotateHint.removeAttribute('hidden');
       requestAnimationFrame(() => rotateHint.classList.add('visible'));
     }
