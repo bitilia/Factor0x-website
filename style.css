@@ -7445,9 +7445,9 @@ footer {
     min-width: 0;
     width: 100%;
   }
-  /* Column widths: Company 13%, Amount 9%, APR 7%, Due Date 8%, Filled 7%, Risk 14%, Min 10%, Actions 32% */
+  /* Column widths: Company 19%, Amount 9%, APR 7%, Due Date 8%, Filled 7%, Risk 11%, Min 7%, Actions 32% */
   .invoice-table th:nth-child(1),
-  .invoice-table td:nth-child(1) { width: 13%; }
+  .invoice-table td:nth-child(1) { width: 19%; }
   .invoice-table th:nth-child(2),
   .invoice-table td:nth-child(2) { width: 9%; }
   .invoice-table th:nth-child(3),
@@ -7457,9 +7457,9 @@ footer {
   .invoice-table th:nth-child(5),
   .invoice-table td:nth-child(5) { width: 7%; }
   .invoice-table th:nth-child(6),
-  .invoice-table td:nth-child(6) { width: 14%; overflow: visible; }
+  .invoice-table td:nth-child(6) { width: 11%; overflow: visible; }
   .invoice-table th:nth-child(7),
-  .invoice-table td:nth-child(7) { width: 10%; }
+  .invoice-table td:nth-child(7) { width: 7%; }
   .invoice-table th:nth-child(8),
   .invoice-table td:nth-child(8) { width: 32%; overflow: visible; }
   .invoice-table th,
