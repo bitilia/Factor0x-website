@@ -1015,9 +1015,41 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       }
     };
 
+    const rotateHint = document.getElementById('rotateHint');
+
+    function isPortraitMobile() {
+      return window.innerWidth <= 820 && window.matchMedia('(orientation: portrait)').matches;
+    }
+
+    function showRotateHint() {
+      if (!rotateHint) return;
+      rotateHint.removeAttribute('hidden');
+      requestAnimationFrame(() => rotateHint.classList.add('visible'));
+    }
+
+    function hideRotateHint() {
+      if (!rotateHint) return;
+      rotateHint.classList.remove('visible');
+      rotateHint.setAttribute('hidden', '');
+    }
+
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        if (!window.matchMedia('(orientation: portrait)').matches && rotateHint && !rotateHint.hasAttribute('hidden')) {
+          hideRotateHint();
+          setInvoiceTableOpen(true);
+        }
+      }, 120);
+    });
+
     viewMoreButtons.forEach(viewMoreButton => {
       viewMoreButton.addEventListener('click', () => {
-        setInvoiceTableOpen(!invoiceHero?.classList.contains('show-invoice-table'));
+        if (isPortraitMobile() && !invoiceHero?.classList.contains('show-invoice-table')) {
+          showRotateHint();
+        } else {
+          hideRotateHint();
+          setInvoiceTableOpen(!invoiceHero?.classList.contains('show-invoice-table'));
+        }
       });
     });
 
@@ -1311,7 +1343,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'София Лоран': 'Sophia Laurent',
         'Маркус Беннетт': 'Marcus Bennett',
         'Адриан Моро': 'Adrian Moreau',
-        'Майя Рейнольдс': 'Maya Reynolds'
+        'Майя Рейнольдс': 'Maya Reynolds',
+        'Переверните телефон горизонтально': 'Rotate your phone to landscape',
+        'Таблица сделок лучше смотрится в альбомном режиме': 'The deals table fits better in landscape mode'
       }
     };
 

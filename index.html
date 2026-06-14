@@ -226,6 +226,21 @@
       <input class="invoice-carousel-slider" type="range" min="0" max="2" value="1" step="1" aria-label="Позиция инвойса">
     </div>
     <button class="view-more-btn view-more-btn-mobile" type="button" aria-expanded="false">Смотреть еще</button>
+    <div class="rotate-hint" id="rotateHint" hidden aria-live="polite">
+      <div class="rotate-hint-phone">
+        <svg class="rotate-hint-svg" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="44" height="76" rx="7" stroke="currentColor" stroke-width="3"/>
+          <circle cx="24" cy="68" r="3" fill="currentColor"/>
+          <rect x="18" y="8" width="12" height="3" rx="1.5" fill="currentColor" opacity="0.4"/>
+        </svg>
+        <svg class="rotate-hint-arrow" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 16 C6 10 10 6 16 6 C22 6 26 10 26 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <polyline points="22,4 26,6 24,10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="rotate-hint-text">Переверните телефон горизонтально</p>
+      <p class="rotate-hint-sub">Таблица сделок лучше смотрится в альбомном режиме</p>
+    </div>
     <div class="more-invoices" id="moreInvoices" aria-hidden="true">
       <div class="invoice-table-wrap">
         <table class="invoice-table">
