@@ -7470,6 +7470,9 @@ footer {
   .invoice-table td:nth-child(1) {
     font-size: 5px;
   }
+  .invoice-table td:nth-child(1) strong {
+    font-size: 8px;
+  }
   .table-actions {
     gap: 3px;
   }
