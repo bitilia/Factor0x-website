@@ -964,21 +964,18 @@ body.landscape-modal-open .more-invoices {
   inset: 0;
   z-index: 600;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   background: var(--bg, #f7f7f5);
-  padding-top: 52px;
 }
 body.landscape-modal-open .landscape-modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 601;
+  z-index: 2;
   height: 52px;
   padding: 0 16px;
   background: var(--bg, #f7f7f5);
@@ -7371,36 +7368,58 @@ footer {
 /* ── LANDSCAPE MOBILE: invoice table fits viewport ── */
 @media (max-width: 960px) and (orientation: landscape) {
   .invoice-table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
   }
   .invoice-table {
+    table-layout: fixed;
     min-width: 0;
     width: 100%;
-    font-size: 11px;
   }
+  /* Column widths: Company 22%, Amount 11%, APR 8%, Due Date 11%, Filled 9%, Risk 10%, Min 12%, Actions 17% */
+  .invoice-table th:nth-child(1),
+  .invoice-table td:nth-child(1) { width: 22%; }
+  .invoice-table th:nth-child(2),
+  .invoice-table td:nth-child(2) { width: 11%; }
+  .invoice-table th:nth-child(3),
+  .invoice-table td:nth-child(3) { width: 8%; }
+  .invoice-table th:nth-child(4),
+  .invoice-table td:nth-child(4) { width: 11%; }
+  .invoice-table th:nth-child(5),
+  .invoice-table td:nth-child(5) { width: 9%; }
+  .invoice-table th:nth-child(6),
+  .invoice-table td:nth-child(6) { width: 10%; }
+  .invoice-table th:nth-child(7),
+  .invoice-table td:nth-child(7) { width: 12%; }
+  .invoice-table th:nth-child(8),
+  .invoice-table td:nth-child(8) { width: 17%; }
   .invoice-table th,
   .invoice-table td {
-    padding: 8px 8px;
+    padding: 7px 6px;
     font-size: 11px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .invoice-table th {
     font-size: 9px;
-    padding: 6px 8px;
+    padding: 5px 6px;
+    letter-spacing: 0;
+  }
+  /* Company smaller */
+  .invoice-table td:nth-child(1) {
+    font-size: 10px;
   }
   .table-actions {
-    gap: 4px;
+    gap: 3px;
   }
   .table-actions .table-contribute-btn,
   .table-actions .details-btn {
-    min-height: 26px;
-    padding: 0 8px;
-    font-size: 10px;
-  }
-  .invoice-hero.show-invoice-table .more-invoices {
-    max-height: calc(100dvh - 120px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
+    min-height: 24px;
+    padding: 0 6px;
+    font-size: 9.5px;
+    border-radius: 6px;
   }
 }
