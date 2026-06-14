@@ -6149,7 +6149,7 @@ footer {
   #nav.scrolled { padding: 14px 24px; }
   .btn-nav { display: none; }
   .hero {
-    padding: 80px 24px 54px;
+    padding: 80px 0 54px;
     min-height: auto;
   }
   .hero-title { font-size: 58px; }
@@ -6752,7 +6752,7 @@ footer {
   }
 
   #hero {
-    padding-top: 56px;
+    padding: 56px 0 40px;
   }
 
   #invoices {
