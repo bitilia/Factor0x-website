@@ -4398,11 +4398,12 @@ footer {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.22s ease, visibility 0.22s ease;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 .modal-backdrop.open {
   opacity: 1;
   visibility: visible;
-  overscroll-behavior: contain;
 }
 .details-modal {
   position: relative;
@@ -6482,6 +6483,7 @@ footer {
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
   .modal-top {
     gap: 10px;
@@ -6736,14 +6738,14 @@ footer {
   .about-visual .about-platform-img {
     left: 50%;
     bottom: -34px;
-    width: min(330px, 86vw);
+    width: min(347px, 90vw);
     transform: translateX(-50%);
   }
 
   .about-visual .about-safe-img {
     left: 51.5%;
     bottom: -18px;
-    width: min(347px, 92vw);
+    width: min(364px, 97vw);
   }
 
   .invoice-visual-copy {
@@ -6795,7 +6797,7 @@ footer {
     left: 50%;
     right: auto;
     top: 72%;
-    width: min(330px, 86vw);
+    width: min(347px, 90vw);
     transform: translate(-50%, -50%);
   }
 
@@ -6803,7 +6805,7 @@ footer {
     left: 50%;
     right: auto;
     top: 41%;
-    width: min(248px, 64vw);
+    width: min(260px, 67vw);
     transform: translate(-50%, -50%);
     animation: invoice-paper-mobile-float 5.8s ease-in-out infinite;
   }

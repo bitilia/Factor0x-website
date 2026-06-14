@@ -958,9 +958,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   const networkOptions = document.querySelectorAll('.network-menu button');
   const supportedLangs = ['en', 'ru'];
   const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const storedLang = localStorage.getItem('factor0xLang');
   let currentLang = supportedLangs.includes(urlLang)
     ? urlLang
-    : 'en';
+    : supportedLangs.includes(storedLang)
+      ? storedLang
+      : 'en';
 
   if (walletButton) {
     walletButton.addEventListener('click', () => {
