@@ -915,10 +915,10 @@ body .policy {
 }
 .rotate-hint-sub {
   margin: -8px 0 0;
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(5,5,5,0.46);
   line-height: 1.5;
-  max-width: 260px;
+  white-space: nowrap;
 }
 .invoice-carousel-control {
   display: none;
@@ -954,6 +954,62 @@ body .policy {
 }
 .invoice-hero.show-invoice-table .more-invoices {
   display: block;
+}
+.landscape-modal-header {
+  display: none;
+}
+body.landscape-modal-open .more-invoices {
+  display: block !important;
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg, #f7f7f5);
+  padding-top: 52px;
+}
+body.landscape-modal-open .landscape-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 601;
+  height: 52px;
+  padding: 0 16px;
+  background: var(--bg, #f7f7f5);
+  border-bottom: 1px solid rgba(5,5,5,0.08);
+}
+.landscape-modal-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.landscape-modal-close {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(5,5,5,0.14);
+  border-radius: 50%;
+  background: none;
+  color: rgba(5,5,5,0.5);
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.15s, border-color 0.15s;
+}
+.landscape-modal-close:hover {
+  color: rgba(5,5,5,0.9);
+  border-color: rgba(5,5,5,0.3);
 }
 .invoice-table-wrap {
   position: relative;
