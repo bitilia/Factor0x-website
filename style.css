@@ -7425,6 +7425,15 @@ footer {
 
 /* ── LANDSCAPE MOBILE: invoice table fits viewport ── */
 @media (max-width: 960px) and (orientation: landscape) {
+  .container {
+    max-width: 100%;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  #nav {
+    padding-left: calc(16px + env(safe-area-inset-left, 0px));
+    padding-right: calc(16px + env(safe-area-inset-right, 0px));
+  }
   .invoice-table-wrap {
     border-radius: 0;
     border-left: 0;
