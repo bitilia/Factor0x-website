@@ -1074,12 +1074,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       setTimeout(() => {
         const isLandscape = !window.matchMedia('(orientation: portrait)').matches;
         const isMobile = window.innerWidth <= 960 || window.innerHeight <= 960;
-        if (isLandscape && isMobile && rotateHint && !rotateHint.hasAttribute('hidden')) {
+        if (isLandscape && isMobile) {
           hideRotateHint();
           openLandscapeModal();
         } else if (!isLandscape && document.body.classList.contains('landscape-modal-open')) {
           closeLandscapeModal();
-          showRotateHint();
         }
       }, 180);
     });
