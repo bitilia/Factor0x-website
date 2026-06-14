@@ -972,6 +972,9 @@ body .policy {
 .landscape-modal-header {
   display: none;
 }
+body.landscape-modal-open #nav {
+  display: none;
+}
 body.landscape-modal-open .more-invoices {
   display: block !important;
   position: fixed;

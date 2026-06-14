@@ -1031,7 +1031,10 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       if (textEl) textEl.textContent = isEn ? 'Rotate your phone to landscape' : 'Переверните телефон горизонтально';
       if (subEl)  subEl.textContent  = isEn ? 'The deals table fits better in landscape mode' : 'Таблица сделок лучше смотрится в альбомном режиме';
       rotateHint.removeAttribute('hidden');
-      requestAnimationFrame(() => rotateHint.classList.add('visible'));
+      requestAnimationFrame(() => {
+        rotateHint.classList.add('visible');
+        rotateHint.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
     }
 
     function hideRotateHint() {
