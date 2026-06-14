@@ -1036,10 +1036,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     window.addEventListener('orientationchange', () => {
       setTimeout(() => {
         if (!window.matchMedia('(orientation: portrait)').matches && rotateHint && !rotateHint.hasAttribute('hidden')) {
+          const savedScrollY = window.scrollY;
           hideRotateHint();
           setInvoiceTableOpen(true);
+          requestAnimationFrame(() => window.scrollTo({ top: savedScrollY, behavior: 'instant' }));
         }
-      }, 120);
+      }, 180);
     });
 
     viewMoreButtons.forEach(viewMoreButton => {
