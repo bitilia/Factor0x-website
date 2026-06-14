@@ -1047,20 +1047,38 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       }, 220);
     }
 
+    let _miOriginalParent = null;
+    let _miOriginalNextSibling = null;
+
     function openLandscapeModal() {
+      if (!moreInvoices) return;
       if (landscapeModalTitle) {
         landscapeModalTitle.textContent = currentLang === 'en' ? 'Offer list' : 'Список предложений';
       }
+      // Move element to <body> so no overflow:hidden ancestor can clip the fixed overlay on iOS
+      if (moreInvoices.parentElement !== document.body) {
+        _miOriginalParent = moreInvoices.parentElement;
+        _miOriginalNextSibling = moreInvoices.nextSibling;
+        document.body.appendChild(moreInvoices);
+      }
       document.body.classList.add('landscape-modal-open');
       document.body.style.overflow = 'hidden';
-      moreInvoices?.setAttribute('aria-hidden', 'false');
-      if (moreInvoices) moreInvoices.scrollTop = 0;
+      moreInvoices.setAttribute('aria-hidden', 'false');
+      moreInvoices.scrollTop = 0;
     }
 
     function closeLandscapeModal() {
       document.body.classList.remove('landscape-modal-open');
       document.body.style.overflow = '';
-      moreInvoices?.setAttribute('aria-hidden', 'true');
+      if (moreInvoices) {
+        moreInvoices.setAttribute('aria-hidden', 'true');
+        // Move element back to original position
+        if (_miOriginalParent && moreInvoices.parentElement === document.body) {
+          _miOriginalParent.insertBefore(moreInvoices, _miOriginalNextSibling);
+          _miOriginalParent = null;
+          _miOriginalNextSibling = null;
+        }
+      }
     }
 
     if (landscapeModalClose) {
@@ -1070,18 +1088,21 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       });
     }
 
-    window.addEventListener('orientationchange', () => {
-      setTimeout(() => {
-        const isLandscape = !window.matchMedia('(orientation: portrait)').matches;
-        const isMobile = window.innerWidth <= 960 || window.innerHeight <= 960;
-        if (isLandscape && isMobile) {
-          hideRotateHint();
-          openLandscapeModal();
-        } else if (!isLandscape && document.body.classList.contains('landscape-modal-open')) {
-          closeLandscapeModal();
-        }
-      }, 180);
-    });
+    function handleOrientationChange() {
+      const isLandscape = window.innerWidth > window.innerHeight;
+      const isMobile = Math.min(window.innerWidth, window.innerHeight) <= 600;
+      if (isLandscape && isMobile) {
+        hideRotateHint();
+        openLandscapeModal();
+      } else if (!isLandscape && document.body.classList.contains('landscape-modal-open')) {
+        closeLandscapeModal();
+      }
+    }
+
+    window.addEventListener('orientationchange', () => setTimeout(handleOrientationChange, 300));
+    if (screen.orientation) {
+      screen.orientation.addEventListener('change', () => setTimeout(handleOrientationChange, 300));
+    }
 
     viewMoreButtons.forEach(viewMoreButton => {
       viewMoreButton.addEventListener('click', () => {
