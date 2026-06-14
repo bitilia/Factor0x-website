@@ -1016,9 +1016,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     };
 
     const rotateHint = document.getElementById('rotateHint');
+    const landscapeModalClose = document.getElementById('landscapeModalClose');
+    const landscapeModalTitle = moreInvoices?.querySelector('.landscape-modal-title');
 
     function isPortraitMobile() {
-      return window.innerWidth <= 820 && window.matchMedia('(orientation: portrait)').matches;
+      return window.innerWidth <= 960 && window.matchMedia('(orientation: portrait)').matches;
     }
 
     function showRotateHint() {
@@ -1038,20 +1040,45 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       rotateHint.setAttribute('hidden', '');
     }
 
+    function openLandscapeModal() {
+      if (landscapeModalTitle) {
+        landscapeModalTitle.textContent = currentLang === 'en' ? 'Offer list' : 'Список предложений';
+      }
+      document.body.classList.add('landscape-modal-open');
+      document.body.style.overflow = 'hidden';
+      moreInvoices?.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLandscapeModal() {
+      document.body.classList.remove('landscape-modal-open');
+      document.body.style.overflow = '';
+      moreInvoices?.setAttribute('aria-hidden', 'true');
+    }
+
+    if (landscapeModalClose) {
+      landscapeModalClose.addEventListener('click', () => {
+        closeLandscapeModal();
+        hideRotateHint();
+      });
+    }
+
     window.addEventListener('orientationchange', () => {
       setTimeout(() => {
-        if (!window.matchMedia('(orientation: portrait)').matches && rotateHint && !rotateHint.hasAttribute('hidden')) {
-          const savedScrollY = window.scrollY;
+        const isLandscape = !window.matchMedia('(orientation: portrait)').matches;
+        const isMobile = window.innerWidth <= 960 || window.innerHeight <= 960;
+        if (isLandscape && isMobile && rotateHint && !rotateHint.hasAttribute('hidden')) {
           hideRotateHint();
-          setInvoiceTableOpen(true);
-          requestAnimationFrame(() => window.scrollTo({ top: savedScrollY, behavior: 'instant' }));
+          openLandscapeModal();
+        } else if (!isLandscape && document.body.classList.contains('landscape-modal-open')) {
+          closeLandscapeModal();
+          showRotateHint();
         }
       }, 180);
     });
 
     viewMoreButtons.forEach(viewMoreButton => {
       viewMoreButton.addEventListener('click', () => {
-        if (isPortraitMobile() && !invoiceHero?.classList.contains('show-invoice-table')) {
+        if (isPortraitMobile()) {
           showRotateHint();
         } else {
           hideRotateHint();
