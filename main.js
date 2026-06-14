@@ -1002,7 +1002,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       moreInvoices.setAttribute('aria-hidden', String(!isOpen));
       const buttonText = isOpen
         ? currentLang === 'en' ? 'View less' : 'Скрыть'
-        : currentLang === 'en' ? 'View more' : 'Смотреть еще';
+        : currentLang === 'en' ? 'View More' : 'Смотреть еще';
       viewMoreButtons.forEach(button => {
         button.setAttribute('aria-expanded', String(isOpen));
         button.textContent = buttonText;
@@ -1300,7 +1300,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         'Проверенные': 'Finance verified',
         'B2B инвойсы': 'B2B invoices',
         'ТОП сделки': 'Top offers',
-        'Смотреть еще': 'View more',
+        'Смотреть еще': 'View More',
         'Скрыть': 'View less',
         'Список предложений': 'Offer list',
         'ОАЭ · Дубай': 'UAE · Dubai',
