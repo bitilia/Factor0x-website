@@ -1064,9 +1064,18 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       document.body.classList.add('landscape-modal-open');
       document.body.style.overflow = 'hidden';
       moreInvoices.setAttribute('aria-hidden', 'false');
-      // Push modal below the nav so logo header stays visible
+      // Force full-width coverage and push below nav
       const navEl = document.getElementById('nav');
-      moreInvoices.style.top = (navEl ? navEl.offsetHeight : 0) + 'px';
+      const navH = navEl ? navEl.offsetHeight : 0;
+      moreInvoices.style.position = 'fixed';
+      moreInvoices.style.top = navH + 'px';
+      moreInvoices.style.left = '0';
+      moreInvoices.style.right = '0';
+      moreInvoices.style.bottom = '0';
+      moreInvoices.style.width = '100vw';
+      moreInvoices.style.maxWidth = '100vw';
+      moreInvoices.style.margin = '0';
+      moreInvoices.style.padding = '0';
       moreInvoices.scrollTop = 0;
     }
 
@@ -1074,7 +1083,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       document.body.classList.remove('landscape-modal-open');
       document.body.style.overflow = '';
       if (moreInvoices) {
-        moreInvoices.style.top = '';
+        moreInvoices.style.cssText = '';
         moreInvoices.setAttribute('aria-hidden', 'true');
         // Move element back to original position
         if (_miOriginalParent && moreInvoices.parentElement === document.body) {
