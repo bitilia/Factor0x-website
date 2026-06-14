@@ -1051,6 +1051,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       document.body.classList.add('landscape-modal-open');
       document.body.style.overflow = 'hidden';
       moreInvoices?.setAttribute('aria-hidden', 'false');
+      if (moreInvoices) moreInvoices.scrollTop = 0;
     }
 
     function closeLandscapeModal() {
