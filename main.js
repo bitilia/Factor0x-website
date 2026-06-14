@@ -1047,52 +1047,47 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       }, 220);
     }
 
-    let _miOriginalParent = null;
-    let _miOriginalNextSibling = null;
+    let _landscapeOverlay = null;
 
     function openLandscapeModal() {
-      if (!moreInvoices) return;
+      if (!moreInvoices || _landscapeOverlay) return;
       if (landscapeModalTitle) {
         landscapeModalTitle.textContent = currentLang === 'en' ? 'Offer list' : 'Список предложений';
       }
-      // Move element to <body> so no overflow:hidden ancestor can clip the fixed overlay on iOS
-      if (moreInvoices.parentElement !== document.body) {
-        _miOriginalParent = moreInvoices.parentElement;
-        _miOriginalNextSibling = moreInvoices.nextSibling;
-        document.body.appendChild(moreInvoices);
-      }
-      document.body.classList.add('landscape-modal-open');
-      document.body.style.overflow = 'hidden';
-      moreInvoices.setAttribute('aria-hidden', 'false');
-      // Force full-width coverage via setProperty !important — highest priority
       const navEl = document.getElementById('nav');
       const navH = navEl ? navEl.offsetHeight : 0;
-      const sp = (p, v) => moreInvoices.style.setProperty(p, v, 'important');
-      sp('position', 'fixed');
-      sp('top', navH + 'px');
-      sp('left', '0');
-      sp('right', '0');
-      sp('bottom', '0');
-      sp('width', '100vw');
-      sp('max-width', '100vw');
-      sp('margin', '0');
-      sp('padding', '0');
-      sp('box-sizing', 'border-box');
-      moreInvoices.scrollTop = 0;
+
+      // Create a brand-new overlay div with no inherited styles
+      _landscapeOverlay = document.createElement('div');
+      _landscapeOverlay.style.cssText =
+        'position:fixed;left:0;right:0;bottom:0;' +
+        'top:' + navH + 'px;' +
+        'width:100%;max-width:100%;margin:0;padding:0;' +
+        'z-index:600;overflow-y:auto;overflow-x:hidden;' +
+        'background:#ffffff;box-sizing:border-box;' +
+        '-webkit-overflow-scrolling:touch;overscroll-behavior:contain;';
+
+      // Move the modal contents into the fresh overlay
+      while (moreInvoices.firstChild) {
+        _landscapeOverlay.appendChild(moreInvoices.firstChild);
+      }
+      document.body.appendChild(_landscapeOverlay);
+
+      document.body.classList.add('landscape-modal-open');
+      document.body.style.overflow = 'hidden';
+      _landscapeOverlay.scrollTop = 0;
     }
 
     function closeLandscapeModal() {
       document.body.classList.remove('landscape-modal-open');
       document.body.style.overflow = '';
-      if (moreInvoices) {
-        moreInvoices.style.cssText = '';
-        moreInvoices.setAttribute('aria-hidden', 'true');
-        // Move element back to original position
-        if (_miOriginalParent && moreInvoices.parentElement === document.body) {
-          _miOriginalParent.insertBefore(moreInvoices, _miOriginalNextSibling);
-          _miOriginalParent = null;
-          _miOriginalNextSibling = null;
+      if (_landscapeOverlay) {
+        // Move contents back into moreInvoices
+        while (_landscapeOverlay.firstChild) {
+          moreInvoices.appendChild(_landscapeOverlay.firstChild);
         }
+        _landscapeOverlay.remove();
+        _landscapeOverlay = null;
       }
       // Scroll back to the top offers section
       const invoicesSection = document.getElementById('invoices');
