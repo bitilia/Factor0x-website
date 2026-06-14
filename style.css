@@ -984,6 +984,9 @@ body .policy {
 body.landscape-modal-open #nav {
   z-index: 700;
 }
+body.landscape-modal-open .modal-backdrop {
+  z-index: 650;
+}
 body.landscape-modal-open .more-invoices {
   display: block !important;
   position: fixed !important;
