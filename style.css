@@ -1,3 +1,4 @@
+
 /* =============================================
    FACTOR0X — PREMIUM LANDING STYLESHEET
    ============================================= */
@@ -7218,6 +7219,10 @@ footer {
     display: none;
   }
 
+  .invoice-top h3 {
+    font-size: 23px;
+  }
+
   .invoice-board {
     display: flex;
     grid-template-columns: none;
@@ -7338,6 +7343,7 @@ footer {
   .view-more-btn-mobile {
     display: inline-block;
     width: auto;
+    min-height: 42px;
     margin-top: 4px;
   }
 
@@ -7462,7 +7468,7 @@ footer {
   }
   /* Company smaller */
   .invoice-table td:nth-child(1) {
-    font-size: 9px;
+    font-size: 5px;
   }
   .table-actions {
     gap: 3px;
