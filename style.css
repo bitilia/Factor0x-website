@@ -7336,8 +7336,8 @@ footer {
   }
 
   .view-more-btn-mobile {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
     margin-top: 4px;
   }
 
