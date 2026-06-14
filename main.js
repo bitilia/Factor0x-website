@@ -1399,6 +1399,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 
     setLanguage(currentLang);
+    document.documentElement.classList.remove('lang-pending');
 
     document.addEventListener('click', () => {
       languageSelect.classList.remove('open');
