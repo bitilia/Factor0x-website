@@ -6439,21 +6439,49 @@ footer {
   .rm-period { display: none; }
   .modal-backdrop { padding: 18px; }
   .modal-kicker { font-size: 22px; }
-  .details-modal::before {
-    content: none;
-    position: sticky;
-    top: 0;
-    z-index: 4;
-    display: block;
-    height: 34px;
-    margin-bottom: -34px;
-    pointer-events: none;
-    background: linear-gradient(180deg, rgba(5,5,5,0.24), rgba(5,5,5,0));
+  .details-modal {
+    position: relative;
   }
+  .details-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 18px 18px 0 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.97) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.18s ease;
+  }
+  .details-modal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 0 0 18px 18px;
+    background: linear-gradient(to top, rgba(255,255,255,0.97) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.18s ease;
+  }
+  .details-modal:has(.modal-card-photo)::before {
+    background: linear-gradient(to bottom, rgba(6,6,6,0.92) 0%, transparent 100%);
+  }
+  .details-modal.can-scroll-up::before { opacity: 1; }
+  .details-modal.can-scroll-down::after { opacity: 1; }
   .modal-card {
     max-height: calc(100dvh - 36px);
     padding: 14px;
     border-radius: 18px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
   .modal-top {
     gap: 10px;
