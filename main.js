@@ -1064,18 +1064,20 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       document.body.classList.add('landscape-modal-open');
       document.body.style.overflow = 'hidden';
       moreInvoices.setAttribute('aria-hidden', 'false');
-      // Force full-width coverage and push below nav
+      // Force full-width coverage via setProperty !important — highest priority
       const navEl = document.getElementById('nav');
       const navH = navEl ? navEl.offsetHeight : 0;
-      moreInvoices.style.position = 'fixed';
-      moreInvoices.style.top = navH + 'px';
-      moreInvoices.style.left = '0';
-      moreInvoices.style.right = '0';
-      moreInvoices.style.bottom = '0';
-      moreInvoices.style.width = '100vw';
-      moreInvoices.style.maxWidth = '100vw';
-      moreInvoices.style.margin = '0';
-      moreInvoices.style.padding = '0';
+      const sp = (p, v) => moreInvoices.style.setProperty(p, v, 'important');
+      sp('position', 'fixed');
+      sp('top', navH + 'px');
+      sp('left', '0');
+      sp('right', '0');
+      sp('bottom', '0');
+      sp('width', '100vw');
+      sp('max-width', '100vw');
+      sp('margin', '0');
+      sp('padding', '0');
+      sp('box-sizing', 'border-box');
       moreInvoices.scrollTop = 0;
     }
 
