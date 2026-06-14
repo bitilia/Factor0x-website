@@ -1411,10 +1411,30 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
   const closeButton = modal.querySelector('.modal-close');
   const card = document.getElementById('modalCard');
+  const detailsModal = modal.querySelector('.details-modal');
   const title = document.getElementById('modalCompanyName');
   const description = document.getElementById('modalDescription');
   const facts = document.getElementById('modalFacts');
   const metrics = document.getElementById('modalMetrics');
+
+  function updateScrollFades() {
+    const atTop = card.scrollTop <= 2;
+    const atBottom = card.scrollTop + card.clientHeight >= card.scrollHeight - 2;
+    detailsModal.classList.toggle('can-scroll-up', !atTop);
+    detailsModal.classList.toggle('can-scroll-down', !atBottom);
+  }
+
+  function setupScrollFades() {
+    if (window.innerWidth > 768) return;
+    card.scrollTop = 0;
+    updateScrollFades();
+    card.addEventListener('scroll', updateScrollFades, { passive: true });
+  }
+
+  function teardownScrollFades() {
+    detailsModal.classList.remove('can-scroll-up', 'can-scroll-down');
+    card.removeEventListener('scroll', updateScrollFades);
+  }
 
   const companyDetails = {
     gulf: {
@@ -1765,6 +1785,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('details-modal-open');
+    teardownScrollFades();
   }
 
   document.querySelectorAll('.details-btn').forEach(button => {
@@ -1817,7 +1838,10 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('details-modal-open');
-      requestAnimationFrame(() => getFocusable()[0]?.focus());
+      requestAnimationFrame(() => {
+        setupScrollFades();
+        getFocusable()[0]?.focus();
+      });
     });
   });
 
