@@ -6418,17 +6418,18 @@ footer {
     flex-wrap: nowrap;
   }
   .footer-social {
-    flex: 0 0 24px;
-    inline-size: 24px;
-    block-size: 24px;
-    min-width: 24px;
-    max-width: 24px;
-    width: 24px;
-    height: 24px;
-    aspect-ratio: 1 / 1;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+    aspect-ratio: 1;
+    align-self: center;
     padding: 0;
     box-sizing: border-box;
-    border-radius: 999px;
+    border-radius: 50%;
   }
   .footer-social svg {
     width: 13px;
