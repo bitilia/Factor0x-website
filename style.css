@@ -7471,7 +7471,7 @@ footer {
     font-size: 5px;
   }
   .invoice-table td:nth-child(1) strong {
-    font-size: 8px;
+    font-size: 10px;
   }
   .table-actions {
     gap: 3px;
