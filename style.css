@@ -33,8 +33,10 @@
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
+html.lang-pending body { opacity: 0; }
 
 body {
+  transition: opacity 0.12s ease;
   position: relative;
   background: var(--bg);
   color: var(--text);
