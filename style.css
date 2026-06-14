@@ -4438,7 +4438,7 @@ footer {
   border-top: 1px solid var(--border);
   background: var(--white);
   color: var(--black);
-  padding: 42px 0 40px;
+  padding: 42px 0 calc(60px + env(safe-area-inset-bottom, 0px));
 }
 .footer-inner {
   display: grid;
