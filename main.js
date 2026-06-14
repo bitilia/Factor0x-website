@@ -1106,7 +1106,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     function handleOrientationChange() {
       const isLandscape = window.innerWidth > window.innerHeight;
       const isMobile = Math.min(window.innerWidth, window.innerHeight) <= 600;
-      if (isLandscape && isMobile) {
+      const hintVisible = rotateHint && !rotateHint.hasAttribute('hidden');
+      if (isLandscape && isMobile && hintVisible) {
         hideRotateHint();
         openLandscapeModal();
       } else if (!isLandscape && document.body.classList.contains('landscape-modal-open')) {
