@@ -620,7 +620,15 @@ body .policy {
 .brand-mobile-tvl {
   display: none;
 }
-.tvl-strip::after {
+.tvl-shine-clip {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.tvl-shine-clip::after {
   content: '';
   position: absolute;
   top: -40%;
