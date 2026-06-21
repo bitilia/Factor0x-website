@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Factor0x — Capital for Business, Yield for Investors</title>
+  <meta name="description" content="Factor0x is a platform where verified B2B invoices find liquidity. Short-term financing for real businesses. Real yield for investors.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+
+  <header class="site-header">
+
+    <!-- Logo -->
+    <a href="./" class="logo-link" aria-label="Factor0x — home">
+      <span class="logo-text" aria-label="Factor0x">
+        <span class="logo-factor">Factor</span><span class="logo-0x">0x</span>
+      </span>
+    </a>
+
+    <!-- Nav -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#faq"      class="nav-link">FAQ</a>
+      <a href="#contacts" class="nav-link">Contacts</a>
+
+      <!-- Language switcher -->
+      <div class="lang-wrap">
+        <button class="globe-btn" aria-haspopup="true" aria-label="Switch language">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="10" cy="10" r="8.25"/>
+            <path d="M10 1.75c-2 2-3.25 4.75-3.25 8.25S8 16.25 10 18.25"/>
+            <path d="M10 1.75c2 2 3.25 4.75 3.25 8.25S12 16.25 10 18.25"/>
+            <path d="M1.75 10h16.5"/>
+            <path d="M3.5 6.5h13"/>
+            <path d="M3.5 13.5h13"/>
+          </svg>
+        </button>
+        <div class="lang-drop" role="menu">
+          <a href="./"     class="lang-option active" role="menuitem">Eng</a>
+          <a href="../ru/" class="lang-option"         role="menuitem">Рус</a>
+        </div>
+      </div>
+
+      <!-- Connect Wallet -->
+      <div class="wallet-wrap">
+        <button class="wallet-btn" aria-haspopup="true" aria-expanded="false" aria-controls="wallet-drop">
+          <span class="crypto-wrap" aria-hidden="true">
+            <img class="crypto-icon active" src="../resources/icons/static/crypto/eth.png"   alt="" width="22" height="22" loading="eager">
+            <img class="crypto-icon"        src="../resources/icons/static/crypto/avax.png"  alt="" width="22" height="22" loading="eager">
+            <img class="crypto-icon"        src="../resources/icons/static/crypto/matic.png" alt="" width="22" height="22" loading="eager">
+            <img class="crypto-icon"        src="../resources/icons/static/crypto/btc.png"   alt="" width="22" height="22" loading="eager">
+          </span>
+          <span>Connect Wallet</span>
+        </button>
+
+        <div class="wallet-drop" id="wallet-drop" role="menu" aria-label="Connect via">
+          <p class="drop-label">Connect via</p>
+
+          <!-- Crypto -->
+          <button class="drop-item" role="menuitem">
+            <span class="drop-icon" style="background:#1c1c1c; border:1px solid rgba(255,255,255,0.12);">
+              <img src="../resources/icons/static/crypto/generic.png" alt="" width="18" height="18" loading="lazy" style="display:block; object-fit:contain;">
+            </span>
+            <span class="drop-item-text">
+              <span class="drop-item-name">Crypto</span>
+              <span class="drop-item-sub">Web3 wallet</span>
+            </span>
+          </button>
+
+          <!-- Bank / Fiat -->
+          <button class="drop-item" role="menuitem">
+            <span class="drop-icon" style="background:#1a5c38;">
+              <img src="../resources/icons/static/solid/building-columns.svg" alt="" width="18" height="18" loading="lazy" style="filter:brightness(0) invert(1); display:block;">
+            </span>
+            <span class="drop-item-text">
+              <span class="drop-item-name">Bank</span>
+              <span class="drop-item-sub">Fiat currency</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  <main class="page-body" id="main-content">
+
+    <!-- ── Hero ─────────────────────────────────────── -->
+    <section class="hero section-full" id="hero">
+      <div class="hero-inner">
+
+        <img
+          src="../resources/logo/logo-3d-c.webp"
+          alt="Factor0x"
+          class="hero-logo blur-load"
+          width="280"
+          height="280"
+          loading="eager"
+          style="animation-delay: 0s"
+        >
+
+        <h1 class="hero-headline blur-load" style="animation-delay: 0.15s">
+          Capital for business<br>Yield for investors
+        </h1>
+
+        <p class="hero-sub blur-load" style="animation-delay: 0.28s">
+          A platform where verified invoices find liquidity
+        </p>
+
+        <div class="hero-actions blur-load" style="animation-delay: 0.4s">
+          <button class="GoldBtn"><span>Get Financing</span></button>
+          <button class="BtnDark"><span>Start Investing</span></button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Invoice Cards ─────────────────────────────── -->
+    <section id="invoice-cards" class="section-full">
+      <div class="invoice-section-inner">
+
+        <div class="invoice-section-top">
+
+          <div class="invoice-content">
+            <h2 class="invoice-title">Finance verified <span class="invoice-title-muted">B2B invoices</span></h2>
+            <p class="invoice-sub">Short-term financing for real businesses.</p>
+          </div>
+
+          <div class="tvl-card">
+            <span class="tvl-info" aria-label="What is TVL?">
+              <svg class="tooltip-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+                <path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM224 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm-8 64l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/>
+              </svg>
+            </span>
+            <span class="tooltip-box tvl-tooltip">TVL is capital allocated to active invoice financing deals.</span>
+            <div class="tvl-card-row">
+              <svg class="tvl-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+                <path d="M192 80c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 352c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-352zM0 272c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 160c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48L0 272zM432 96l32 0c26.5 0 48 21.5 48 48l0 288c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48z"/>
+              </svg>
+              <div class="tvl-content">
+                <span class="tvl-label" id="tvl-date">TVL on 21 May, 2026</span>
+                <span class="tvl-value" id="tvl-value">$103 504 459,50 USD</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+          <div class="offers-header">
+            <span class="offers-label">Top Offers</span>
+            <button class="LightBtn"><span>View all →</span></button>
+          </div>
+          <div class="offers-grid"></div>
+          <div class="offers-scrollbar" aria-hidden="true">
+            <div class="offers-scrollbar-fill"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── How the model works ───────────────────────── -->
+    <section id="model" class="section-full model-section">
+      <div class="model-inner">
+
+        <div class="model-header">
+          <h2 class="model-title">How the model works</h2>
+          <p class="model-sub">Factor0x helps businesses access working capital and investors earn from verified B2B invoices.</p>
+        </div>
+
+        <div class="model-tiles">
+
+          <div class="model-tile">
+            <span class="model-tile-role">Business</span>
+            <span class="model-tile-subtitle">Receives financing</span>
+            <p class="model-tile-desc">Submits a confirmed B2B invoice and receives working capital before the customer pays.</p>
+            <button class="PlainBtn model-tile-btn"><span>Apply</span></button>
+          </div>
+
+          <div class="model-tile model-tile--center">
+            <span class="logo-text model-tile-logo" aria-label="Factor0x">
+              <span class="logo-factor">Factor</span><span class="logo-0x">0x</span>
+            </span>
+            <span class="model-tile-subtitle">Structures the deal</span>
+            <p class="model-tile-desc">Connects business, capital, and the repayment process in one managed infrastructure.</p>
+            <button class="GoldBtn model-tile-btn"><span>Flow</span></button>
+          </div>
+
+          <div class="model-tile">
+            <span class="model-tile-role">Investors</span>
+            <span class="model-tile-subtitle">Provides liquidity</span>
+            <p class="model-tile-desc">Finance real trade deals and earn after they are repaid.</p>
+            <button class="PlainBtn model-tile-btn"><span>Earn</span></button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── About ─────────────────────────────────────── -->
+    <section id="about" class="section-full about-section">
+      <div class="about-inner">
+
+        <div class="about-visual">
+          <video
+            class="about-svg"
+            src="../resources/videos/safe-alpha.webm"
+            autoplay loop muted playsinline
+            disablepictureinpicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+            aria-label="Factor0x platform infrastructure"
+          ></video>
+        </div>
+
+        <div class="about-content">
+          <h2 class="about-heading">About</h2>
+          <p class="about-text">Factor0x operates at the intersection of trade finance, Web3 liquidity, and the real B2B sector.</p>
+          <p class="about-text">We start with the UAE, a market with strong trade, logistics, and demand for working capital.</p>
+          <div class="about-divider"></div>
+          <p class="about-text about-text--goal">Our goal is to give businesses fast capital and investors a clear way to earn from verified B2B invoices.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Deal Transparency ──────────────────────────── -->
+    <section id="deal-transparency" class="section-full deal-section">
+      <div class="deal-inner">
+
+        <div class="deal-content">
+          <h2 class="deal-heading">Deal transparency</h2>
+          <div class="deal-subs">
+            <div class="deal-sub">
+              <p class="deal-sub-label">Invoice Verification</p>
+              <p class="deal-text">We verify the invoice, documents, and delivery evidence.</p>
+            </div>
+            <div class="deal-divider"></div>
+            <div class="deal-sub">
+              <p class="deal-sub-label">KYB &amp; Debtor Check</p>
+              <p class="deal-text">We check the business, debtor, and legal risks.</p>
+            </div>
+            <div class="deal-divider"></div>
+            <div class="deal-sub">
+              <p class="deal-sub-label">Risk Tier</p>
+              <p class="deal-text">We assess term, amount, sector, and deal quality.</p>
+            </div>
+            <div class="deal-divider"></div>
+            <div class="deal-sub">
+              <p class="deal-sub-label">On-chain Tracking</p>
+              <p class="deal-text">We record deal status, repayment, and distributions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="deal-visual">
+          <video
+            class="deal-svg"
+            src="../resources/videos/invoice-alpha.webm"
+            autoplay loop muted playsinline
+            disablepictureinpicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+            aria-label="Factor0x deal transparency"
+          ></video>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Real Yield ─────────────────────────────────── -->
+    <section id="real-yield" class="section-full yield-section" aria-label="Real Yield">
+      <div class="yield-inner">
+
+        <div class="yield-visual">
+          <button type="button" class="yield-svg-link" aria-label="Factor0x earning platform">
+            <video
+              class="yield-svg"
+              src="../resources/videos/tiles-alpha.webm"
+              autoplay loop muted playsinline
+              disablepictureinpicture
+              controlsList="nodownload nofullscreen noremoteplayback"
+              aria-label="Factor0x earning platform"
+            ></video>
+          </button>
+        </div>
+
+        <div class="yield-content">
+          <h2 class="yield-heading">Real Yield</h2>
+          <div class="yield-subs">
+            <div class="yield-sub">
+              <p class="yield-sub-label">Real Assets</p>
+              <p class="yield-text">Pools are tied to real business deals.</p>
+            </div>
+            <div class="yield-divider"></div>
+            <div class="yield-sub">
+              <p class="yield-sub-label">Clear Terms</p>
+              <p class="yield-text">Amount, term, APR and counterparty visible before participation.</p>
+            </div>
+            <div class="yield-divider"></div>
+            <div class="yield-sub">
+              <p class="yield-sub-label">No Tokenomics</p>
+              <p class="yield-text">Yield is tied to the invoice, not to a token.</p>
+            </div>
+            <div class="yield-divider"></div>
+            <div class="yield-sub">
+              <p class="yield-sub-label">Secure</p>
+              <p class="yield-text">Regular smart contract audits.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── FAQ ───────────────────────────────────────── -->
+    <section id="faq" class="faq-section">
+      <div class="faq-inner">
+
+        <div class="faq-heading-wrap">
+          <h2 class="faq-heading">FAQ</h2>
+          <p class="faq-sub">Common questions about Factor0x</p>
+        </div>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">What is Factor0x?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Factor0x is a platform for financing verified B2B invoices. Businesses receive working capital before their customers pay, while investors finance real deals from the B2B sector.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">What do investors finance?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Investors finance verified B2B invoices. Each deal has an amount, term, risk tier, verification status, and an expected repayment process.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">How does an investor earn?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Yield is formed after the debtor repays the invoice. When the business's client pays, funds are distributed among deal participants according to the agreed terms.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Is the yield guaranteed?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">No. Yield depends on invoice repayment, debtor quality, deal terms, and potential delays. Factor0x shows indicative APR but does not guarantee returns.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">What if an invoice isn't paid on time?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">The deal receives an "overdue" status. Investors see repayment status updates, and Factor0x and partners work through the established collection and settlement process.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Which invoices qualify?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Factor0x initially focuses on B2B invoices from UAE-based companies in trade, logistics, distribution, supply chain financing, and B2B services.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Why is KYB / KYC required?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">KYB / KYC is needed to verify businesses, investors, source of funds, sanctions risks, and compliance requirements.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">Does a business need a crypto wallet?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">No. Businesses don't need to use a crypto wallet. For businesses, the product operates like a straightforward invoice financing solution.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">What is the role of Web3?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Web3 is used for transparency, tracking investor participation, deal status, and on-chain tracking. Factor0x is not built around a speculative token.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">In what currency does financing occur?<span class="faq-q-icon" aria-hidden="true"></span></button>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Investors can participate via USDT / USDC or fiat, where available for a specific deal and in compliance with regulatory requirements.</p></div></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Team ──────────────────────────────────────── -->
+    <section id="team" class="team-section section-full">
+      <div class="team-inner">
+
+        <div class="team-heading-wrap">
+          <h2 class="team-heading">Team</h2>
+          <p class="team-sub">The people behind Factor0x</p>
+        </div>
+
+        <div class="team-grid">
+
+          <article class="team-card" role="button" tabindex="0">
+            <div class="team-photo-wrap">
+              <img class="team-photo" src="../resources/images/team-ceo.webp" alt="Ethan Walker" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-identity">
+                <h3 class="team-name">Ethan Walker</h3>
+                <span class="team-role">CEO</span>
+              </div>
+              <p class="team-bio">Drives strategy, key partnerships, and deal origination across the Gulf and Southeast Asia.</p>
+            </div>
+          </article>
+
+          <article class="team-card" role="button" tabindex="0">
+            <div class="team-photo-wrap">
+              <img class="team-photo" src="../resources/images/team-architect.webp" alt="Daniel Chen" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-identity">
+                <h3 class="team-name">Daniel Chen</h3>
+                <span class="team-role">Chief Architect</span>
+              </div>
+              <p class="team-bio">Designs the platform infrastructure, smart contract layer, and security architecture.</p>
+            </div>
+          </article>
+
+          <article class="team-card" role="button" tabindex="0">
+            <div class="team-photo-wrap">
+              <img class="team-photo" src="../resources/images/team-legal.webp" alt="Sofia Laurent" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-identity">
+                <h3 class="team-name">Sofia Laurent</h3>
+                <span class="team-role">Chief Legal Officer</span>
+              </div>
+              <p class="team-bio">Structures the legal framework, compliance program, and regulatory pathway across jurisdictions.</p>
+            </div>
+          </article>
+
+          <article class="team-card" role="button" tabindex="0">
+            <div class="team-photo-wrap">
+              <img class="team-photo" src="../resources/images/team-risk.webp" alt="Marcus Bennett" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-identity">
+                <h3 class="team-name">Marcus Bennett</h3>
+                <span class="team-role">Chief Risk Officer</span>
+              </div>
+              <p class="team-bio">Leads deal assessment, risk tiering, and debtor quality analysis for every invoice on the platform.</p>
+            </div>
+          </article>
+
+          <article class="team-card" role="button" tabindex="0">
+            <div class="team-photo-wrap">
+              <img class="team-photo" src="../resources/images/team-advisor.webp" alt="Adrian Moro" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-identity">
+                <h3 class="team-name">Adrian Moro</h3>
+                <span class="team-role">Strategic Advisor</span>
+              </div>
+              <p class="team-bio">Advises on capital raising strategy, institutional partnerships, and new market entry.</p>
+            </div>
+          </article>
+
+          <article class="team-card" role="button" tabindex="0">
+            <div class="team-photo-wrap">
+              <img class="team-photo" src="../resources/images/team-bd-partnerships-manager.webp" alt="Maya Reynolds" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-identity">
+                <h3 class="team-name">Maya Reynolds</h3>
+                <span class="team-role">BD Partner</span>
+              </div>
+              <p class="team-bio">Builds and manages business relationships, origination channels, and partner networks.</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Hubs ──────────────────────────────────────── -->
+    <section id="hubs" class="hubs-section section-full">
+      <div class="hubs-inner">
+
+        <div class="hubs-heading-wrap">
+          <h2 class="hubs-heading">Two Hub Model</h2>
+          <p class="hubs-sub">Operating from the centers of global trade and compliance</p>
+        </div>
+
+        <div class="hubs-grid">
+
+          <div class="hub-wrap hub-wrap--dubai" role="button" tabindex="0" aria-label="Dubai — Operations Hub">
+            <div class="hub-card hub-card--dubai">
+              <img class="hub-card-bg" src="../resources/images/hub-dubai-bg.webp" alt="" loading="lazy" aria-hidden="true">
+              <div class="hub-location">Dubai</div>
+              <div class="hub-role-label">Operations Hub</div>
+              <div class="hub-divider"></div>
+              <ul class="hub-list">
+                <li>Favorable jurisdiction for digital assets</li>
+                <li>First invoices from UAE SMEs and GCC debtors</li>
+                <li>Access to Gulf capital: family offices and crypto investors</li>
+                <li>Deal flow from logistics and trade</li>
+                <li>Regulatory pathway via UAE / VARA / ADGM / DIFC</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="hub-wrap hub-wrap--sg" role="button" tabindex="0" aria-label="Singapore — Structuring &amp; Compliance Center">
+            <div class="hub-card hub-card--sg">
+              <img class="hub-card-bg" src="../resources/images/hub-singapore-bg.webp" alt="" loading="lazy" aria-hidden="true">
+              <div class="hub-badge">Coming Soon</div>
+              <div class="hub-location">Singapore</div>
+              <div class="hub-role-label">Structuring &amp; Compliance Center</div>
+              <div class="hub-divider"></div>
+              <ul class="hub-list">
+                <li>Layer for structuring, banking infrastructure, and SEA compliance</li>
+                <li>Focus markets: Malaysia, Indonesia, Vietnam, India</li>
+                <li>Institutional credibility for banks and partners</li>
+                <li>Operations scaling</li>
+                <li>Institutional capital onboarding</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer / Contacts ─────────────────────────── -->
+  <footer id="contacts" class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <span class="logo-text footer-logo" aria-label="Factor0x">
+          <span class="logo-factor">Factor</span><span class="logo-0x">0x</span>
+        </span>
+        <p class="footer-tagline">Invoice financing · Web3 · Digital infrastructure</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="../privacy-policy.html">Privacy Policy</a>
+          <a href="../terms-of-service.html">Terms of Service</a>
+          <a href="../whitepaper.html">Whitepaper</a>
+        </nav>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <span class="footer-col-title">Product</span>
+          <a href="#model" class="footer-link">How it works</a>
+          <a href="#hubs"  class="footer-link">Hubs</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">For Business</span>
+          <a href="#"              class="footer-link">Get Financing</a>
+          <a href="#invoice-cards" class="footer-link">For Investors</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Contact</span>
+          <a href="mailto:hello@factor0x.com" class="footer-link">hello@factor0x.com</a>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="X / Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+                <path d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+                <path d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM371 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2 .5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3 .6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7 .5 3.2 .6 6.5 .4 9.8z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+                <path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+                <path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Factor0x. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/marketplace.js"></script>
+  <script type="module" src="../js/site.js"></script>
+  <script type="module" src="../js/popup.js"></script>
+  <script src="../js/cookie.js" defer></script>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
