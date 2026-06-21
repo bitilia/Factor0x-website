@@ -13,11 +13,13 @@ setInterval(() => {
   icons[current].classList.add('active');
 }, 1100);
 
-// ─── Button click sound ──────────────────────────
+// ─── Button click sound (damped) ─────────────────
 const _clickSfx = new Audio('../resources/sounds/mouse-click.mp3');
+_clickSfx.volume = 0.18;
 document.addEventListener('click', e => {
   if (e.target.closest('button, [role="button"], a, label, summary')) {
     const s = _clickSfx.cloneNode();
+    s.volume = _clickSfx.volume;
     s.play().catch(() => {});
   }
 }, { passive: true });
