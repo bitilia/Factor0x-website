@@ -1,0 +1,80 @@
+[
+  {
+    "id": "INV-041",
+    "company": "Gulf Trade Logistics",
+    "route": "Dubai → Singapore",
+    "amount": 420000,
+    "apr": 6.2,
+    "dueDays": 58,
+    "filledPct": 64.0,
+    "contributors": 18,
+    "minContribution": 1000,
+    "status": "active",
+    "image": "../resources/images/gulf-logistics-bg.webp"
+  },
+  {
+    "id": "INV-088",
+    "company": "Nordic Supply Co.",
+    "route": "Oslo → Rotterdam",
+    "amount": 285000,
+    "apr": 5.8,
+    "dueDays": 42,
+    "filledPct": 31.5,
+    "contributors": 7,
+    "minContribution": 2500,
+    "status": "active",
+    "image": "../resources/images/business-briefcase.webp"
+  },
+  {
+    "id": "INV-113",
+    "company": "Asia Pacific Exports",
+    "route": "Hong Kong → London",
+    "amount": 650000,
+    "apr": 7.1,
+    "dueDays": 75,
+    "filledPct": 89.2,
+    "contributors": 31,
+    "minContribution": 500,
+    "status": "active",
+    "image": "../resources/images/asia-components-bg.webp"
+  },
+  {
+    "id": "INV-127",
+    "company": "Iberian Commodities SA",
+    "route": "Lisbon → New York",
+    "amount": 175000,
+    "apr": 5.4,
+    "dueDays": 30,
+    "filledPct": 12.0,
+    "contributors": 3,
+    "minContribution": 5000,
+    "status": "active",
+    "image": "../resources/images/business-briefcase.webp"
+  },
+  {
+    "id": "INV-134",
+    "company": "East Africa Agro Ltd",
+    "route": "Nairobi → Paris",
+    "amount": 310000,
+    "apr": 8.3,
+    "dueDays": 90,
+    "filledPct": 47.0,
+    "contributors": 12,
+    "minContribution": 1500,
+    "status": "active",
+    "image": "../resources/images/gulf-logistics-bg.webp"
+  },
+  {
+    "id": "INV-099",
+    "company": "Rhine Industrial GmbH",
+    "route": "Frankfurt → Chicago",
+    "amount": 890000,
+    "apr": 6.7,
+    "dueDays": 120,
+    "filledPct": 73.5,
+    "contributors": 44,
+    "minContribution": 2000,
+    "status": "active",
+    "image": "../resources/images/asia-components-bg.webp"
+  }
+]
