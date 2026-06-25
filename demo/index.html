@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Factor0x — About (demo)</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { background: #000; }
+  </style>
+</head>
+<body>
+
+  <section id="about" class="section-full about-section">
+    <div class="about-inner">
+
+      <div class="about-visual">
+        <video
+          class="about-svg"
+          src="../resources/videos/safe-multisize/alpha-400_500.webm"
+          data-multisize="../resources/videos/safe-multisize/"
+          autoplay loop muted playsinline
+          disablepictureinpicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          aria-label="Factor0x platform infrastructure"
+        ></video>
+      </div>
+
+      <div class="about-content">
+        <h2 class="about-heading">About</h2>
+        <p class="about-text">Factor0x operates at the intersection of trade finance, Web3 liquidity, and the real B2B sector.</p>
+        <p class="about-text">We start with the UAE, a market with strong trade, logistics, and demand for working capital.</p>
+        <div class="about-divider"></div>
+        <p class="about-text about-text--goal">Our goal is to give businesses fast capital and investors a clear way to earn from verified B2B invoices.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    // Lazy media fade-in
+    document.querySelectorAll('video').forEach(el => {
+      if (el.readyState >= 2) {
+        el.classList.add('media-loaded');
+      } else {
+        el.addEventListener('loadeddata', () => el.classList.add('media-loaded'), { once: true });
+      }
+    });
+
+    // Progressive resolution upgrade
+    (function () {
+      const video = document.querySelector('video[data-multisize]');
+      if (!video) return;
+
+      const base  = video.dataset.multisize;
+      const sizes = [
+        { maxPx: 400,      file: 'alpha-400_500.webm'  },
+        { maxPx: 800,      file: 'alpha-800_1000.webm' },
+        { maxPx: 1600,     file: 'alpha-1600_2000.webm' },
+        { maxPx: Infinity, file: 'alpha-3200_4000.webm' },
+      ];
+
+      function pickFile() {
+        const rect   = (video.closest('.about-visual') || video).getBoundingClientRect();
+        const budget = rect.width * (window.devicePixelRatio || 1);
+        return (sizes.find(s => budget <= s.maxPx) || sizes[sizes.length - 1]).file;
+      }
+
+      function upgrade() {
+        const file   = pickFile();
+        const target = base + file;
+        if (video.src === new URL(target, location.href).href) return;
+
+        const probe = document.createElement('video');
+        probe.muted   = true;
+        probe.preload = 'auto';
+        probe.src     = target;
+        probe.addEventListener('canplay', () => {
+          video.src = target;
+          video.load();
+          video.play().catch(() => {});
+        }, { once: true });
+      }
+
+      if (document.readyState === 'complete') {
+        upgrade();
+      } else {
+        window.addEventListener('load', upgrade, { once: true });
+      }
+    })();
+  </script>
+
+</body>
+</html>
