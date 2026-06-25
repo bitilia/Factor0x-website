@@ -75,6 +75,49 @@ document.querySelectorAll('img[loading="lazy"], video').forEach(el => {
   }
 });
 
+// ─── About safe video: progressive resolution upgrade ──
+(function () {
+  const video = document.querySelector('video[data-multisize]');
+  if (!video) return;
+
+  const base = video.dataset.multisize;
+  const sizes = [
+    { maxPx: 400,      file: 'alpha-400_500.webm'  },
+    { maxPx: 800,      file: 'alpha-800_1000.webm' },
+    { maxPx: 1600,     file: 'alpha-1600_2000.webm' },
+    { maxPx: Infinity, file: 'alpha-3200_4000.webm' },
+  ];
+
+  function pickFile() {
+    const rect    = (video.closest('.about-visual') || video).getBoundingClientRect();
+    const budget  = rect.width * (window.devicePixelRatio || 1);
+    return (sizes.find(s => budget <= s.maxPx) || sizes[sizes.length - 1]).file;
+  }
+
+  function upgrade() {
+    const file   = pickFile();
+    const target = base + file;
+    const abs    = new URL(target, location.href).href;
+    if (video.src === abs) return;           // already at correct size
+
+    const probe = document.createElement('video');
+    probe.muted = true;
+    probe.preload = 'auto';
+    probe.src = target;
+    probe.addEventListener('canplay', () => {
+      video.src = target;
+      video.load();
+      video.play().catch(() => {});
+    }, { once: true });
+  }
+
+  if (document.readyState === 'complete') {
+    upgrade();
+  } else {
+    window.addEventListener('load', upgrade, { once: true });
+  }
+})();
+
 // ─── Wallet button aria-expanded sync ────────────
 const walletBtn  = document.querySelector('.wallet-btn');
 const walletWrap = document.querySelector('.wallet-wrap');
