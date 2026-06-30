@@ -14,36 +14,25 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Factor0x">
   <meta name="twitter:description" content="A platform where verified invoices find liquidity. Capital for business. Yield for investors.">
-  <link rel="alternate" hreflang="en" href="/en/">
-  <link rel="alternate" hreflang="ru" href="/ru/">
-  <link rel="alternate" hreflang="x-default" href="/en/">
+  <link rel="alternate" hreflang="en" href="en/">
+  <link rel="alternate" hreflang="ru" href="ru/">
+  <link rel="alternate" hreflang="x-default" href="en/">
+  <!-- no-JS fallback -->
+  <meta http-equiv="refresh" content="0; url=en/">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; }
-    #loader { opacity: 0; transition: opacity 0.3s ease; }
-    #loader.ready { opacity: 1; }
+    html, body { width: 100%; height: 100%; background: #000; }
   </style>
-</head>
-<body>
-  <!-- language links for crawlers -->
-  <a href="/en/" style="display:none">English</a>
-  <a href="/ru/" style="display:none">Русский</a>
-
-  <img id="loader" src="resources/icons/animated/loading.svg" alt="">
-
   <script>
     (function () {
       var lang = (navigator.language || navigator.userLanguage || '').toLowerCase().slice(0, 2);
-      var supported = { en: '/en/', ru: '/ru/' };
-      var dest = supported[lang] || '/en/';
-
-      var img = document.getElementById('loader');
-      img.onload = function () {
-        img.classList.add('ready');
-        setTimeout(function () { window.location.replace(dest); }, 400);
-      };
-      img.onerror = function () { window.location.replace(dest); };
+      window.location.replace(lang === 'ru' ? 'ru/' : 'en/');
     })();
   </script>
+</head>
+<body>
+  <!-- language links for crawlers -->
+  <a href="en/">English</a>
+  <a href="ru/">Русский</a>
 </body>
 </html>
