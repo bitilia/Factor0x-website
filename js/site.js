@@ -75,47 +75,49 @@ document.querySelectorAll('img[loading="lazy"], video').forEach(el => {
   }
 });
 
-// ─── About safe video: progressive resolution upgrade ──
+// ─── Progressive resolution upgrade for all multisize videos ──
 (function () {
-  const video = document.querySelector('video[data-multisize]');
-  if (!video) return;
-
-  const base = video.dataset.multisize;
-  const sizes = [
-    { maxPx: 400,      file: 'alpha-400_500.webm'  },
-    { maxPx: 800,      file: 'alpha-800_1000.webm' },
-    { maxPx: 1600,     file: 'alpha-1600_2000.webm' },
-    { maxPx: Infinity, file: 'alpha-3200_4000.webm' },
+  const TIERS = [
+    { maxPx: 400,      suffix: '400_500'   },
+    { maxPx: 800,      suffix: '800_1000'  },
+    { maxPx: 1600,     suffix: '1600_2000' },
+    { maxPx: Infinity, suffix: '3200_4000' },
   ];
 
-  function pickFile() {
-    const rect    = (video.closest('.about-visual') || video).getBoundingClientRect();
-    const budget  = rect.width * (window.devicePixelRatio || 1);
-    return (sizes.find(s => budget <= s.maxPx) || sizes[sizes.length - 1]).file;
+  function upgradeVideo(video) {
+    const base = video.dataset.multisize;
+    const stem = video.dataset.multisizeStem || '';
+
+    function pickFile() {
+      const container = video.closest('[class*="-visual"]') || video.parentElement || video;
+      const budget    = container.getBoundingClientRect().width * (window.devicePixelRatio || 1);
+      const tier      = TIERS.find(t => budget <= t.maxPx) || TIERS[TIERS.length - 1];
+      return stem ? `${stem}-${tier.suffix}.webm` : `${tier.suffix}.webm`;
+    }
+
+    function upgrade() {
+      const target = base + pickFile();
+      if (video.src === new URL(target, location.href).href) return;
+
+      const probe   = document.createElement('video');
+      probe.muted   = true;
+      probe.preload = 'auto';
+      probe.src     = target;
+      probe.addEventListener('canplay', () => {
+        video.src = target;
+        video.load();
+        video.play().catch(() => {});
+      }, { once: true });
+    }
+
+    if (document.readyState === 'complete') {
+      upgrade();
+    } else {
+      window.addEventListener('load', upgrade, { once: true });
+    }
   }
 
-  function upgrade() {
-    const file   = pickFile();
-    const target = base + file;
-    const abs    = new URL(target, location.href).href;
-    if (video.src === abs) return;           // already at correct size
-
-    const probe = document.createElement('video');
-    probe.muted = true;
-    probe.preload = 'auto';
-    probe.src = target;
-    probe.addEventListener('canplay', () => {
-      video.src = target;
-      video.load();
-      video.play().catch(() => {});
-    }, { once: true });
-  }
-
-  if (document.readyState === 'complete') {
-    upgrade();
-  } else {
-    window.addEventListener('load', upgrade, { once: true });
-  }
+  document.querySelectorAll('video[data-multisize]').forEach(upgradeVideo);
 })();
 
 // ─── Wallet button aria-expanded sync ────────────
