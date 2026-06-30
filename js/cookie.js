@@ -1,5 +1,7 @@
+import { t } from './i18n.js';
+
 // Cookie consent banner — remove this <script> tag to disable entirely.
-// Language is read automatically from <html lang="en|ru">.
+// Language is read from <html lang="en|ru"> via i18n.js.
 
 (function () {
   const KEY = 'f0x_cookie_consent';
@@ -17,26 +19,6 @@
 
   if (getCookie(KEY)) return;
 
-  const lang = document.documentElement.lang || 'en';
-
-  const T = {
-    en: {
-      heading: 'We use cookies',
-      body:    'We use cookies to keep your session and improve your experience. No tracking or advertising.',
-      accept:  'Accept',
-      decline: 'Decline',
-    },
-    ru: {
-      heading: 'Мы используем cookie',
-      body:    'Мы используем файлы cookie для поддержки сессии и улучшения опыта. Без слежки и рекламы.',
-      accept:  'Принять',
-      decline: 'Отклонить',
-    },
-  };
-
-  const t = T[lang] || T.en;
-
-  // ── Inject scoped CSS ──────────────────────────────
   const style = document.createElement('style');
   style.textContent = [
     '.f0x-cookie{position:fixed;bottom:24px;right:24px;z-index:9999;width:296px;',
@@ -59,7 +41,6 @@
   ].join('');
   document.head.appendChild(style);
 
-  // ── SVG icon via DOM (no innerHTML) ───────────────
   const NS = 'http://www.w3.org/2000/svg';
 
   function svgAttr(el, attrs) {
@@ -82,20 +63,19 @@
     ['circle', { cx: '13',  cy: '9',    r: '0.6', fill: 'currentColor', stroke: 'none' }],
   ].forEach(([tag, attrs]) => svg.appendChild(svgAttr(document.createElementNS(NS, tag), attrs)));
 
-  // ── Build banner ───────────────────────────────────
   const banner = document.createElement('div');
   banner.className = 'f0x-cookie';
   banner.setAttribute('role', 'dialog');
   banner.setAttribute('aria-modal', 'false');
-  banner.setAttribute('aria-label', t.heading);
+  banner.setAttribute('aria-label', t('cookie.heading'));
 
   const heading = document.createElement('p');
   heading.className = 'f0x-cookie-heading';
-  heading.textContent = t.heading;
+  heading.textContent = t('cookie.heading');
 
   const body = document.createElement('p');
   body.className = 'f0x-cookie-body';
-  body.textContent = t.body;
+  body.textContent = t('cookie.body');
 
   const actions = document.createElement('div');
   actions.className = 'f0x-cookie-actions';
@@ -103,8 +83,6 @@
   function dismiss(accepted) {
     setCookie(KEY, accepted ? 'accepted' : 'declined', 365);
     banner.classList.add('f0x-out');
-    // setTimeout instead of animationend — animationend never fires when
-    // prefers-reduced-motion disables the animation, leaving the banner stuck.
     const dur = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 300;
     setTimeout(() => banner.remove(), dur);
   }
@@ -120,8 +98,8 @@
     return btn;
   }
 
-  actions.appendChild(makeBtn('GoldBtn',  t.accept,  true));
-  actions.appendChild(makeBtn('PlainBtn', t.decline, false));
+  actions.appendChild(makeBtn('GoldBtn',  t('cookie.accept'),  true));
+  actions.appendChild(makeBtn('PlainBtn', t('cookie.decline'), false));
 
   banner.appendChild(svg);
   banner.appendChild(heading);
