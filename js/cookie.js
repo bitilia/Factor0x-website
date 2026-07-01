@@ -1,4 +1,4 @@
-import { t } from './i18n.js';
+import { t } from './i18n.js?v=demo1';
 
 // Cookie consent banner — remove this <script> tag to disable entirely.
 // Language is read from <html lang="en|ru"> via i18n.js.

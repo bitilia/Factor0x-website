@@ -1,4 +1,4 @@
-import { t, formatAmount, formatTVL } from './i18n.js';
+import { t, formatAmount, formatTVL } from './i18n.js?v=demo1';
 
 function el(tag, className) {
   const node = document.createElement(tag);
@@ -87,7 +87,7 @@ async function loadStats() {
   if (!tvlValueEl) return;
 
   try {
-    const res  = await fetch('../api/stats.json');
+    const res  = await fetch('../api/stats.json?v=demo1');
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     tvlValueEl.textContent = formatTVL(data.tvl, data.currency);
@@ -107,7 +107,7 @@ async function loadInvoices() {
   grid.replaceChildren(loading);
 
   try {
-    const res  = await fetch('../api/invoices.json');
+    const res  = await fetch('../api/invoices.json?v=demo1');
     if (!res.ok) throw new Error(res.status);
     const all  = await res.json();
     const top3 = all.filter(i => i.status === 'active').slice(0, 3);

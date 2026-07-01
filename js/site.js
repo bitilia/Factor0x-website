@@ -14,7 +14,7 @@ setInterval(() => {
 }, 1100);
 
 // ─── Button click sound (deeper + damped via WebAudio) ──
-const _clickUrl = '../resources/sounds/mouse-click.mp3';
+const _clickUrl = '../resources/sounds/mouse-click.mp3?v=demo1';
 let _audioCtx = null;
 let _clickBuffer = null;
 async function _initClickSfx() {
