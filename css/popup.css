@@ -559,6 +559,30 @@ body.modal-open { overflow: hidden; }
   .modal-verify-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* Portrait mobile: use full viewport height, single scroll surface */
+@media (max-width: 800px) and (orientation: portrait) {
+  .modal-wrap {
+    max-height: calc(100dvh - 2 * clamp(12px, 2vw, 24px));
+    min-height: calc(100dvh - 2 * clamp(12px, 2vw, 24px));
+  }
+
+  .modal-box {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .modal-left,
+  .modal-right {
+    flex: none;
+    overflow-y: visible;
+  }
+}
+
 @media (max-width: 480px) {
   .modal-metrics { grid-template-columns: 1fr 1fr; }
 }
