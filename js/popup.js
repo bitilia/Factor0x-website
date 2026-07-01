@@ -1,4 +1,4 @@
-import { t, dealField, formatMoney } from './i18n.js';
+import { t, dealField, formatMoney } from './i18n.js?v=demo1';
 
 const DEALS = [
   {
@@ -11,7 +11,7 @@ const DEALS = [
     dueDays: 58,
     minContribution: 1000,
     obligor: 'Gulf Trade LLC',
-    image: '../resources/images/gulf-logistics-bg.webp',
+    image: '../resources/images/gulf-logistics-bg.webp?v=demo1',
   },
   {
     id: 'INV-088',
@@ -23,7 +23,7 @@ const DEALS = [
     dueDays: 42,
     minContribution: 2500,
     obligor: 'Nordic Supply Co.',
-    image: '../resources/images/business-briefcase.webp',
+    image: '../resources/images/business-briefcase.webp?v=demo1',
   },
   {
     id: 'INV-113',
@@ -35,7 +35,7 @@ const DEALS = [
     dueDays: 75,
     minContribution: 500,
     obligor: 'AP Exports Ltd.',
-    image: '../resources/images/asia-components-bg.webp',
+    image: '../resources/images/asia-components-bg.webp?v=demo1',
   },
 ];
 

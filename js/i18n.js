@@ -1,5 +1,5 @@
-import en from './locales/en.js';
-import ru from './locales/ru.js';
+import en from './locales/en.js?v=demo1';
+import ru from './locales/ru.js?v=demo1';
 
 /** @typedef {typeof en} LocaleMessages */
 
