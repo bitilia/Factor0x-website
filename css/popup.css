@@ -547,11 +547,13 @@ body.modal-open { overflow: hidden; }
     align-items: flex-start;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    padding: clamp(12px, 2vw, 24px);
   }
 
   .modal-wrap {
     width: min(95vw, 520px);
     max-height: none;
+    margin: auto;
   }
 
   .modal-box {
@@ -560,7 +562,7 @@ body.modal-open { overflow: hidden; }
     min-height: auto;
     width: 100%;
     max-height: none;
-    overflow: visible;
+    overflow: hidden;
     border-radius: 20px;
   }
 
@@ -568,6 +570,11 @@ body.modal-open { overflow: hidden; }
     padding: 28px 24px;
     flex: none;
     overflow-y: visible;
+  }
+
+  .modal-company-img {
+    margin: -28px -24px 0;
+    border-radius: 20px 20px 0 0;
   }
 
   .modal-right {
