@@ -1,0 +1,46 @@
+{
+  "favicon": "resources/favicon.ico",
+
+  "social_cards": {
+    "default": "resources/images/opengraph-card.webp",
+    "en": "resources/images/opengraph-card-en.webp",
+    "ru": "resources/images/opengraph-card-ru.webp"
+  },
+
+  "images": [
+    "resources/logo/logo-3d-c.webp",
+    "resources/images/team-ceo.webp",
+    "resources/images/team-architect.webp",
+    "resources/images/team-legal.webp",
+    "resources/images/team-risk.webp",
+    "resources/images/team-advisor.webp",
+    "resources/images/team-bd-partnerships-manager.webp",
+    "resources/images/hub-dubai-bg.webp",
+    "resources/images/hub-singapore-bg.webp"
+  ],
+
+  "flow_steps": [
+    "resources/images/flow-invoice.webp",
+    "resources/images/flow-verification.webp",
+    "resources/images/flow-financing.webp",
+    "resources/images/flow-repayment.webp",
+    "resources/images/flow-yield.webp"
+  ],
+
+  "videos": [
+    "resources/videos/safe-multisize/alpha-400_500.webm",
+    "resources/videos/safe-multisize/alpha-800_1000.webm",
+    "resources/videos/safe-multisize/alpha-1600_2000.webm",
+    "resources/videos/safe-multisize/alpha-3200_4000.webm",
+
+    "resources/videos/deal-multisize/deal-400_500.webm",
+    "resources/videos/deal-multisize/deal-800_1000.webm",
+    "resources/videos/deal-multisize/deal-1600_2000.webm",
+    "resources/videos/deal-multisize/deal-3200_4000.webm",
+
+    "resources/videos/yield-multisize/yield-400_500.webm",
+    "resources/videos/yield-multisize/yield-800_1000.webm",
+    "resources/videos/yield-multisize/yield-1600_2000.webm",
+    "resources/videos/yield-multisize/yield-3200_4000.webm"
+  ]
+}

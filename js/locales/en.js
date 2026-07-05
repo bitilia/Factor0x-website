@@ -1,0 +1,87 @@
+/** @type {import('../i18n.js').LocaleMessages} */
+export default {
+  cookie: {
+    heading: 'We use cookies',
+    body: 'We use cookies to keep your session and improve your experience. No tracking or advertising.',
+    accept: 'Accept',
+    decline: 'Decline',
+  },
+
+  marketplace: {
+    amount: 'Amount',
+    apr: 'APR',
+    dueDate: 'Due Date',
+    filled: 'Filled',
+    contributors: 'Contributors',
+    minContribution: 'Min Contribution',
+    contribute: 'Contribute',
+    viewDetails: 'View Details',
+    openInNewTab: 'Open in new tab',
+    loading: 'Loading offers…',
+    empty: 'No active offers at this time.',
+    error: 'Failed to load offers. Please try again later.',
+    tvlOn: 'TVL on {date}',
+    days: '{n} days',
+    daysShort: '{n}d',
+  },
+
+  modal: {
+    close: 'Close modal',
+    dealOverview: 'Deal Overview',
+    dealDetails: 'Deal details',
+    annualApr: 'Annual APR',
+    funded: '{pct}% Funded',
+    investorsIn: '{n} investors already in',
+    ofTotal: 'of {amount}',
+    dueDate: 'Due Date',
+    minInvestment: 'Min Investment',
+    riskLevel: 'Risk Level',
+    riskLow: 'Low',
+    riskMedium: 'Medium',
+    riskHigh: 'High',
+    kybCompleted: 'KYB Completed',
+    obligorConfirmed: 'Obligor Confirmed',
+    invoiceVerified: 'Invoice Verified',
+    bankVerified: 'Bank Verified',
+    obligor: 'Obligor',
+    sector: 'Sector',
+    jurisdiction: 'Jurisdiction',
+    invoiceAmount: 'Invoice Amount',
+    maturityDate: 'Maturity Date',
+    yourInvestment: 'Your Investment',
+    max: 'Max',
+    estimatedReturn: 'Estimated Return',
+    aprSuffix: '{apr}% APR',
+    receiveAtMaturity: 'You receive at maturity',
+    contribute: 'Contribute {amount} →',
+    availableMin: '{available} available · Min {min}',
+    escrowNote: 'Funds held in escrow until maturity',
+  },
+
+  deals: {
+    'INV-041': {
+      ref: '#INV-041 · Dubai → Singapore',
+      description:
+        'Recurring trade finance receivable from a confirmed cross-border logistics contract. The invoice carries a low-risk profile due to verified service delivery, repeat payment history, and a diversified obligor base.',
+      sector: 'Logistics & Trade',
+      jurisdiction: 'UAE Free Zone',
+      maturityDate: 'Aug 14, 2026',
+    },
+    'INV-088': {
+      ref: '#INV-088 · Oslo → Rotterdam',
+      description:
+        'Short-duration receivable backed by a confirmed European freight contract. Low counterparty risk with an established payment track record and institutional obligor.',
+      sector: 'Freight & Shipping',
+      jurisdiction: 'Norway (EEA)',
+      maturityDate: 'Jul 31, 2026',
+    },
+    'INV-113': {
+      ref: '#INV-113 · Hong Kong → London',
+      description:
+        'High-value cross-border trade invoice from a verified export contract. Near-maturity deal offering accelerated yield with verified customs clearance and confirmed delivery.',
+      sector: 'Consumer Goods',
+      jurisdiction: 'Hong Kong SAR',
+      maturityDate: 'Sep 1, 2026',
+    },
+  },
+};

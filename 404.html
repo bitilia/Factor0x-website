@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>404 — Factor0x</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" type="image/x-icon" href="./resources/favicon.ico">
+  <link rel="preload" as="font" type="font/woff2" href="./resources/fonts/normal/latin/normal-regular.woff2?v=demo3" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="./resources/fonts/normal/latin/normal-semibold.woff2?v=demo3" crossorigin>
+
+  <link rel="stylesheet" href="./css/site.css?v=demo3">
+  <link rel="stylesheet" href="./css/main.css?v=demo3">
+
+  <style>
+    .err-page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(40px, 8vw, 80px) 24px;
+      text-align: center;
+      gap: 0;
+    }
+
+    .err-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: clamp(48px, 8vw, 72px);
+      color: #fff;
+    }
+    .err-logo .logo-0x { color: rgba(255,255,255,0.38); }
+
+    .err-code {
+      font-size: clamp(96px, 22vw, 220px);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 0.88;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.10);
+      user-select: none;
+      margin-bottom: clamp(20px, 3vw, 28px);
+    }
+
+    .err-divider {
+      width: 36px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(220,162,60,0.8), rgba(220,162,60,0.2));
+      border-radius: 1px;
+      margin: 0 auto clamp(16px, 2.5vw, 24px);
+    }
+
+    .err-title {
+      font-size: clamp(20px, 2.8vw, 28px);
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    .err-sub {
+      font-size: clamp(13px, 1.4vw, 15px);
+      color: rgba(255,255,255,0.38);
+      max-width: 340px;
+      line-height: 1.6;
+      margin-bottom: clamp(32px, 5vw, 48px);
+    }
+  </style>
+</head>
+<body>
+  <div class="err-page">
+    <a href="./en/" class="err-logo">
+      <span class="logo-factor">Factor</span><span class="logo-0x">0x</span>
+    </a>
+
+    <div class="err-code" aria-hidden="true">404</div>
+    <div class="err-divider" aria-hidden="true"></div>
+
+    <h1 class="err-title">Page not found</h1>
+    <p class="err-sub">This page doesn't exist or has been moved.</p>
+
+    <a href="./en/" class="GoldBtn"><span>Back to home</span></a>
+  </div>
+</body>
+</html>
