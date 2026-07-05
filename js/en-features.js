@@ -62,16 +62,22 @@ function bindSimpleModal(id, triggerButtons) {
   }
 
   function trapFocus(e) {
+    if (e.key !== 'Tab') return;
     if (!backdrop.classList.contains('open')) return;
     const items = getFocusable();
     if (!items.length) return;
     const first = items[0];
-    const last = items[items.length - 1];
-    if (e.key === 'Tab') {
-      if (e.shiftKey) {
-        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-      } else {
-        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    const last  = items[items.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey) {
+      if (active === first || !backdrop.contains(active)) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (active === last || !backdrop.contains(active)) {
+        e.preventDefault();
+        first.focus();
       }
     }
   }
@@ -82,7 +88,7 @@ function bindSimpleModal(id, triggerButtons) {
     backdrop.setAttribute('inert', '');
     unlockScroll();
     triggerButtons.forEach(btn => btn?.setAttribute('aria-expanded', 'false'));
-    backdrop.removeEventListener('keydown', trapFocus);
+    document.removeEventListener('keydown', trapFocus);
     lastFocus?.focus();
   }
 
@@ -99,7 +105,7 @@ function bindSimpleModal(id, triggerButtons) {
       });
     });
     triggerButtons.forEach(btn => btn?.setAttribute('aria-expanded', 'true'));
-    backdrop.addEventListener('keydown', trapFocus);
+    document.addEventListener('keydown', trapFocus);
   }
 
   backdrop.querySelector('.modal-close, .simple-modal-close')?.addEventListener('click', close);

@@ -3,6 +3,8 @@ import { getDeal } from './deals-store.js?v=demo3';
 import { lockScroll, unlockScroll } from './scroll-lock.js?v=demo3';
 import { initMiniScrollbar } from './modal-scrollbar.js?v=demo3';
 
+const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+
 function fmt(n) {
   return formatMoney(n);
 }
@@ -219,6 +221,20 @@ function buildModal() {
 let modalEl = null;
 let activeDeal = null;
 
+function trapFocus(e) {
+  if (e.key !== 'Tab' || !modalEl) return;
+  const items = [...modalEl.querySelectorAll(FOCUSABLE)].filter(el => !el.closest('[aria-hidden="true"]'));
+  if (!items.length) return;
+  const first = items[0];
+  const last  = items[items.length - 1];
+  const active = document.activeElement;
+  if (e.shiftKey) {
+    if (active === first || !modalEl.contains(active)) { e.preventDefault(); last.focus(); }
+  } else {
+    if (active === last  || !modalEl.contains(active)) { e.preventDefault(); first.focus(); }
+  }
+}
+
 function updateCalc() {
   if (!activeDeal) return;
   const input = modalEl.querySelector('#m-invest-input');
@@ -316,6 +332,7 @@ function showModal(inv) {
   modalEl.removeAttribute('inert');
   lockScroll();
   modalEl.setAttribute('aria-hidden', 'false');
+  document.addEventListener('keydown', trapFocus);
   requestAnimationFrame(() => requestAnimationFrame(() => {
     modalEl.classList.add('open');
     modalEl.querySelector('#m-close')?.focus();
@@ -328,6 +345,7 @@ function hideModal() {
   modalEl.setAttribute('aria-hidden', 'true');
   modalEl.setAttribute('inert', '');
   unlockScroll();
+  document.removeEventListener('keydown', trapFocus);
   activeDeal = null;
 }
 
