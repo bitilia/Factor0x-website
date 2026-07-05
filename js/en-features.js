@@ -93,8 +93,10 @@ function bindSimpleModal(id, triggerButtons) {
     lockScroll();
     requestAnimationFrame(() => {
       backdrop.classList.add('open');
-      const first = getFocusable()[0];
-      first?.focus();
+      requestAnimationFrame(() => {
+        const first = getFocusable()[0];
+        first?.focus();
+      });
     });
     triggerButtons.forEach(btn => btn?.setAttribute('aria-expanded', 'true'));
     backdrop.addEventListener('keydown', trapFocus);

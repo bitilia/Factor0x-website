@@ -673,7 +673,7 @@
 
   <!-- ── Apply modal ──────────────────────────────── -->
   <div class="modal-backdrop simple-modal-backdrop" id="apply-modal" aria-hidden="true" inert>
-    <div class="simple-modal-wrap">
+    <div class="simple-modal-wrap" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">
       <div class="modal-topbar">
         <button class="modal-close simple-modal-close" type="button" aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
@@ -681,7 +681,7 @@
           </svg>
         </button>
       </div>
-      <div class="simple-modal" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">
+      <div class="simple-modal">
         <div class="simple-modal-head">
           <h2 class="simple-modal-title" id="apply-modal-title">Apply for financing</h2>
         </div>
@@ -708,7 +708,7 @@
 
   <!-- ── Flow modal ───────────────────────────────── -->
   <div class="modal-backdrop simple-modal-backdrop" id="flow-modal" aria-hidden="true" inert>
-    <div class="simple-modal-wrap">
+    <div class="simple-modal-wrap" role="dialog" aria-modal="true" aria-labelledby="flow-modal-title">
       <div class="modal-topbar">
         <button class="modal-close simple-modal-close" type="button" aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
@@ -716,7 +716,7 @@
           </svg>
         </button>
       </div>
-      <div class="simple-modal simple-modal--wide" role="dialog" aria-modal="true" aria-labelledby="flow-modal-title">
+      <div class="simple-modal simple-modal--wide">
         <div class="simple-modal-head">
           <h2 class="simple-modal-title" id="flow-modal-title">How a deal flows</h2>
         </div>

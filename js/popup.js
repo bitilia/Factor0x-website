@@ -50,7 +50,7 @@ function buildModal() {
   el.setAttribute('aria-hidden', 'true');
 
   el.innerHTML = `
-    <div class="modal-wrap">
+    <div class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="m-company">
       <div class="modal-topbar">
         <button class="modal-close" id="m-close" aria-label="${t('modal.close')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
@@ -60,7 +60,7 @@ function buildModal() {
       </div>
 
       <div class="modal-box-shell f0x-scroll-host">
-      <div class="modal-box" data-f0x-scroll role="dialog" aria-modal="true" aria-labelledby="m-company">
+      <div class="modal-box" data-f0x-scroll>
 
       <div class="modal-left">
         <div class="modal-company-img" id="m-img" aria-hidden="true"></div>
@@ -313,10 +313,12 @@ function showModal(inv) {
   updateCalc();
   updateSliderFill(slider);
 
+  modalEl.removeAttribute('inert');
   lockScroll();
   modalEl.setAttribute('aria-hidden', 'false');
   requestAnimationFrame(() => requestAnimationFrame(() => {
     modalEl.classList.add('open');
+    modalEl.querySelector('#m-close')?.focus();
   }));
 }
 
@@ -324,6 +326,7 @@ function hideModal() {
   if (!modalEl) return;
   modalEl.classList.remove('open');
   modalEl.setAttribute('aria-hidden', 'true');
+  modalEl.setAttribute('inert', '');
   unlockScroll();
   activeDeal = null;
 }
