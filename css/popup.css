@@ -70,6 +70,7 @@ body.modal-open {
 .modal-box-shell.f0x-scroll-host {
   flex: 1;
   min-height: 0;
+  border-radius: 28px;
 }
 
 .modal-box {
@@ -93,8 +94,7 @@ body.modal-open {
   flex-direction: column;
   overflow: hidden;
   background: rgba(6, 6, 6, 0.96);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  border-radius: 28px 0 0 28px;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -328,6 +328,7 @@ body.modal-open {
   flex-direction: column;
   overflow: hidden;
   background: #fff;
+  border-radius: 0 28px 28px 0;
 }
 
 .modal-right-panel.f0x-scroll-host {
@@ -602,10 +603,13 @@ body.modal-open {
     border-radius: 20px;
   }
 
+  .modal-box-shell.f0x-scroll-host { border-radius: 20px; }
+
   .modal-left {
     flex: none;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px 20px 0 0;
   }
 
   .modal-company-img {
@@ -626,6 +630,7 @@ body.modal-open {
   .modal-right {
     width: 100%;
     flex: none;
+    border-radius: 0 0 20px 20px;
   }
 
   .modal-right-panel.f0x-scroll-host {
@@ -674,10 +679,13 @@ body.modal-open {
     border-radius: 16px;
   }
 
+  .modal-box-shell.f0x-scroll-host { border-radius: 16px; }
+
   .modal-left {
     flex: 1;
     min-width: 0;
     min-height: 0;
+    border-radius: 16px 0 0 16px;
   }
 
   .modal-company-img {
@@ -691,6 +699,7 @@ body.modal-open {
   .modal-right {
     width: 260px;
     flex-shrink: 0;
+    border-radius: 0 16px 16px 0;
   }
 
   .modal-right-body.f0x-scrollable {
