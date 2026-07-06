@@ -1750,7 +1750,7 @@ html, body {
 
 @media (max-width: 560px) {
   .nav-link { display: none; }
-  .site-nav { gap: 8px; }
+  .site-nav { gap: 8px; margin-left: auto; }
 }
 
 /* ─── Landscape mobile ───────────────────────────── */
