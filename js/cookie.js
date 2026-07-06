@@ -30,27 +30,9 @@ import { t } from './i18n.js?v=demo3';
     '.f0x-cookie.f0x-out{animation:f0xOut .26s ease forwards}',
     '@keyframes f0xOut{to{transform:translateY(calc(100% + 36px));opacity:0}}',
     '.f0x-cookie-icon{width:28px;height:28px;color:rgba(220,162,60,.85);flex-shrink:0}',
-    '.f0x-cookie-header{display:flex;align-items:center;gap:8px}',
-    '.f0x-cookie-heading{font-family:"F0xSans",-apple-system,sans-serif;font-size:14px;font-weight:600;color:#fff;margin:0;flex:1}',
+    '.f0x-cookie-heading{font-family:"F0xSans",-apple-system,sans-serif;font-size:14px;font-weight:600;color:#fff;margin:0}',
     '.f0x-cookie-body{font-family:"F0xSans",-apple-system,sans-serif;font-size:12px;',
     'color:rgba(255,255,255,.48);line-height:1.65;margin:0}',
-    '.f0x-cookie-info-wrap{position:relative;flex-shrink:0}',
-    '.f0x-cookie-info{width:22px;height:22px;border:none;background:rgba(255,255,255,0.07);',
-    'border-radius:50%;color:rgba(255,255,255,0.45);cursor:help;display:flex;',
-    'align-items:center;justify-content:center;padding:0}',
-    '.f0x-cookie-info svg{width:12px;height:12px;pointer-events:none}',
-    '.f0x-cookie-info:hover{background:rgba(255,255,255,0.13);color:rgba(255,255,255,0.85)}',
-    '.f0x-cookie-info:focus-visible{outline:2px solid rgba(255,255,255,0.4);outline-offset:2px;',
-    'background:rgba(255,255,255,0.13);color:rgba(255,255,255,0.85);border-radius:50%}',
-    '.f0x-cookie-tooltip{position:absolute;bottom:calc(100% + 8px);right:0;width:200px;',
-    'background:#191919;border:1px solid rgba(255,255,255,0.1);border-radius:10px;',
-    'padding:9px 12px;font-family:"F0xSans",-apple-system,sans-serif;font-size:11.5px;',
-    'color:rgba(255,255,255,0.65);line-height:1.55;opacity:0;pointer-events:none;',
-    'transition:opacity 0.15s;z-index:1;white-space:normal}',
-    '.f0x-cookie-tooltip::after{content:"";position:absolute;top:100%;right:8px;',
-    'border:5px solid transparent;border-top-color:#191919}',
-    '.f0x-cookie-info:hover+.f0x-cookie-tooltip,',
-    '.f0x-cookie-info:focus-visible+.f0x-cookie-tooltip{opacity:1}',
     '.f0x-cookie-actions{display:flex;gap:8px;margin-top:6px}',
     '.f0x-cookie-actions .GoldBtn,.f0x-cookie-actions .PlainBtn{flex:1;min-width:0;height:36px;font-size:13px;padding:0 8px;border-radius:8px}',
     '.f0x-cookie-actions .GoldBtn::before,.f0x-cookie-actions .PlainBtn::before{border-radius:6px}',
@@ -66,7 +48,7 @@ import { t } from './i18n.js?v=demo3';
     return el;
   }
 
-  const cookieIcon = svgAttr(document.createElementNS(NS, 'svg'), {
+  const svg = svgAttr(document.createElementNS(NS, 'svg'), {
     class: 'f0x-cookie-icon', viewBox: '0 0 24 24', fill: 'none',
     stroke: 'currentColor', 'stroke-width': '1.6',
     'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true',
@@ -79,7 +61,7 @@ import { t } from './i18n.js?v=demo3';
     ['circle', { cx: '14',  cy: '15',   r: '1',   fill: 'currentColor', stroke: 'none' }],
     ['circle', { cx: '8.5', cy: '15',   r: '0.7', fill: 'currentColor', stroke: 'none' }],
     ['circle', { cx: '13',  cy: '9',    r: '0.6', fill: 'currentColor', stroke: 'none' }],
-  ].forEach(([tag, attrs]) => cookieIcon.appendChild(svgAttr(document.createElementNS(NS, tag), attrs)));
+  ].forEach(([tag, attrs]) => svg.appendChild(svgAttr(document.createElementNS(NS, tag), attrs)));
 
   const banner = document.createElement('div');
   banner.className = 'f0x-cookie';
@@ -88,41 +70,15 @@ import { t } from './i18n.js?v=demo3';
   banner.setAttribute('aria-labelledby', 'f0x-cookie-hdg');
   banner.setAttribute('aria-describedby', 'f0x-cookie-body');
 
-  // Header: cookie icon + heading + info button
-  const header = document.createElement('div');
-  header.className = 'f0x-cookie-header';
-  header.appendChild(cookieIcon);
-
   const heading = document.createElement('p');
   heading.id = 'f0x-cookie-hdg';
   heading.className = 'f0x-cookie-heading';
   heading.textContent = t('cookie.heading');
-  header.appendChild(heading);
-
-  const infoWrap = document.createElement('div');
-  infoWrap.className = 'f0x-cookie-info-wrap';
-
-  const infoBtn = document.createElement('button');
-  infoBtn.type = 'button';
-  infoBtn.className = 'f0x-cookie-info';
-  infoBtn.setAttribute('aria-label', t('cookie.infoLabel'));
-  infoBtn.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="8.5" x2="8" y2="11.5"/><circle cx="8" cy="5.5" r="0.8" fill="currentColor" stroke="none"/></svg>';
-
-  const tooltipEl = document.createElement('div');
-  tooltipEl.className = 'f0x-cookie-tooltip';
-  tooltipEl.setAttribute('role', 'tooltip');
-  tooltipEl.textContent = t('cookie.tooltip');
-
-  infoWrap.appendChild(infoBtn);
-  infoWrap.appendChild(tooltipEl);
-  header.appendChild(infoWrap);
-  banner.appendChild(header);
 
   const body = document.createElement('p');
   body.id = 'f0x-cookie-body';
   body.className = 'f0x-cookie-body';
   body.textContent = t('cookie.body');
-  banner.appendChild(body);
 
   const actions = document.createElement('div');
   actions.className = 'f0x-cookie-actions';
@@ -154,10 +110,15 @@ import { t } from './i18n.js?v=demo3';
   const declineBtn = makeBtn('PlainBtn', t('cookie.decline'), false);
   actions.appendChild(acceptBtn);
   actions.appendChild(declineBtn);
-  banner.appendChild(actions);
 
-  // Focus trap: Tab/Shift+Tab cycles within banner; Escape dismisses
-  const focusables = [infoBtn, acceptBtn, declineBtn];
+  banner.appendChild(svg);
+  banner.appendChild(heading);
+  banner.appendChild(body);
+  banner.appendChild(actions);
+  document.body.appendChild(banner);
+
+  // Focus trap: Tab/Shift+Tab cycles between the two buttons; Escape dismisses
+  const focusables = [acceptBtn, declineBtn];
 
   banner.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
@@ -181,8 +142,6 @@ import { t } from './i18n.js?v=demo3';
       }
     }
   });
-
-  document.body.appendChild(banner);
 
   // Move focus into the banner on open
   requestAnimationFrame(() => focusables[0].focus());

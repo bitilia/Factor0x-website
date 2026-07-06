@@ -5,8 +5,6 @@ export default {
     body: 'We use cookies to keep your session and improve your experience. No tracking or advertising.',
     accept: 'Accept',
     decline: 'Decline',
-    infoLabel: 'About these cookies',
-    tooltip: 'Session cookies only — used to maintain your session and preferences. No analytics or advertising trackers.',
   },
 
   marketplace: {

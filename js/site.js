@@ -1,3 +1,11 @@
+// ─── Focus ring visibility: show only after first Tab press ──────
+document.addEventListener('keydown', function onFirstTab(e) {
+  if (e.key === 'Tab') {
+    document.documentElement.classList.add('keyboard-nav');
+    document.removeEventListener('keydown', onFirstTab);
+  }
+});
+
 // ─── TVL card glint — fires once per mouseenter, always completes ──
 (function () {
   const card = document.querySelector('.tvl-card');
