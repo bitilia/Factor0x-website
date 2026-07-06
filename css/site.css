@@ -585,7 +585,6 @@ html, body {
   filter: brightness(0) invert(1);
 }
 .crypto-icon--dollar {
-  filter: brightness(0) invert(1);
   object-fit: contain;
 }
 
@@ -595,10 +594,11 @@ html, body {
 }
 .drop-crypto-icon {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 18px;
   height: 18px;
-  margin: auto;
   opacity: 0;
   transition: opacity 0.38s ease;
   pointer-events: none;
