@@ -582,7 +582,6 @@ html, body {
   border-radius: 50%;
   padding: 4px;
   box-sizing: border-box;
-  filter: brightness(0) invert(1);
 }
 .crypto-icon--dollar {
   object-fit: contain;
