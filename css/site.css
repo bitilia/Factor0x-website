@@ -949,6 +949,19 @@ html, body {
   white-space: nowrap;
 }
 
+/* ─── TVL hero mirror (mobile only) ─────────────── */
+.tvl-card--hero-mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tvl-card--hero-mobile {
+    display: block;
+    width: 100%;
+    box-shadow: 0 4px 28px rgba(255,255,255,0.08);
+  }
+}
+
 .invoice-title {
   font-family: 'F0xMono', monospace;
   font-size: clamp(22px, 3.5vw, 42px);

@@ -105,8 +105,10 @@ function createCard(inv) {
 }
 
 async function loadStats() {
-  const tvlValueEl = document.getElementById('tvl-value');
-  const tvlDateEl  = document.getElementById('tvl-date');
+  const tvlValueEl    = document.getElementById('tvl-value');
+  const tvlDateEl     = document.getElementById('tvl-date');
+  const tvlValueHero  = document.getElementById('tvl-value-hero');
+  const tvlDateHero   = document.getElementById('tvl-date-hero');
   if (!tvlValueEl) return;
 
   const loaderWrap = el('div', 'tvl-loader-wrap');
@@ -121,6 +123,8 @@ async function loadStats() {
     const data = await res.json();
     tvlValueEl.textContent = formatTVL(data.tvl, data.currency);
     if (tvlDateEl) tvlDateEl.textContent = t('marketplace.tvlOn', { date: data.tvlDate });
+    if (tvlValueHero) tvlValueHero.textContent = tvlValueEl.textContent;
+    if (tvlDateHero && tvlDateEl) tvlDateHero.textContent = tvlDateEl.textContent;
   } catch {
     // leave placeholder text in place
   } finally {
