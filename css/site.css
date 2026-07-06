@@ -743,12 +743,13 @@ html, body {
   width: 13px;
   height: 13px;
   flex-shrink: 0;
-  color: #666;
-  transition: color 0.15s ease;
+  filter: brightness(0);
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
   display: block;
 }
 
-.tooltip-wrap:hover .tooltip-icon { color: #999; }
+.tooltip-wrap:hover .tooltip-icon { opacity: 0.6; }
 
 .tooltip-box {
   position: absolute;
