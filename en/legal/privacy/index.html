@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Privacy Policy — Factor0x</title>
+  <meta name="description" content="Factor0x Privacy Policy — how we collect, use and protect your personal data.">
   <link rel="icon" type="image/x-icon" href="../../../resources/favicon.ico">
   <link rel="preload" as="font" type="font/woff2" href="../../../resources/fonts/normal/latin/normal-regular.woff2?v=demo3" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="../../../resources/fonts/normal/latin/normal-semibold.woff2?v=demo3" crossorigin>
@@ -78,10 +79,19 @@
       .doc-title { font-size: 38px; }
       h2 { font-size: 20px; }
     }
+    @media print {
+      .back-link { display: none; }
+      body { font-size: 10pt; line-height: 1.6; }
+      h2 { break-after: avoid; page-break-after: avoid; font-size: 13pt; }
+      h3 { break-after: avoid; page-break-after: avoid; }
+      p, li { orphans: 3; widows: 3; }
+      li { break-inside: avoid; page-break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
-  <main class="doc-wrap">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content" class="doc-wrap">
     <a class="back-link" href="../../">← Back to Factor0x</a>
     <h1 class="doc-title">Privacy Policy</h1>
     <p class="doc-meta">Last updated: 26/05/2026</p>

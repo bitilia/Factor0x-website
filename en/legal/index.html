@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Legal — Factor0x</title>
+  <meta name="description" content="Factor0x legal documents — Privacy Policy, Terms of Service, and Whitepaper.">
   <link rel="icon" type="image/x-icon" href="../../resources/favicon.ico">
   <link rel="preload" as="font" type="font/woff2" href="../../resources/fonts/normal/latin/normal-regular.woff2?v=demo3" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="../../resources/fonts/normal/latin/normal-semibold.woff2?v=demo3" crossorigin>
@@ -86,10 +87,17 @@
       .doc-title { font-size: 38px; }
       .legal-name { font-size: 16px; }
     }
+    @media print {
+      .back-link { display: none; }
+      body { font-size: 10pt; }
+      .legal-arrow { display: none; }
+      .legal-list li a { border-color: #ccc; }
+    }
   </style>
 </head>
 <body>
-  <main class="doc-wrap">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content" class="doc-wrap">
     <a class="back-link" href="../">← Back to Factor0x</a>
     <h1 class="doc-title">Legal</h1>
     <p class="doc-subtitle">Platform policies, terms and documentation.</p>
