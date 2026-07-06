@@ -1274,8 +1274,8 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  .invoice-section-top { flex-direction: column; align-items: center; }
-  .invoice-section-top .tvl-card { width: fit-content; }
+  .invoice-section-top { flex-direction: column; }
+  .tvl-card { width: 100%; }
 }
 
 @media (max-width: 560px) {
