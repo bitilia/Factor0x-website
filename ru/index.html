@@ -4,18 +4,88 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Factor0x — Капитал для бизнеса, доход для инвестора</title>
-  <meta name="description" content="Платформа, где проверенные инвойсы находят ликвидность. Краткосрочное финансирование реального бизнеса. Реальный доход для инвестора.">
-  <link rel="stylesheet" href="../css/site.css?v=demo2">
-  <link rel="stylesheet" href="../css/main.css?v=demo2">
-  <link rel="stylesheet" href="../css/popup.css?v=demo2">
+  <meta name="description" content="Платформа, где проверенные B2B-инвойсы находят ликвидность. Краткосрочное финансирование реального бизнеса. Реальный доход для инвестора.">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://factor0x.bitilia.com/ru/">
+  <link rel="alternate" hreflang="en" href="https://factor0x.bitilia.com/en/">
+  <link rel="alternate" hreflang="ru" href="https://factor0x.bitilia.com/ru/">
+  <link rel="alternate" hreflang="x-default" href="https://factor0x.bitilia.com/en/">
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/x-icon" href="../resources/favicon.ico">
+  <link rel="apple-touch-icon" href="../resources/logo/logo-3d-c.webp">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#0d0d0d">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://factor0x.bitilia.com/ru/">
+  <meta property="og:title" content="Factor0x — Капитал для бизнеса, доход для инвестора">
+  <meta property="og:description" content="Платформа, где проверенные B2B-инвойсы находят ликвидность. Краткосрочное финансирование реального бизнеса. Реальный доход для инвестора.">
+  <meta property="og:image" content="https://factor0x.bitilia.com/resources/images/opengraph-card.webp">
+  <meta property="og:image:alt" content="Factor0x — Платформа факторингового финансирования">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Factor0x — Капитал для бизнеса, доход для инвестора">
+  <meta name="twitter:description" content="Платформа, где проверенные B2B-инвойсы находят ликвидность. Краткосрочное финансирование реального бизнеса. Реальный доход для инвестора.">
+  <meta name="twitter:image" content="https://factor0x.bitilia.com/resources/images/opengraph-card.webp">
+
+  <!-- Font preloads (cyrillic regular + semibold are first-paint weights) -->
+  <link rel="preload" as="font" type="font/woff2" href="../resources/fonts/normal/cyrillic/normal-regular.woff2?v=demo3" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../resources/fonts/normal/cyrillic/normal-semibold.woff2?v=demo3" crossorigin>
+
+  <!-- Styles — popup.css deferred so it doesn't block first paint -->
+  <link rel="stylesheet" href="../css/site.css?v=demo3">
+  <link rel="stylesheet" href="../css/main.css?v=demo3">
+  <link rel="stylesheet" href="../css/popup.css?v=demo3" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/popup.css?v=demo3"></noscript>
+  <!-- Hide modals immediately so they don't flash before popup.css loads -->
+  <style>.modal-backdrop{opacity:0;pointer-events:none}</style>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Factor0x",
+    "url": "https://factor0x.bitilia.com",
+    "logo": "https://factor0x.bitilia.com/resources/logo/logo-3d-c.webp",
+    "description": "Платформа, где проверенные B2B-инвойсы находят ликвидность. Краткосрочное финансирование реального бизнеса. Реальный доход для инвестора.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@factor0x.com",
+      "contactType": "customer support"
+    }
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Что такое Factor0x?","acceptedAnswer":{"@type":"Answer","text":"Factor0x — это платформа для финансирования проверенных B2B-инвойсов. Бизнес получает оборотный капитал до оплаты клиента, а инвесторы финансируют реальные сделки из B2B-сектора."}},
+      {"@type":"Question","name":"Что финансируют инвесторы?","acceptedAnswer":{"@type":"Answer","text":"Инвесторы финансируют проверенные B2B-инвойсы. Каждая сделка имеет сумму, срок, степень риска, статус проверки и ожидаемый процесс погашения."}},
+      {"@type":"Question","name":"Как инвестор получает доход?","acceptedAnswer":{"@type":"Answer","text":"Доход формируется после погашения инвойса должником. Когда клиент бизнеса оплачивает инвойс, средства распределяются между участниками сделки согласно условиям."}},
+      {"@type":"Question","name":"Доходность гарантирована?","acceptedAnswer":{"@type":"Answer","text":"Нет. Доходность зависит от погашения инвойса, качества должника, условий сделки и возможных задержек. Factor0x показывает ориентировочную годовую доходность, но не гарантирует доход."}},
+      {"@type":"Question","name":"Что происходит, если инвойс не оплатят вовремя?","acceptedAnswer":{"@type":"Answer","text":"Сделка получает статус «просрочено». Инвесторы видят обновления по статусу погашения, а Factor0x и партнёры работают по предусмотренному процессу взыскания и урегулирования."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
 
   <header class="site-header">
 
     <!-- Logo -->
     <a href="./" class="logo-link" aria-label="Factor0x — главная">
-      <span class="logo-text" aria-label="Factor0x">
+      <span class="logo-text" aria-hidden="true">
         <span class="logo-factor">Factor</span><span class="logo-0x">0x</span>
       </span>
     </a>
@@ -28,7 +98,7 @@
 
       <!-- Language switcher -->
       <div class="lang-wrap">
-        <button class="globe-btn" aria-haspopup="true" aria-label="Выбрать язык">
+        <button class="globe-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Выбрать язык">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="10" cy="10" r="8.25"/>
@@ -47,12 +117,12 @@
 
       <!-- Connect Wallet -->
       <div class="wallet-wrap">
-        <button class="wallet-btn" aria-haspopup="true" aria-expanded="false" aria-controls="wallet-drop">
+        <button class="wallet-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="wallet-drop">
           <span class="crypto-wrap" aria-hidden="true">
-            <img class="crypto-icon active" src="../resources/icons/static/crypto/eth.png?v=demo2"   alt="" width="22" height="22" loading="eager">
-            <img class="crypto-icon"        src="../resources/icons/static/crypto/avax.png?v=demo2"  alt="" width="22" height="22" loading="eager">
-            <img class="crypto-icon"        src="../resources/icons/static/crypto/matic.png?v=demo2" alt="" width="22" height="22" loading="eager">
-            <img class="crypto-icon"        src="../resources/icons/static/crypto/btc.png?v=demo2"   alt="" width="22" height="22" loading="eager">
+            <img class="crypto-icon active" src="../resources/icons/static/crypto/eth.png?v=demo3"   alt="" width="22" height="22" loading="eager">
+            <img class="crypto-icon"        src="../resources/icons/static/crypto/avax.png?v=demo3"  alt="" width="22" height="22" loading="eager">
+            <img class="crypto-icon"        src="../resources/icons/static/crypto/matic.png?v=demo3" alt="" width="22" height="22" loading="eager">
+            <img class="crypto-icon"        src="../resources/icons/static/crypto/btc.png?v=demo3"   alt="" width="22" height="22" loading="eager">
           </span>
           <span>Подключить кошелёк</span>
         </button>
@@ -63,7 +133,7 @@
           <!-- Crypto -->
           <button class="drop-item" role="menuitem">
             <span class="drop-icon" style="background:#1c1c1c; border:1px solid rgba(255,255,255,0.12);">
-              <img src="../resources/icons/static/crypto/generic.png?v=demo2" alt="" width="18" height="18" loading="lazy" style="display:block; object-fit:contain;">
+              <img src="../resources/icons/static/crypto/generic.png?v=demo3" alt="" width="18" height="18" loading="lazy" style="display:block; object-fit:contain;">
             </span>
             <span class="drop-item-text">
               <span class="drop-item-name">Крипто</span>
@@ -74,7 +144,7 @@
           <!-- Bank / Fiat -->
           <button class="drop-item" role="menuitem">
             <span class="drop-icon" style="background:#1a5c38;">
-              <img src="../resources/icons/static/solid/building-columns.svg?v=demo2" alt="" width="18" height="18" loading="lazy" style="filter:brightness(0) invert(1); display:block;">
+              <img src="../resources/icons/static/solid/building-columns.svg?v=demo3" alt="" width="18" height="18" loading="lazy" style="filter:brightness(0) invert(1); display:block;">
             </span>
             <span class="drop-item-text">
               <span class="drop-item-name">Банк</span>
@@ -85,16 +155,30 @@
       </div>
     </nav>
 
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" tabindex="-1">
+    <label for="nav-toggle" class="nav-hamburger" aria-label="Открыть меню">
+      <span class="bar bar--top"></span>
+      <span class="bar bar--middle"></span>
+      <span class="bar bar--bottom"></span>
+    </label>
+
   </header>
+
+  <nav class="mobile-nav-drawer" id="mobile-nav" aria-label="Мобильная навигация" aria-hidden="true">
+    <a href="#about">О нас</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacts">Контакты</a>
+    <a href="#invoice-cards">ТОП предложения</a>
+  </nav>
 
   <main class="page-body" id="main-content">
 
     <!-- ── Hero ─────────────────────────────────────── -->
-    <section class="hero section-full" id="hero">
+    <section class="hero section-full" id="hero" tabindex="0">
       <div class="hero-inner">
 
         <img
-          src="../resources/logo/logo-3d-c.webp?v=demo2"
+          src="../resources/logo/logo-3d-c.webp?v=demo3"
           alt="Factor0x"
           class="hero-logo blur-load"
           width="280"
@@ -112,7 +196,7 @@
         </p>
 
         <div class="hero-actions blur-load" style="animation-delay: 0.4s">
-          <button class="GoldBtn"><span>Получить финансирование</span></button>
+          <button class="GoldBtn" id="hero-apply-btn" type="button"><span>Получить финансирование</span></button>
           <a href="#invoice-cards" class="BtnDark"><span>Начать инвестировать</span></a>
         </div>
 
@@ -120,57 +204,98 @@
     </section>
 
     <!-- ── Invoice Cards ─────────────────────────────── -->
-    <section id="invoice-cards" class="section-full">
+    <section id="invoice-cards" class="section-full" tabindex="0">
       <div class="invoice-section-inner">
 
         <div class="invoice-section-top">
 
           <div class="invoice-content">
-            <h2 class="invoice-title">Проверенные <span class="invoice-title-muted">B2B инвойсы</span></h2>
+            <h2 class="invoice-title">Финансирование проверенных <span class="invoice-title-muted">B2B-инвойсов</span></h2>
+            <div class="section-rule section-rule--light"></div>
             <p class="invoice-sub">Краткосрочное финансирование реального бизнеса.</p>
           </div>
 
           <div class="tvl-card">
-            <span class="tvl-info" aria-label="Что такое TVL">
+            <div class="tvl-shine-clip" aria-hidden="true"></div>
+            <button class="tvl-info" type="button" aria-label="Что такое TVL?" aria-describedby="tvl-tooltip-text">
               <svg class="tooltip-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
                 <path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM224 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm-8 64l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/>
               </svg>
-            </span>
-            <span class="tooltip-box tvl-tooltip">TVL — капитал, размещённый в активных сделках по финансированию инвойсов.</span>
+            </button>
+            <span id="tvl-tooltip-text" class="tooltip-box tvl-tooltip" role="tooltip">TVL — капитал, размещённый в активных сделках по финансированию инвойсов.</span>
             <div class="tvl-card-row">
               <svg class="tvl-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
                 <path d="M192 80c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 352c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-352zM0 272c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 160c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48L0 272zM432 96l32 0c26.5 0 48 21.5 48 48l0 288c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48z"/>
               </svg>
               <div class="tvl-content">
-                <span class="tvl-label" id="tvl-date">TVL на 21 мая 2026</span>
-                <span class="tvl-value" id="tvl-value">$103 504 459,50 USD</span>
+                <span class="tvl-label" id="tvl-date" aria-live="polite">TVL на 21 мая 2026</span>
+                <span class="tvl-value" id="tvl-value" aria-live="polite">$103 504 459,50 USD</span>
               </div>
             </div>
           </div>
 
         </div>
 
-        <div>
+        <div id="offers-block">
           <div class="offers-header">
-            <span class="offers-label">ТОП сделки</span>
-            <button class="LightBtn"><span>Смотреть еще</span></button>
+            <span class="offers-label">ТОП предложения</span>
+            <button class="LightBtn" id="view-all-btn" type="button" aria-expanded="false" aria-controls="invoice-table-panel"><span>Смотреть все →</span></button>
           </div>
           <div class="offers-grid"></div>
           <div class="offers-scrollbar" aria-hidden="true">
-            <div class="offers-scrollbar-fill"></div>
+            <div class="offers-scrollbar-thumb"></div>
+          </div>
+
+          <div class="invoice-table-panel" id="invoice-table-panel" aria-hidden="true" inert>
+            <div class="invoice-table-panel-inner">
+              <p class="invoice-table-disclaimer">Некоторые сделки отображаются только после входа в систему.</p>
+              <div class="invoice-table-wrap">
+                <table class="invoice-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Компания</th>
+                      <th scope="col" aria-sort="descending"><button type="button" class="invoice-table-sort active desc" data-sort="amount">Сумма</button></th>
+                      <th scope="col" aria-sort="none"><button type="button" class="invoice-table-sort" data-sort="apr">Год. ставка</button></th>
+                      <th scope="col" aria-sort="none"><button type="button" class="invoice-table-sort" data-sort="dueDays">Дата погашения</button></th>
+                      <th scope="col" aria-sort="none"><button type="button" class="invoice-table-sort" data-sort="filledPct">Заполнено</button></th>
+                      <th scope="col" aria-sort="none"><button type="button" class="invoice-table-sort" data-sort="risk">Риск</button></th>
+                      <th scope="col" aria-sort="none"><button type="button" class="invoice-table-sort" data-sort="minContribution">Мин. взнос</button></th>
+                      <th scope="col"><span class="visually-hidden">Действия</span></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <div class="invoice-pagination" aria-label="Страницы таблицы инвойсов">
+                <div class="invoice-page-size">
+                  <span>Показать</span>
+                  <button type="button" class="active" data-page-size="10">10</button>
+                  <button type="button" data-page-size="20">20</button>
+                  <button type="button" data-page-size="all">Все</button>
+                </div>
+                <div class="invoice-page-nav">
+                  <button type="button" class="LightBtn invoice-page-prev"><span>Назад</span></button>
+                  <span class="invoice-page-status">Страница 1 / 1</span>
+                  <button type="button" class="LightBtn invoice-page-next"><span>Вперёд</span></button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div id="invoice-status" role="status" aria-live="polite" class="visually-hidden"></div>
 
       </div>
     </section>
 
 
     <!-- ── How the model works ───────────────────────── -->
-    <section id="model" class="section-full model-section">
+    <section id="model" class="section-full model-section" tabindex="0">
       <div class="model-inner">
 
         <div class="model-header">
           <h2 class="model-title">Как работает модель</h2>
+          <div class="section-rule"></div>
           <p class="model-sub">Factor0x помогает бизнесу получить оборотный капитал, а инвесторам — заработать на проверенных B2B-инвойсах.</p>
         </div>
 
@@ -180,23 +305,23 @@
             <span class="model-tile-role">Бизнес</span>
             <span class="model-tile-subtitle">Получает финансирование</span>
             <p class="model-tile-desc">Передаёт подтверждённый B2B-инвойс и получает оборотный капитал до оплаты клиента.</p>
-            <button class="PlainBtn model-tile-btn"><span>Заявка</span></button>
+            <button class="GoldBtn model-tile-btn" id="apply-toggle" type="button" aria-haspopup="dialog" aria-controls="apply-modal"><span>Заявка</span></button>
           </div>
 
           <div class="model-tile model-tile--center">
-            <span class="logo-text model-tile-logo" aria-label="Factor0x">
+            <span class="logo-text model-tile-logo" role="img" aria-label="Factor0x">
               <span class="logo-factor">Factor</span><span class="logo-0x">0x</span>
             </span>
             <span class="model-tile-subtitle">Структурирует сделку</span>
             <p class="model-tile-desc">Связывает бизнес, капитал и процесс выплат в единую управляемую инфраструктуру.</p>
-            <button class="GoldBtn model-tile-btn"><span>Подробнее</span></button>
+            <button class="FlowBtn model-tile-btn" id="flow-toggle" type="button" aria-haspopup="dialog" aria-controls="flow-modal"><span>Подробнее</span></button>
           </div>
 
           <div class="model-tile">
             <span class="model-tile-role">Инвесторы</span>
             <span class="model-tile-subtitle">Предоставляют ликвидность</span>
             <p class="model-tile-desc">Финансируют реальные торговые сделки и получают доход после их погашения.</p>
-            <button class="PlainBtn model-tile-btn"><span>Инвестировать</span></button>
+            <a href="#invoice-cards" class="GoldBtn model-tile-btn"><span>Заработать</span></a>
           </div>
 
         </div>
@@ -205,13 +330,13 @@
     </section>
 
     <!-- ── About ─────────────────────────────────────── -->
-    <section id="about" class="section-full about-section">
+    <section id="about" class="section-full about-section" tabindex="0">
       <div class="about-inner">
 
         <div class="about-visual">
           <video
             class="about-svg"
-            src="../resources/videos/safe-multisize/alpha-400_500.webm?v=demo2"
+            src="../resources/videos/safe-multisize/alpha-400_500.webm?v=demo3"
             data-multisize="../resources/videos/safe-multisize/"
             data-multisize-stem="alpha"
             autoplay loop muted playsinline
@@ -223,6 +348,7 @@
 
         <div class="about-content">
           <h2 class="about-heading">О нас</h2>
+          <div class="section-rule"></div>
           <p class="about-text">Factor0x работает на пересечении trade finance, Web3-ликвидности и реального B2B-сектора.</p>
           <p class="about-text">Мы начинаем с ОАЭ — рынка с сильной торговлей, логистикой и спросом на оборотный капитал.</p>
           <div class="about-divider"></div>
@@ -233,11 +359,12 @@
     </section>
 
     <!-- ── Deal Transparency ──────────────────────────── -->
-    <section id="deal-transparency" class="section-full deal-section">
+    <section id="deal-transparency" class="section-full deal-section" tabindex="0">
       <div class="deal-inner">
 
         <div class="deal-content">
           <h2 class="deal-heading">Прозрачность сделок</h2>
+          <div class="section-rule"></div>
           <div class="deal-subs">
             <div class="deal-sub">
               <p class="deal-sub-label">Проверка инвойса</p>
@@ -245,12 +372,12 @@
             </div>
             <div class="deal-divider"></div>
             <div class="deal-sub">
-              <p class="deal-sub-label">Проверка компании и плательщика</p>
+              <p class="deal-sub-label">Проверка KYB и плательщика</p>
               <p class="deal-text">Проверяем бизнес, должника и юридические риски.</p>
             </div>
             <div class="deal-divider"></div>
             <div class="deal-sub">
-              <p class="deal-sub-label">Степень риска</p>
+              <p class="deal-sub-label">Уровень риска</p>
               <p class="deal-text">Оцениваем срок, сумму, отрасль и качество сделки.</p>
             </div>
             <div class="deal-divider"></div>
@@ -264,7 +391,7 @@
         <div class="deal-visual">
           <video
             class="deal-svg"
-            src="../resources/videos/deal-multisize/deal-400_500.webm?v=demo2"
+            src="../resources/videos/deal-multisize/deal-400_500.webm?v=demo3"
             data-multisize="../resources/videos/deal-multisize/"
             data-multisize-stem="deal"
             autoplay loop muted playsinline
@@ -278,26 +405,28 @@
     </section>
 
     <!-- ── Real Yield ─────────────────────────────────── -->
-    <section id="real-yield" class="section-full yield-section" aria-label="Реальный доход">
+    <section id="real-yield" class="section-full yield-section" aria-label="Реальный доход" tabindex="0">
       <div class="yield-inner">
 
         <div class="yield-visual">
-          <button type="button" class="yield-svg-link" aria-label="Платформа заработка Factor0x">
+          <button type="button" class="yield-svg-link" id="yield-video-btn" aria-label="Приостановить анимацию платформы" aria-pressed="false">
             <video
+              id="yield-video"
               class="yield-svg"
-              src="../resources/videos/yield-multisize/yield-400_500.webm?v=demo2"
+              src="../resources/videos/yield-multisize/yield-400_500.webm?v=demo3"
               data-multisize="../resources/videos/yield-multisize/"
               data-multisize-stem="yield"
               autoplay loop muted playsinline
               disablepictureinpicture
               controlsList="nodownload nofullscreen noremoteplayback"
-              aria-label="Платформа заработка Factor0x"
+              aria-hidden="true"
             ></video>
           </button>
         </div>
 
         <div class="yield-content">
           <h2 class="yield-heading">Реальный доход</h2>
+          <div class="section-rule"></div>
           <div class="yield-subs">
             <div class="yield-sub">
               <p class="yield-sub-label">Реальные активы</p>
@@ -325,11 +454,13 @@
     </section>
 
     <!-- ── FAQ ───────────────────────────────────────── -->
-    <section id="faq" class="faq-section">
+    <section id="faq" class="faq-section" tabindex="0">
       <div class="faq-inner">
 
         <div class="faq-heading-wrap">
           <h2 class="faq-heading">FAQ</h2>
+          <div class="section-rule"></div>
+          <p class="faq-sub">Частые вопросы о Factor0x</p>
         </div>
 
         <div class="faq-list">
@@ -356,7 +487,7 @@
 
           <div class="faq-item">
             <button class="faq-q" type="button" aria-expanded="false">Что происходит, если инвойс не оплатят вовремя?<span class="faq-q-icon" aria-hidden="true"></span></button>
-            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Сделка получает статус «просрочено». Инвесторы видят обновления по статусу погашения, а Factor0x и партнёры работают по предусмотренному процессу взыскания / урегулирования.</p></div></div>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Сделка получает статус «просрочено». Инвесторы видят обновления по статусу погашения, а Factor0x и партнёры работают по предусмотренному процессу взыскания и урегулирования.</p></div></div>
           </div>
 
           <div class="faq-item">
@@ -371,7 +502,7 @@
 
           <div class="faq-item">
             <button class="faq-q" type="button" aria-expanded="false">Нужен ли бизнесу криптокошелёк?<span class="faq-q-icon" aria-hidden="true"></span></button>
-            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Нет. Бизнесу не обязательно использовать криптокошелёк. Для бизнеса продукт должен работать как понятное финансирование под инвойс.</p></div></div>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Нет. Бизнесу не нужно использовать криптокошелёк. Для бизнеса продукт работает как понятное финансирование под инвойс.</p></div></div>
           </div>
 
           <div class="faq-item">
@@ -381,7 +512,7 @@
 
           <div class="faq-item">
             <button class="faq-q" type="button" aria-expanded="false">В какой валюте происходит финансирование?<span class="faq-q-icon" aria-hidden="true"></span></button>
-            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Инвесторы могут участвовать через USDT / USDC или фиат, если это доступно для конкретной сделки и соответствует требованиям комплаенс-контура.</p></div></div>
+            <div class="faq-ans-wrap"><div class="faq-ans-inner"><p class="faq-ans">Инвесторы могут участвовать через USDT / USDC или фиат, если это доступно для конкретной сделки и соответствует требованиям комплаенса.</p></div></div>
           </div>
 
         </div>
@@ -390,92 +521,94 @@
     </section>
 
     <!-- ── Team ──────────────────────────────────────── -->
-    <section id="team" class="team-section section-full">
+    <section id="team" class="team-section section-full" tabindex="0">
       <div class="team-inner">
 
         <div class="team-heading-wrap">
-          <h2 class="team-heading">Команда проекта</h2>
+          <h2 class="team-heading">Команда</h2>
+          <div class="section-rule"></div>
+          <p class="team-sub">Люди, стоящие за Factor0x</p>
         </div>
 
         <div class="team-grid">
 
-          <article class="team-card" role="button" tabindex="0">
+          <a href="#" class="team-card">
             <div class="team-photo-wrap">
-              <img class="team-photo" src="../resources/images/team-ceo.webp?v=demo2" alt="Итан Уокер" loading="lazy">
+              <img class="team-photo" src="../resources/images/team-ceo.webp?v=demo3" alt="Итан Уокер" loading="lazy">
             </div>
             <div class="team-info">
               <div class="team-identity">
                 <h3 class="team-name">Итан Уокер</h3>
-                <span class="team-role">Генеральный директор</span>
+                <span class="team-role">CEO</span>
               </div>
-              <p class="team-bio">Стратегия, партнёрства, сделки</p>
+              <p class="team-bio">Формирует стратегию, ключевые партнёрства и поток сделок в регионах Персидского залива и Юго-Восточной Азии.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="team-card" role="button" tabindex="0">
+          <a href="#" class="team-card">
             <div class="team-photo-wrap">
-              <img class="team-photo" src="../resources/images/team-architect.webp?v=demo2" alt="Дэниел Чен" loading="lazy">
+              <img class="team-photo" src="../resources/images/team-architect.webp?v=demo3" alt="Дэниел Чен" loading="lazy">
             </div>
             <div class="team-info">
               <div class="team-identity">
                 <h3 class="team-name">Дэниел Чен</h3>
                 <span class="team-role">Главный архитектор</span>
               </div>
-              <p class="team-bio">Архитектура платформы, смарт-контракты, безопасность</p>
+              <p class="team-bio">Проектирует инфраструктуру платформы, уровень смарт-контрактов и архитектуру безопасности.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="team-card" role="button" tabindex="0">
+          <a href="#" class="team-card">
             <div class="team-photo-wrap">
-              <img class="team-photo" src="../resources/images/team-legal.webp?v=demo2" alt="София Лоран" loading="lazy">
+              <img class="team-photo" src="../resources/images/team-legal.webp?v=demo3" alt="София Лоран" loading="lazy">
             </div>
             <div class="team-info">
               <div class="team-identity">
                 <h3 class="team-name">София Лоран</h3>
-                <span class="team-role">Главный юрист</span>
+                <span class="team-role">Директор по правовым вопросам</span>
               </div>
-              <p class="team-bio">Юридическая структура, комплаенс, регуляция</p>
+              <p class="team-bio">Выстраивает юридическую структуру, программу комплаенса и регуляторный путь в различных юрисдикциях.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="team-card" role="button" tabindex="0">
+          <a href="#" class="team-card">
             <div class="team-photo-wrap">
-              <img class="team-photo" src="../resources/images/team-risk.webp?v=demo2" alt="Маркус Беннетт" loading="lazy">
+              <img class="team-photo" src="../resources/images/team-risk.webp?v=demo3" alt="Маркус Беннетт" loading="lazy">
             </div>
             <div class="team-info">
               <div class="team-identity">
                 <h3 class="team-name">Маркус Беннетт</h3>
-                <span class="team-role">Риск-директор</span>
+                <span class="team-role">Директор по рискам</span>
               </div>
-              <p class="team-bio">Оценка сделок, присвоение уровней риска, анализ качества плательщиков.</p>
+              <p class="team-bio">Руководит оценкой сделок, присвоением уровней риска и анализом качества плательщиков по каждому инвойсу на платформе.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="team-card" role="button" tabindex="0">
+          <a href="#" class="team-card">
             <div class="team-photo-wrap">
-              <img class="team-photo" src="../resources/images/team-advisor.webp?v=demo2" alt="Адриан Моро" loading="lazy">
+              <img class="team-photo" src="../resources/images/team-advisor.webp?v=demo3" alt="Адриан Моро" loading="lazy">
             </div>
             <div class="team-info">
               <div class="team-identity">
                 <h3 class="team-name">Адриан Моро</h3>
                 <span class="team-role">Стратегический советник</span>
               </div>
-              <p class="team-bio">Привлечение капитала, партнёрства, выход на новые рынки</p>
+              <p class="team-bio">Консультирует по стратегии привлечения капитала, институциональным партнёрствам и выходу на новые рынки.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="team-card" role="button" tabindex="0">
+          <a href="#" class="team-card">
             <div class="team-photo-wrap">
-              <img class="team-photo" src="../resources/images/team-bd-partnerships-manager.webp?v=demo2" alt="Майя Рейнольдс" loading="lazy">
+              <img class="team-photo" src="../resources/images/team-bd-partnerships-manager.webp?v=demo3" alt="Майя Рейнольдс" loading="lazy">
             </div>
             <div class="team-info">
               <div class="team-identity">
                 <h3 class="team-name">Майя Рейнольдс</h3>
-                <span class="team-role">Партнер по бизнес-развитию</span>
+                <span class="team-role">Партнёр по развитию бизнеса</span>
               </div>
-              <p class="team-bio">Развитие партнерств, бизнес-связей</p>
+              <p class="team-bio">Выстраивает и поддерживает деловые отношения, каналы привлечения сделок и партнёрские сети.</p>
             </div>
-          </article>
+          </a>
 
         </div>
 
@@ -483,42 +616,44 @@
     </section>
 
     <!-- ── Hubs ──────────────────────────────────────── -->
-    <section id="hubs" class="hubs-section section-full">
+    <section id="hubs" class="hubs-section section-full" tabindex="0">
       <div class="hubs-inner">
 
         <div class="hubs-heading-wrap">
           <h2 class="hubs-heading">Модель двух хабов</h2>
+          <div class="section-rule"></div>
+          <p class="hubs-sub">Работаем из центров мировой торговли и комплаенса</p>
         </div>
 
         <div class="hubs-grid">
 
-          <div class="hub-wrap hub-wrap--dubai" role="button" tabindex="0" aria-label="Дубай — Операционный хаб">
+          <div class="hub-wrap hub-wrap--dubai" tabindex="0">
             <div class="hub-card hub-card--dubai">
-              <img class="hub-card-bg" src="../resources/images/hub-dubai-bg.webp?v=demo2" alt="" loading="lazy" aria-hidden="true">
+              <img class="hub-card-bg" src="../resources/images/hub-dubai-bg.webp?v=demo3" alt="" loading="lazy" aria-hidden="true">
               <div class="hub-location">Дубай</div>
               <div class="hub-role-label">Операционный хаб</div>
               <div class="hub-divider"></div>
               <ul class="hub-list">
                 <li>Благоприятная юрисдикция для цифровых активов</li>
                 <li>Первые инвойсы от SME из ОАЭ и плательщиков из GCC</li>
-                <li>Доступ к капиталу стран Персидского залива: family offices и crypto investors</li>
+                <li>Доступ к капиталу стран Персидского залива: family offices и крипто-инвесторы</li>
                 <li>Поток сделок из логистики и торговли</li>
                 <li>Регуляторный маршрут через UAE / VARA / ADGM / DIFC</li>
               </ul>
             </div>
           </div>
 
-          <div class="hub-wrap hub-wrap--sg" role="button" tabindex="0" aria-label="Сингапур — Центр структурирования и комплаенса">
+          <div class="hub-wrap hub-wrap--sg" tabindex="0">
             <div class="hub-card hub-card--sg">
-              <img class="hub-card-bg" src="../resources/images/hub-singapore-bg.webp?v=demo2" alt="" loading="lazy" aria-hidden="true">
-              <div class="hub-badge">СКОРО</div>
+              <img class="hub-card-bg" src="../resources/images/hub-singapore-bg.webp?v=demo3" alt="" loading="lazy" aria-hidden="true">
+              <span class="badge badge-indigo badge--sm">Скоро</span>
               <div class="hub-location">Сингапур</div>
               <div class="hub-role-label">Центр структурирования и комплаенса</div>
               <div class="hub-divider"></div>
               <ul class="hub-list">
                 <li>Слой для структурирования, банковской инфраструктуры и комплаенса в SEA</li>
                 <li>Фокус на рынки: Малайзия, Индонезия, Вьетнам, Индия</li>
-                <li>Институциональная надёжность для банков и партнёров</li>
+                <li>Институциональный авторитет для банков и партнёров</li>
                 <li>Масштабирование операций</li>
                 <li>Онбординг институционального капитала</li>
               </ul>
@@ -532,58 +667,144 @@
 
   </main>
 
+  <!-- ── Apply modal ──────────────────────────────── -->
+  <div class="modal-backdrop simple-modal-backdrop" id="apply-modal" aria-hidden="true" inert>
+    <div class="simple-modal-wrap" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">
+      <div class="modal-topbar">
+        <button class="modal-close simple-modal-close" type="button" aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="simple-modal">
+        <div class="simple-modal-head">
+          <h2 class="simple-modal-title" id="apply-modal-title">Подать заявку на финансирование</h2>
+        </div>
+        <div class="simple-modal-body f0x-scroll-host">
+          <div class="simple-modal-content" data-f0x-scroll>
+          <form class="apply-form" id="apply-form" action="/api/apply" method="post" enctype="multipart/form-data" novalidate>
+          <label><span>Название компании</span><input type="text" name="company_name" placeholder="Atlas Trade LLC" autocomplete="organization" required></label>
+          <label><span>Страна</span><input type="text" name="country" placeholder="ОАЭ" autocomplete="country-name" required></label>
+          <label><span>Отрасль</span><input type="text" name="industry" placeholder="Логистика" required></label>
+          <label class="amount-field"><span>Сумма инвойса</span><span class="currency-field"><input type="text" name="invoice_amount" placeholder="100 000" inputmode="numeric" required><select name="invoice_currency" aria-label="Валюта инвойса"><option value="USD">USD</option><option value="AED">AED</option><option value="EUR">EUR</option></select></span></label>
+          <label><span>Дата погашения инвойса</span><input type="date" name="invoice_due_date" required></label>
+          <label><span>Название компании-плательщика</span><input type="text" name="debtor_company" placeholder="Gulf Retail Group" required></label>
+          <label class="file-field"><span>Загрузить инвойс</span><input type="file" name="invoice_file" multiple required><span class="file-upload-row"><span class="file-upload-ui">Выбрать файл</span><span class="file-selected">Файлы не выбраны</span></span></label>
+          <label class="file-field"><span>Загрузить подтверждающие документы</span><input type="file" name="supporting_documents" multiple><span class="file-upload-row"><span class="file-upload-ui">Выбрать файл</span><span class="file-selected">Файлы не выбраны</span></span></label>
+          <label><span>Контактный email</span><input type="email" name="contact" placeholder="founder@atlastrade.ae" autocomplete="email" required></label>
+          <label class="comment-field"><span>Комментарий</span><input type="text" name="comment" placeholder="Нужен оборотный капитал под подтверждённый B2B-инвойс."></label>
+          <button type="submit" class="GoldBtn apply-submit"><span>Отправить заявку</span></button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Flow modal ───────────────────────────────── -->
+  <div class="modal-backdrop simple-modal-backdrop" id="flow-modal" aria-hidden="true" inert>
+    <div class="simple-modal-wrap" role="dialog" aria-modal="true" aria-labelledby="flow-modal-title">
+      <div class="modal-topbar">
+        <button class="modal-close simple-modal-close" type="button" aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="simple-modal simple-modal--wide">
+        <div class="simple-modal-head">
+          <h2 class="simple-modal-title" id="flow-modal-title">Как работает сделка</h2>
+        </div>
+        <div class="simple-modal-body f0x-scroll-host">
+          <div class="simple-modal-content" data-f0x-scroll>
+          <div class="flow-panel-inner">
+            <div class="flow-step">
+              <img src="../resources/images/flow-invoice.webp?v=demo3" alt="" loading="lazy">
+              <span class="flow-step-label">Инвойс</span>
+            </div>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <div class="flow-step">
+              <img src="../resources/images/flow-verification.webp?v=demo3" alt="" loading="lazy">
+              <span class="flow-step-label">Верификация</span>
+            </div>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <div class="flow-step">
+              <img src="../resources/images/flow-financing.webp?v=demo3" alt="" loading="lazy">
+              <span class="flow-step-label">Финансирование</span>
+            </div>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <div class="flow-step">
+              <img src="../resources/images/flow-repayment.webp?v=demo3" alt="" loading="lazy">
+              <span class="flow-step-label">Погашение</span>
+            </div>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <div class="flow-step">
+              <img src="../resources/images/flow-yield.webp?v=demo3" alt="" loading="lazy">
+              <span class="flow-step-label">Доход</span>
+            </div>
+          </div>
+          <p class="flow-micro-label">Каждый этап фиксируется в системе и отображается инвестору в статусе сделки.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Footer / Contacts ─────────────────────────── -->
-  <footer id="contacts" class="site-footer">
-    <div class="footer-inner">
+  <footer id="contacts" class="site-footer" tabindex="0">
+    <div class="footer-inner footer-inner--5col">
 
       <div class="footer-brand">
-        <span class="logo-text footer-logo" aria-label="Factor0x">
+        <span class="logo-text footer-logo" role="img" aria-label="Factor0x">
           <span class="logo-factor">Factor</span><span class="logo-0x">0x</span>
         </span>
         <p class="footer-tagline">Финансирование инвойсов · Web3 · Цифровая инфраструктура</p>
-        <nav class="footer-legal" aria-label="Юридические ссылки">
-          <a href="../privacy-policy.html?v=demo2">Политика конфиденциальности</a>
-          <a href="../terms-of-service.html?v=demo2">Условия использования</a>
-          <a href="../whitepaper.html?v=demo2">Whitepaper</a>
-        </nav>
       </div>
 
-      <div class="footer-nav-grid">
-        <div class="footer-col">
-          <span class="footer-col-title">Продукт</span>
-          <a href="#model" class="footer-link">Как работает</a>
-          <a href="#hubs"  class="footer-link">Хабы</a>
-        </div>
-        <div class="footer-col">
-          <span class="footer-col-title">Для бизнеса</span>
-          <a href="#"              class="footer-link">Получить финансирование</a>
-          <a href="#invoice-cards" class="footer-link">Инвесторам</a>
-        </div>
-        <div class="footer-col">
-          <span class="footer-col-title">Контакт</span>
-          <a href="mailto:hello@factor0x.com" class="footer-link">hello@factor0x.com</a>
-          <div class="footer-socials">
-            <a href="#" class="footer-social" aria-label="X / Twitter">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-                <path d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/>
-              </svg>
-            </a>
-            <a href="#" class="footer-social" aria-label="Telegram">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
-                <path d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM371 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2 .5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3 .6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7 .5 3.2 .6 6.5 .4 9.8z"/>
-              </svg>
-            </a>
-            <a href="#" class="footer-social" aria-label="WhatsApp">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-                <path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/>
-              </svg>
-            </a>
-            <a href="#" class="footer-social" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-                <path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/>
-              </svg>
-            </a>
-          </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Юридическое</span>
+        <a href="legal/privacy/" class="footer-link">Политика конфиденциальности</a>
+        <a href="legal/terms/" class="footer-link">Условия использования</a>
+        <a href="legal/whitepaper/" class="footer-link">Whitepaper</a>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Продукт</span>
+        <a href="#model" class="footer-link">Как работает</a>
+        <a href="#hubs"  class="footer-link">Хабы</a>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Для бизнеса</span>
+        <a href="#" id="footer-apply-link" class="footer-link">Получить финансирование</a>
+        <a href="#invoice-cards" class="footer-link">Инвесторам</a>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Контакт</span>
+        <a href="mailto:hello@factor0x.com" class="footer-link">hello@factor0x.com</a>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="X / Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/>
+            </svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Telegram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+              <path d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM371 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2 .5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3 .6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7 .5 3.2 .6 6.5 .4 9.8z"/>
+            </svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/>
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -593,10 +814,21 @@
     </div>
   </footer>
 
-  <script type="module" src="../js/marketplace.js?v=demo2"></script>
-  <script type="module" src="../js/site.js?v=demo2"></script>
-  <script type="module" src="../js/popup.js?v=demo2"></script>
-  <script type="module" src="../js/cookie.js?v=demo2"></script>
+  <script type="module" src="../js/marketplace.js?v=demo3"></script>
+  <script type="module" src="../js/en-features.js?v=demo3"></script>
+  <script type="module" src="../js/site.js?v=demo3"></script>
+  <script type="module" src="../js/popup.js?v=demo3"></script>
+  <script type="module" src="../js/cookie.js?v=demo3"></script>
+
+  <script>
+    // Pause autoplay videos for users who prefer reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video[autoplay]').forEach(function(v) {
+        v.removeAttribute('autoplay');
+        v.pause();
+      });
+    }
+  </script>
 
   <script>
     // FAQ accordion
@@ -615,6 +847,12 @@
       });
     });
   </script>
+
+  <div class="f0x-scroll" aria-hidden="true">
+    <div class="f0x-scroll-track">
+      <div class="f0x-scroll-thumb"></div>
+    </div>
+  </div>
 
 </body>
 </html>
