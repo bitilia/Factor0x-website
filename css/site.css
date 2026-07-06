@@ -584,6 +584,7 @@ html, body {
 .drop-icon--rotating {
   position: relative;
   overflow: hidden;
+  display: block;
 }
 .drop-crypto-icon {
   position: absolute;
