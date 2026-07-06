@@ -882,9 +882,9 @@ html, body {
 .tvl-icon {
   width: 26px;
   height: 26px;
-  color: #fff;
   flex-shrink: 0;
   opacity: 0.9;
+  filter: brightness(0) invert(1);
 }
 
 /* Info icon pinned to top-right of TVL card */
@@ -905,12 +905,14 @@ html, body {
 }
 
 .tvl-info .tooltip-icon {
-  color: rgba(255,255,255,0.55);
+  filter: brightness(0) invert(1);
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
 }
 
 .tvl-info:hover .tooltip-icon,
 .tvl-info:focus-visible .tooltip-icon {
-  color: rgba(255,255,255,0.9);
+  opacity: 0.9;
 }
 
 .tvl-info:focus-visible {
