@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Legal — Factor0x</title>
+  <link rel="icon" type="image/x-icon" href="../../resources/favicon.ico">
+  <link rel="preload" as="font" type="font/woff2" href="../../resources/fonts/normal/latin/normal-regular.woff2?v=demo3" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../../resources/fonts/normal/latin/normal-semibold.woff2?v=demo3" crossorigin>
+  <link rel="stylesheet" href="../../css/site.css?v=demo3">
+  <style>
+    * { box-sizing: border-box; }
+    .doc-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 48px;
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--text); }
+    .doc-title {
+      margin: 0 0 12px;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      margin: 0 0 56px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .legal-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .legal-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.15s;
+    }
+    .legal-list li:first-child a {
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .legal-list li a:hover { color: rgba(255,255,255,0.6); }
+    .legal-list li a:hover .legal-arrow { opacity: 1; }
+    .legal-name {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .legal-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .legal-arrow {
+      font-size: 18px;
+      color: var(--text-muted);
+      opacity: 0.5;
+      transition: opacity 0.15s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    @media (max-width: 640px) {
+      .doc-wrap { padding: 48px 18px 72px; }
+      .doc-title { font-size: 38px; }
+      .legal-name { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="doc-wrap">
+    <a class="back-link" href="../">← Back to Factor0x</a>
+    <h1 class="doc-title">Legal</h1>
+    <p class="doc-subtitle">Platform policies, terms and documentation.</p>
+
+    <ul class="legal-list">
+      <li>
+        <a href="privacy/">
+          <div>
+            <div class="legal-name">Privacy Policy</div>
+            <div class="legal-desc">How we collect, use and protect your personal data</div>
+          </div>
+          <span class="legal-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="terms/">
+          <div>
+            <div class="legal-name">Terms of Service</div>
+            <div class="legal-desc">Rules governing your use of the Factor0x platform</div>
+          </div>
+          <span class="legal-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="whitepaper/">
+          <div>
+            <div class="legal-name">Whitepaper</div>
+            <div class="legal-desc">Technical and business overview of the Factor0x model</div>
+          </div>
+          <span class="legal-arrow">→</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>

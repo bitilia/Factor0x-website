@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Whitepaper — Factor0x</title>
+  <link rel="icon" type="image/x-icon" href="../../../resources/favicon.ico">
+  <link rel="preload" as="font" type="font/woff2" href="../../../resources/fonts/normal/latin/normal-regular.woff2?v=demo3" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../../../resources/fonts/normal/latin/normal-semibold.woff2?v=demo3" crossorigin>
+  <link rel="stylesheet" href="../../../css/site.css?v=demo3">
+  <style>
+    * { box-sizing: border-box; }
+    .doc-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 48px;
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--text); }
+    .doc-title {
+      margin: 0 0 52px;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+    p {
+      margin: 0 0 16px;
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.80);
+    }
+    h2 {
+      margin: 48px 0 14px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    h3 {
+      margin: 26px 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.90);
+    }
+    ul, ol {
+      margin: 0 0 18px;
+      padding-left: 22px;
+      color: rgba(255,255,255,0.80);
+    }
+    li {
+      margin: 5px 0;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    @media (max-width: 640px) {
+      .doc-wrap { padding: 48px 18px 72px; }
+      .doc-title { font-size: 38px; }
+      h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="doc-wrap">
+    <a class="back-link" href="../../">← Back to Factor0x</a>
+    <h1 class="doc-title">Whitepaper<br>Factor0x</h1>
+
+    <h2>1. Overview</h2>
+    <p>Factor0x is a cross-border invoice financing / trade receivables financing platform that helps businesses access liquidity against verified B2B invoices and short-term receivables.</p>
+    <p>The platform connects:</p>
+    <ul>
+      <li>SMEs and mid-market companies with verified invoices;</li>
+      <li>investors and capital providers seeking an opportunity to participate in the financing of verified receivables;</li>
+      <li>SPV / licensed partner / factoring provider;</li>
+      <li>digital-asset capital providers, where legally permitted;</li>
+      <li>AI infrastructure for invoice verification and risk scoring;</li>
+      <li>compliance, KYB / KYC and AML framework;</li>
+      <li>Web3 smart-contract layer for investor participation accounting, deal status transparency and distribution logic.</li>
+    </ul>
+    <p>Factor0x is not a speculative token project. It is an infrastructure platform for financing real B2B receivables with a Web3 layer for transparency, accounting and automation.</p>
+    <p>UAE / Dubai is considered the first operating, commercial and regulatory hub for:</p>
+    <ul>
+      <li>first invoices;</li>
+      <li>first SMEs / borrowers;</li>
+      <li>first UAE / GCC obligors;</li>
+      <li>first pilot transactions;</li>
+      <li>crypto-native liquidity infrastructure;</li>
+      <li>legal / regulatory pathway review;</li>
+      <li>regulated digital asset / conversion infrastructure where required.</li>
+    </ul>
+    <p>Singapore and Southeast Asia are considered later as a second layer for structuring, banking, compliance and regional scaling.</p>
+
+    <h2>2. Mission</h2>
+    <p>The mission of Factor0x is to make the financing of verified receivables faster, more transparent and more accessible by combining:</p>
+    <ul>
+      <li>verified B2B invoices;</li>
+      <li>AI-powered invoice verification;</li>
+      <li>risk scoring / underwriting;</li>
+      <li>structured capital deployment;</li>
+      <li>fiat and crypto-native liquidity;</li>
+      <li>smart-contract-based accounting;</li>
+      <li>institutional-grade compliance and reporting.</li>
+    </ul>
+    <p>Factor0x aims to turn verified receivables into a transparent, controlled and financeable asset class.</p>
+
+    <h2>3. Problem</h2>
+    <p>Many SMEs earn revenue before they receive cash.</p>
+    <p>In sectors such as logistics, trade, distribution, construction, import/export and B2B services, companies often issue invoices with payment terms of 30–120 days.</p>
+    <p>This creates a recurring gap:</p>
+    <ul>
+      <li>the service has been performed or goods have been delivered;</li>
+      <li>the invoice has been issued;</li>
+      <li>the debtor / obligor will pay later;</li>
+      <li>the business needs liquidity now.</li>
+    </ul>
+    <p>Traditional factoring and invoice financing have several limitations.</p>
+
+    <h3>3.1 Limited access for SMEs</h3>
+    <p>Many SMEs do not meet the requirements of banks or traditional factoring providers.</p>
+
+    <h3>3.2 Slow approval process</h3>
+    <p>Manual underwriting, document review and credit analysis often take too much time.</p>
+
+    <h3>3.3 Lack of transparency</h3>
+    <p>Investors and capital providers often have limited visibility into invoice quality, document status, debtor risk, repayment progress and portfolio performance.</p>
+
+    <h3>3.4 Complexity of cross-border financing</h3>
+    <p>International invoice financing is complicated by legal, banking, currency and compliance factors.</p>
+
+    <h3>3.5 Underutilized crypto liquidity</h3>
+    <p>Digital-asset markets may become an additional source of liquidity for financing short-term B2B receivables, subject to applicable regulation.</p>
+    <p>Factor0x does not view this segment as a public fundraising channel from an unrestricted investor audience, but as a potential source of structured liquidity that may be connected through a legally permissible model, compliance procedures and regulated partners where required.</p>
+    <p>The key objective is to create a clear and defensible framework in which digital-asset liquidity can be directed into the financing of real trade transactions without breaching requirements related to investor onboarding, AML/KYC, custody, offering restrictions and virtual asset activity.</p>
+
+    <h2>4. Factor0x Opportunity</h2>
+    <p>Factor0x creates infrastructure where verified B2B invoices can be:</p>
+    <ul>
+      <li>accepted;</li>
+      <li>verified;</li>
+      <li>assessed from a risk perspective;</li>
+      <li>financed;</li>
+      <li>tracked through repayment;</li>
+      <li>presented to investors in a transparent and structured form.</li>
+    </ul>
+    <p>The key opportunity of Factor0x is to connect:</p>
+    <ul>
+      <li>businesses that need liquidity against verified B2B invoices;</li>
+      <li>capital providers interested in short-duration real-world assets;</li>
+      <li>licensed partners / SPVs through which capital deployment can be structured in a legally appropriate manner;</li>
+      <li>an AI verification engine that helps verify invoices, documents and transaction quality;</li>
+      <li>a smart contract layer that provides operational transparency, participation accounting, deal statuses and distribution logic.</li>
+    </ul>
+    <p>Verified receivables can become a scalable real-world asset class when legal structuring, risk control, compliance and digital infrastructure are combined.</p>
+
+    <h2>5. Core Factor0x Model</h2>
+    <p>Factor0x is built around a separation of roles.</p>
+
+    <h3>5.1 Borrower / SME</h3>
+    <p>A company that wants to obtain financing against a verified invoice / receivable.</p>
+
+    <h3>5.2 Debtor / Obligor</h3>
+    <p>The corporate customer of the SME that is obligated to pay the invoice.</p>
+
+    <h3>5.3 Factor0x</h3>
+    <p>The operating platform responsible for:</p>
+    <ul>
+      <li>deal sourcing;</li>
+      <li>borrower onboarding;</li>
+      <li>invoice intake;</li>
+      <li>document verification;</li>
+      <li>AI-powered risk scoring;</li>
+      <li>obligor analysis;</li>
+      <li>investor-facing platform layer;</li>
+      <li>servicing;</li>
+      <li>reporting;</li>
+      <li>transaction status tracking;</li>
+      <li>Web3 transparency layer.</li>
+    </ul>
+
+    <h3>5.4 SPV / Licensed Partner / Factoring Provider</h3>
+    <p>A legal structure or licensed partner that may:</p>
+    <ul>
+      <li>purchase receivables;</li>
+      <li>finance SMEs against receivables;</li>
+      <li>support collection and repayment flows;</li>
+      <li>receive repayments;</li>
+      <li>support repayment and settlement processes under the approved legal structure.</li>
+    </ul>
+
+    <h3>5.5 Crypto / OTC / VASP Provider</h3>
+    <p>A licensed or regulated provider that may provide:</p>
+    <ul>
+      <li>crypto-to-fiat conversion through licensed / regulated providers where required;</li>
+      <li>stablecoin settlement;</li>
+      <li>custody, if permitted;</li>
+      <li>wallet screening;</li>
+      <li>AML transaction monitoring.</li>
+    </ul>
+
+    <h3>5.6 Investors / Capital Providers</h3>
+    <p>Capital providers may include:</p>
+    <ul>
+      <li>crypto-native investors;</li>
+      <li>private investors;</li>
+      <li>family offices;</li>
+      <li>treasury holders;</li>
+      <li>funds;</li>
+      <li>professional / qualified investors, if required by law.</li>
+    </ul>
+
+    <h2>6. Target Market</h2>
+
+    <h3>6.1 Initial geography</h3>
+    <p>The first market for Factor0x is UAE / Dubai.</p>
+    <ul>
+      <li>UAE-based SMEs;</li>
+      <li>UAE / GCC obligors;</li>
+      <li>logistics companies;</li>
+      <li>trade companies;</li>
+      <li>import / export businesses;</li>
+      <li>distributors;</li>
+      <li>supply chain companies;</li>
+      <li>construction / contractors;</li>
+      <li>B2B service providers.</li>
+    </ul>
+
+    <h3>6.2 Target borrower profile</h3>
+    <p>The ideal borrower:</p>
+    <ul>
+      <li>SME or mid-market company;</li>
+      <li>regular B2B invoice flow;</li>
+      <li>payment term of 30–120 days;</li>
+      <li>corporate debtor / obligor;</li>
+      <li>confirmed operating history;</li>
+      <li>absence of critical legal, sanctions, tax or bankruptcy risks;</li>
+      <li>ability to provide supporting documents.</li>
+    </ul>
+
+    <h3>6.3 Target investor profile</h3>
+    <p>Target investors / capital providers:</p>
+    <ul>
+      <li>crypto-native investors;</li>
+      <li>eligible digital-asset capital providers;</li>
+      <li>private investors;</li>
+      <li>family offices;</li>
+      <li>funds;</li>
+      <li>Gulf-based capital providers;</li>
+      <li>professional / qualified investors.</li>
+    </ul>
+
+    <h2>7. Product Architecture</h2>
+    <p>Factor0x is a hybrid infrastructure platform that combines off-chain verification and on-chain transparency.</p>
+
+    <h3>7.1 Off-chain layer</h3>
+    <p>The off-chain layer includes:</p>
+    <ul>
+      <li>borrower onboarding;</li>
+      <li>KYB / KYC;</li>
+      <li>document upload;</li>
+      <li>invoice verification;</li>
+      <li>obligor review;</li>
+      <li>risk scoring;</li>
+      <li>legal documents;</li>
+      <li>contracts;</li>
+      <li>financing agreements;</li>
+      <li>receivables assignment documents;</li>
+      <li>compliance review;</li>
+      <li>banking and repayment flows.</li>
+    </ul>
+
+    <h3>7.2 On-chain layer</h3>
+    <p>The on-chain layer may include:</p>
+    <ul>
+      <li>investor participation recording;</li>
+      <li>smart-contract allocation tracking;</li>
+      <li>deal status events;</li>
+      <li>repayment distribution logic if legally permitted;</li>
+      <li>audit trail;</li>
+      <li>digital participation record;</li>
+      <li>pool-level or deal-level transparency;</li>
+      <li>immutable hashes of off-chain documents.</li>
+    </ul>
+
+    <h2>8. AI-powered Invoice Verification and Risk Scoring</h2>
+    <p>A key component of Factor0x is the AI-powered invoice verification and receivables underwriting engine.</p>
+
+    <h3>8.1 Invoice Validation</h3>
+    <ul>
+      <li>verify invoice authenticity;</li>
+      <li>extract invoice data;</li>
+      <li>check invoice amount;</li>
+      <li>check due date;</li>
+      <li>check debtor details;</li>
+      <li>check payment terms;</li>
+      <li>identify missing fields;</li>
+      <li>identify inconsistencies.</li>
+    </ul>
+
+    <h3>8.2 Fraud Detection</h3>
+    <p>The system should identify:</p>
+    <ul>
+      <li>fake invoices;</li>
+      <li>duplicate invoices;</li>
+      <li>disputed invoices;</li>
+      <li>altered documents;</li>
+      <li>inconsistent debtor details;</li>
+      <li>unusual invoice amounts;</li>
+      <li>repeated invoice patterns;</li>
+      <li>related-party risk;</li>
+      <li>double financing risk.</li>
+    </ul>
+
+    <h3>8.3 Obligor Analysis</h3>
+    <p>The system should assess:</p>
+    <ul>
+      <li>debtor identity;</li>
+      <li>debtor jurisdiction;</li>
+      <li>corporate status;</li>
+      <li>payment history, if available;</li>
+      <li>creditworthiness;</li>
+      <li>sanctions / adverse media risk;</li>
+      <li>concentration exposure;</li>
+      <li>industry risk.</li>
+    </ul>
+
+    <h3>8.4 Risk Tiering</h3>
+    <p>Each invoice / pool should receive a risk tier:</p>
+    <ul>
+      <li>Low Risk;</li>
+      <li>Medium Risk;</li>
+      <li>High Risk;</li>
+      <li>Manual Review Required;</li>
+      <li>Rejected.</li>
+    </ul>
+    <p>The risk score should influence:</p>
+    <ul>
+      <li>advance rate;</li>
+      <li>investor yield;</li>
+      <li>reserve requirement;</li>
+      <li>financing eligibility;</li>
+      <li>documentation requirements;</li>
+      <li>approval workflow.</li>
+    </ul>
+
+    <h2>9. Transaction Workflow</h2>
+
+    <h3>9.1 Borrower Flow</h3>
+    <ol>
+      <li>Borrower uploads the invoice and supporting documents.</li>
+      <li>Factor0x performs KYB and initial document intake.</li>
+      <li>The AI engine extracts and verifies invoice data.</li>
+      <li>The obligor is reviewed and risk-scored.</li>
+      <li>Supporting documents are reviewed.</li>
+      <li>The invoice receives the status approved, rejected or manual review.</li>
+      <li>Financing terms are proposed.</li>
+      <li>The transaction is listed privately or to eligible investors.</li>
+      <li>Capital is raised through the approved structure.</li>
+      <li>The SME receives financing.</li>
+      <li>The debtor pays the invoice into a controlled account.</li>
+      <li>Repayment is distributed according to the legal and platform logic.</li>
+    </ol>
+
+    <h3>9.2 Investor Flow</h3>
+    <ol>
+      <li>Investor completes KYC / KYB where required / subject to onboarding rules.</li>
+      <li>Investor completes wallet screening and source-of-funds checks.</li>
+      <li>Investor sees available invoice-backed opportunities.</li>
+      <li>Investor reviews indicative economics.</li>
+      <li>Investor contributes eligible assets through approved channels, subject to legal and compliance checks.</li>
+      <li>Investor receives digital confirmation of participation.</li>
+      <li>Investor tracks deal status.</li>
+      <li>Investor receives distributions according to transaction terms, subject to risk and legal documentation.</li>
+    </ol>
+
+    <h3>9.3 Repayment Flow</h3>
+    <ol>
+      <li>Debtor / obligor pays the invoice.</li>
+      <li>Funds arrive at the SPV / licensed partner / designated collection account.</li>
+      <li>The receipt is reconciled according to approved transaction documents.</li>
+      <li>Transaction proceeds and investor allocations are calculated according to approved transaction documents.</li>
+      <li>Applicable platform and partner fees are deducted if provided by the transaction structure.</li>
+      <li>Distributions are made in accordance with the approved transaction documents.</li>
+      <li>Deal status is updated to Repaid, Overdue or Default.</li>
+    </ol>
+
+    <h2>10. Deal Structure</h2>
+    <p>Factor0x is considering several possible legal structures.</p>
+
+    <h3>10.1 Receivables Purchase / Assignment</h3>
+    <p>An SPV or licensed partner purchases the receivable from the SME at a discount.</p>
+    <p>Documents may include:</p>
+    <ul>
+      <li>receivables purchase agreement;</li>
+      <li>assignment agreement;</li>
+      <li>notice of assignment;</li>
+      <li>debtor acknowledgment;</li>
+      <li>controlled collection account;</li>
+      <li>servicing agreement.</li>
+    </ul>
+
+    <h3>10.2 Loan Against Invoice</h3>
+    <p>A financing entity provides an SME loan, where the invoice is used as collateral or as a repayment source.</p>
+    <p>Documents may include:</p>
+    <ul>
+      <li>loan agreement;</li>
+      <li>security over receivable;</li>
+      <li>repayment waterfall;</li>
+      <li>debtor payment direction.</li>
+    </ul>
+
+    <h3>10.3 Licensed Partner-led Factoring</h3>
+    <p>A licensed factoring / finance partner acts as the legal financing entity.</p>
+    <p>Factor0x remains:</p>
+    <ul>
+      <li>origination layer;</li>
+      <li>verification layer;</li>
+      <li>risk scoring layer;</li>
+      <li>marketing / investor acquisition layer, where legally permitted;</li>
+      <li>servicing layer;</li>
+      <li>reporting layer;</li>
+      <li>Web3 transparency layer.</li>
+    </ul>
+
+    <h2>11. Investor Participation Model</h2>
+
+    <h3>Deal-by-deal / asset-by-asset model</h3>
+    <p>Factor0x is considering a model where investors participate not in a broad manager-driven public pool, but in individual invoice-backed opportunities or pre-defined transactions.</p>
+    <p>In this model:</p>
+    <ul>
+      <li>investors see specific invoice-backed opportunities;</li>
+      <li>investors choose whether to participate in a specific transaction;</li>
+      <li>each opportunity has disclosed parameters: borrower, obligor, amount, tenor, risk tier, verification status and indicative economics;</li>
+      <li>capital is not transferred into a broad manager-driven pool without selection of specific assets;</li>
+      <li>the legal form of investor participation is defined by approved transaction documents and is subject to legal review.</li>
+    </ul>
+    <p>Disclosed parameters may include:</p>
+    <ul>
+      <li>borrower;</li>
+      <li>obligor;</li>
+      <li>invoice amount;</li>
+      <li>maturity date;</li>
+      <li>expected return;</li>
+      <li>risk tier;</li>
+      <li>verification status;</li>
+      <li>supporting document status;</li>
+      <li>jurisdiction;</li>
+      <li>repayment source.</li>
+    </ul>
+
+    <h2>12. Liquidity and Capital Flow</h2>
+    <p>Factor0x is designed to connect eligible capital providers with verified invoice financing opportunities through a structured and compliance-oriented model.</p>
+    <p>If digital assets are used in the model, conversion, custody, settlement and other regulated functions should be performed through appropriate licensed or regulated providers.</p>
+    <p>Capital deployment into receivables financing should be conducted through legally appropriate structures, such as an SPV, licensed financing partner or factoring provider.</p>
+    <p>The platform smart-contract layer is intended to support:</p>
+    <ul>
+      <li>investor participation accounting;</li>
+      <li>allocation recording by transaction;</li>
+      <li>deal status monitoring;</li>
+      <li>repayment status transparency;</li>
+      <li>distribution logic, if legally permitted;</li>
+      <li>transparency and auditability.</li>
+    </ul>
+
+    <h2>13. Risk Management Framework</h2>
+
+    <h3>13.1 Credit Risk</h3>
+    <p>Credit risk arises if the debtor does not pay the invoice.</p>
+    <p>Risk mitigation measures:</p>
+    <ul>
+      <li>obligor analysis;</li>
+      <li>debtor acknowledgment;</li>
+      <li>invoice verification;</li>
+      <li>concentration limits;</li>
+      <li>risk tiering;</li>
+      <li>potential reserve mechanisms;</li>
+      <li>manual review for high-risk invoices.</li>
+    </ul>
+
+    <h3>13.2 Fraud Risk</h3>
+    <p>Fraud risk includes fake invoices, duplicate invoices, altered documents, disputed receivables or double financing.</p>
+    <p>Risk mitigation measures:</p>
+    <ul>
+      <li>AI document checks;</li>
+      <li>duplicate detection;</li>
+      <li>supporting document validation;</li>
+      <li>debtor confirmation;</li>
+      <li>KYB checks;</li>
+      <li>adverse media screening;</li>
+      <li>manual review.</li>
+    </ul>
+
+    <h3>13.3 Liquidity Risk</h3>
+    <p>Liquidity risk arises if investors expect capital to be returned before invoices are repaid.</p>
+    <p>Risk mitigation measures:</p>
+    <ul>
+      <li>short-duration assets;</li>
+      <li>maturity matching between invoice tenor and investor expectations;</li>
+      <li>no guaranteed return or early redemption unless expressly documented;</li>
+      <li>clear investor disclosure;</li>
+      <li>repayment status tracking;</li>
+      <li>reserve policy, if provided by the transaction structure.</li>
+    </ul>
+
+    <h3>13.4 Operational Risk</h3>
+    <p>Operational risks include:</p>
+    <ul>
+      <li>incorrect document processing;</li>
+      <li>incorrect scoring;</li>
+      <li>data privacy breach;</li>
+      <li>incorrect payment allocation;</li>
+      <li>admin key compromise;</li>
+      <li>smart contract bugs;</li>
+      <li>failed integration;</li>
+      <li>delayed reconciliation.</li>
+    </ul>
+    <p>Risk mitigation measures:</p>
+    <ul>
+      <li>RBAC;</li>
+      <li>audit trail;</li>
+      <li>encrypted document storage;</li>
+      <li>access control;</li>
+      <li>reconciliation controls;</li>
+      <li>smart contract audit;</li>
+      <li>incident response plan.</li>
+    </ul>
+
+    <h2>14. Economic Model</h2>
+    <p>Factor0x may track the following platform metrics:</p>
+    <ul>
+      <li>Total Funded Volume;</li>
+      <li>TVL;</li>
+      <li>Active Invoices;</li>
+      <li>Repaid Invoices;</li>
+      <li>indicative economics / projected return range where legally permitted;</li>
+      <li>Average Duration;</li>
+      <li>Overdue Rate;</li>
+      <li>Default Rate;</li>
+      <li>default / overdue metrics;</li>
+      <li>Indicative investor economics, where legally permitted;</li>
+      <li>Platform Revenue;</li>
+      <li>Portfolio Concentration;</li>
+      <li>UAE / GCC Exposure.</li>
+    </ul>
+
+    <h2>15. Security Architecture</h2>
+    <p>Security is a mandatory element of Factor0x.</p>
+    <p>The system must protect:</p>
+    <ul>
+      <li>investor funds;</li>
+      <li>borrower data;</li>
+      <li>invoice documents;</li>
+      <li>KYC / KYB records;</li>
+      <li>smart contract logic;</li>
+      <li>private keys;</li>
+      <li>admin access;</li>
+      <li>repayment records;</li>
+      <li>audit trails.</li>
+    </ul>
+
+    <h3>15.1 Smart Contract Controls</h3>
+    <p>Mandatory controls:</p>
+    <ul>
+      <li>strict state machine;</li>
+      <li>role-based access control;</li>
+      <li>multisig admin roles;</li>
+      <li>no arbitrary owner withdrawal of investor funds;</li>
+      <li>no post-funding change of economic terms;</li>
+      <li>reentrancy protection;</li>
+      <li>replay attack protection;</li>
+      <li>double payout protection;</li>
+      <li>emergency pause;</li>
+      <li>event logging;</li>
+      <li>external audit before mainnet launch.</li>
+    </ul>
+
+    <h3>15.2 Web2 Security</h3>
+    <p>Mandatory controls:</p>
+    <ul>
+      <li>encrypted storage;</li>
+      <li>secure API;</li>
+      <li>access control;</li>
+      <li>audit logs;</li>
+      <li>document integrity checks;</li>
+      <li>secure key management;</li>
+      <li>backup and recovery;</li>
+      <li>incident response plan;</li>
+      <li>penetration testing.</li>
+    </ul>
+
+    <h2>16. Platform Interfaces</h2>
+
+    <h3>16.1 Investor Interface</h3>
+    <p>Shows eligible invoice-backed opportunities.</p>
+    <p>Main fields:</p>
+    <ul>
+      <li>borrower;</li>
+      <li>obligor;</li>
+      <li>jurisdiction;</li>
+      <li>invoice amount;</li>
+      <li>required funding;</li>
+      <li>current funding;</li>
+      <li>APR;</li>
+      <li>maturity date;</li>
+      <li>risk tier;</li>
+      <li>verification status;</li>
+      <li>document status;</li>
+      <li>funding progress;</li>
+      <li>repayment status.</li>
+    </ul>
+
+    <h3>16.2 Invoice Details Page</h3>
+    <p>Shows:</p>
+    <ul>
+      <li>business overview;</li>
+      <li>invoice terms;</li>
+      <li>debtor profile;</li>
+      <li>supporting documents status;</li>
+      <li>risk score;</li>
+      <li>payment timeline;</li>
+      <li>expected return;</li>
+      <li>legal structure summary;</li>
+      <li>risk disclosure.</li>
+    </ul>
+
+    <h3>16.3 Borrower Dashboard</h3>
+    <p>Allows SMEs to:</p>
+    <ul>
+      <li>upload invoices;</li>
+      <li>upload documents;</li>
+      <li>track review status;</li>
+      <li>receive financing terms;</li>
+      <li>monitor repayment status.</li>
+    </ul>
+
+    <h3>16.4 Compliance / Risk Panel</h3>
+    <p>Allows the authorized team to:</p>
+    <ul>
+      <li>review KYB;</li>
+      <li>approve / reject invoices;</li>
+      <li>assign risk tier;</li>
+      <li>check debtor;</li>
+      <li>monitor overdue invoices;</li>
+      <li>manage documents;</li>
+      <li>trigger manual review.</li>
+    </ul>
+
+    <h3>16.5 Analytics Dashboard</h3>
+    <p>Tracks:</p>
+    <ul>
+      <li>funded volume;</li>
+      <li>TVL;</li>
+      <li>repayment performance;</li>
+      <li>overdue rate;</li>
+      <li>default rate;</li>
+      <li>portfolio diversification;</li>
+      <li>risk tier exposure;</li>
+      <li>obligor concentration;</li>
+      <li>sector concentration.</li>
+    </ul>
+
+    <h2>17. Roadmap</h2>
+
+    <h3>Phase 1 — Legal &amp; Structural Setup</h3>
+    <p>Legal structure, regulatory review, partner selection and compliance framework preparation.</p>
+
+    <h3>Phase 2 — MVP Development</h3>
+    <p>Platform, investor interface, borrower flow, invoice verification, risk scoring and smart-contract layer.</p>
+
+    <h3>Phase 3 — First UAE Pilot</h3>
+    <p>First verified invoice financing transactions within the UAE / GCC framework.</p>
+
+    <h3>Phase 4 — Partner &amp; Capital Expansion</h3>
+    <p>Onboarding licensed partners, capital providers and logistics / trade originators.</p>
+
+    <h3>Phase 5 — Regional Scaling</h3>
+    <p>Scaling in UAE / GCC, followed by the Singapore / SEA layer.</p>
+
+    <h2>18. Key Legal and Regulatory Disclaimers</h2>
+    <p>This whitepaper is not:</p>
+    <ul>
+      <li>an invitation to invest;</li>
+      <li>legal advice;</li>
+      <li>investment advice;</li>
+      <li>financial promotion;</li>
+      <li>an offer of securities;</li>
+      <li>a public offering;</li>
+      <li>a promise of return;</li>
+      <li>confirmation of licensing status.</li>
+    </ul>
+
+    <h2>19. Conclusion</h2>
+    <p>Factor0x aims to create regulated, transparent and technology-enabled infrastructure for financing verified B2B receivables.</p>
+    <p>The platform combines:</p>
+    <ul>
+      <li>real-world invoice flow;</li>
+      <li>AI-powered verification;</li>
+      <li>risk scoring;</li>
+      <li>structured capital deployment;</li>
+      <li>crypto-native liquidity;</li>
+      <li>smart-contract transparency;</li>
+      <li>UAE-first legal and commercial strategy.</li>
+    </ul>
+    <p>The long-term vision of Factor0x is to make verified receivables a more accessible, transparent and investable short-duration real-world asset class. The next stage is legal structuring, MVP development and the first pilot transaction in UAE / Dubai.</p>
+  </main>
+</body>
+</html>

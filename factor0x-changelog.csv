@@ -1,0 +1,183 @@
+Date,Category,File(s),Change,Detail
+2026-06-21,Deleted,CNAME,Removed CNAME record,factor0x.com DNS binding file deleted
+2026-06-21,Deleted,README.md,Removed README,49 lines of Russian deployment instructions gone
+2026-06-21,Deleted,style.css,Removed monolithic stylesheet,7498 lines of CSS deleted
+2026-06-21,Deleted,main.js,Removed monolithic JS,2003 lines deleted
+2026-06-21,Deleted,invoice-3d.js,Removed invoice 3D script,325 lines deleted
+2026-06-21,Deleted,docs-language.js,Removed language docs script,67 lines deleted
+2026-06-21,Deleted,privacy-policy.html,Removed English privacy policy page,
+2026-06-21,Deleted,privacy-policy-ru.html,Removed Russian privacy policy page,
+2026-06-21,Deleted,terms-of-service.html,Removed English terms page,
+2026-06-21,Deleted,terms-of-service-ru.html,Removed Russian terms page,
+2026-06-21,Deleted,whitepaper.html,Removed Russian whitepaper page,
+2026-06-21,Deleted,whitepaper-en.html,Removed English whitepaper page,
+2026-06-21,Deleted,assets/,Removed entire assets directory,30+ PNG / JPG / SVG image files purged
+2026-06-21,Structure,resources/,Created resources/ root directory,Replaces assets/ with organized hierarchy
+2026-06-21,Structure,resources/images/,Created images directory,All images migrated here and converted to .webp
+2026-06-21,Structure,resources/logo/,Created logo directory,logo-3d.webp and logo-3d-c.webp housed here
+2026-06-21,Structure,resources/sounds/,Created sounds directory,mouse-click.mp3 (4448 bytes) added
+2026-06-21,Structure,resources/videos/,Created videos directory,invoice-alpha.webm / safe-alpha.webm / tiles-alpha.webm added
+2026-06-21,Structure,resources/fonts/,Created fonts directory,mono/ and normal/ families in woff2 only
+2026-06-21,Structure,resources/fonts/build-fonts.py,Added font build script,46-line Python script to generate locale subsets on demand
+2026-06-21,CSS,css/main.css,Created main.css,1155 lines -- layout and component rules
+2026-06-21,CSS,css/popup.css,Created popup.css,604 lines -- modal and overlay rules isolated from global styles
+2026-06-21,CSS,css/site.css,Created site.css,1587 lines -- design tokens / typography / shared utilities
+2026-06-21,JS,js/site.js,Created site.js,43 lines -- global init / theme detection / scroll behavior
+2026-06-21,JS,js/popup.js,Created popup.js,350 lines -- all modal open/close/scroll logic
+2026-06-21,JS,js/marketplace.js,Created marketplace.js,165 lines -- invoice API fetching and table rendering
+2026-06-21,JS,js/cookie.js,Created cookie.js,131 lines -- consent banner build / accept / decline / cookie read-write
+2026-06-21,Data,api/invoices.json,Created invoices data file,"6 deals: INV-041 Gulf Trade Dubai to Singapore 6.2% APR / INV-088 Nordic Supply Oslo to Rotterdam 5.8% / INV-113 Asia Pacific HK to London $650k 7.1% / INV-127 Iberian Commodities $175k / INV-134 East Africa Agro 8.3% 90 days / INV-099 Rhine Industrial $890k 120 days"
+2026-06-21,Data,api/stats.json,Created stats data file,TVL set to $103504459.50 USD dated 21 May 2026
+2026-06-21,Pages,en/index.html,Created English homepage,617 lines -- new EN page
+2026-06-21,Pages,index.html,Rewrote root page,943 new lines replacing old root
+2026-06-21,JS,js/site.js,Patched language detection logic,Follow-up fix after initial creation
+2026-06-21,JS,js/site.js,Extended site.js,45 further insertions refining behavior (6 deletions)
+2026-06-25,Assets,resources/icons/static/brands/,Created brand icon directory,FontAwesome brand SVGs: bitcoin / reddit-alien / dailymotion / watchman-monitoring etc.
+2026-06-25,Assets,resources/icons/static/solid/,Created solid icon directory,"FontAwesome solid SVGs: bolt-lightning / audio-description / anchor-circle-exclamation / bangladeshi-taka-sign etc."
+2026-06-25,Pages,demo/index.html,Created demo page,96-line proof-of-concept page
+2026-06-25,JS,js/site.js,Updated site.js alongside demo,21 additional lines
+2026-06-30,Video,js/site.js / en/index.html,Rebuilt video loading as progressive multisize,"4 resolution tiers: 400_500 / 800_1000 / 1600_2000 / 3200_4000. Each video probes container via getBoundingClientRect().width x devicePixelRatio then swaps src to matched .webm tier"
+2026-06-30,Routing,index.html,Converted root to language redirect,"Reads navigator.language and routes to /en/ or /ru/. Falls back to meta http-equiv refresh. Exposes plain anchor links for crawlers: English / Russkyy"
+2026-06-30,SEO,index.html,Added hreflang alternates to root,"rel=alternate hreflang=en / hreflang=ru / hreflang=x-default added for search engine routing"
+2026-06-30,Pages,ru/index.html,Created Russian homepage,620 lines -- full Russian-language page
+2026-06-30,JS,js/i18n.js,Created i18n module,"getLang() reads from html[lang] / falls back to en. t(key vars) resolves dot-notation keys with {name} interpolation. messages() returns full locale object. dealField(id field) looks up localized deal copy by invoice ID with English fallback"
+2026-06-30,JS,js/i18n.js,Added formatMoney() to i18n,"Locale-aware currency formatter -- uses ru-RU or en-US Intl.NumberFormat"
+2026-06-30,JS,js/i18n.js,Added formatTVL() to i18n,"Formats TVL as $103 504 459.50 USD in Russian locale style"
+2026-06-30,JS,js/i18n.js,Added formatAmount() to i18n,Uses thin-space grouping via Unicode non-breaking space substitution
+2026-06-30,JS,js/locales/en.js,Created English locale dictionary,Typed key-value dictionary matching the i18n shape
+2026-06-30,JS,js/locales/ru.js,Created Russian locale dictionary,Typed key-value dictionary matching the same shape as en.js
+2026-06-30,JS,js/cookie.js,Rewired cookie banner through i18n,"Heading / accept / decline text now use t('cookie.heading') / t('cookie.accept') / t('cookie.decline')"
+2026-06-30,JS,js/marketplace.js,Rewired marketplace.js through i18n,All user-facing strings replaced with t() calls
+2026-06-30,JS,js/popup.js,Rewired popup.js through i18n,All user-facing strings replaced with t() calls
+2026-06-30,Fonts,css/site.css,Split fonts into latin and cyrillic per-weight,"Latin: Space Grotesk (F0xSans) + DM Mono (F0xMono). Cyrillic: Manrope + JetBrains Mono -- Space Grotesk has no Cyrillic glyphs so full family swap per script"
+2026-06-30,Fonts,css/site.css,Added unicode-range declarations per weight,"Latin: U+0000-00FF and extended Latin blocks. Cyrillic: U+0400-045F / U+0490-0491 / U+04B0-04B1. Browser only downloads the subset needed for the page's language"
+2026-06-30,Fonts,resources/fonts/,Deleted old flat mono font files,mono/mono-light.woff2 / mono-medium.woff2 / mono-regular.woff2 removed
+2026-06-30,Fonts,resources/fonts/,Deleted old flat normal font files,normal/normal-light.woff2 / normal-medium.woff2 removed
+2026-06-30,Fonts,resources/fonts/mono/latin/,Created Latin mono subset directory,light / medium / regular woff2 files
+2026-06-30,Fonts,resources/fonts/mono/cyrillic/,Created Cyrillic mono subset directory,light / medium / regular woff2 files
+2026-06-30,Fonts,resources/fonts/normal/latin/,Created Latin sans subset directory,light / medium / regular / semibold woff2 files
+2026-06-30,Fonts,resources/fonts/normal/cyrillic/,Created Cyrillic sans subset directory,light / medium / regular / semibold woff2 files
+2026-06-30,UI,css/main.css / en/index.html / ru/index.html,Wired hero CTA scroll,"Start Investing button now scrolls to invoice-cards section on click"
+2026-07-01,Mobile,css/popup.css,Fixed portrait deal modal containment,"Set position:fixed / inset:0 / overflow-y:auto so modal fills viewport and scrolls internally"
+2026-07-01,Mobile,css/popup.css,Removed height cap on mobile modal,Deleted max-height constraint that was cutting off tall modal content
+2026-07-01,Mobile,css/popup.css,Fixed modal image bleed,"Restored object-fit:cover on company banner image / reinstated 16px edge padding"
+2026-07-01,Mobile,css/popup.css,Fixed landscape mobile modal layout,Final column width alignment pass for landscape orientation
+2026-07-01,Caching,en/index.html / ru/index.html / js/*.js / css/*.css,Added cache-busting query string,Appended ?v=demo1 to every CSS href and JS src across all pages
+2026-07-04,JS,js/en-features.js,Created EN features module,294 lines -- EN page nav / invoice table / apply+flow panels / card reveal animations / scroll behavior
+2026-07-04,Data,api/invoices/meta.json,Created pagination metadata,total:20 / pageSize:10 / totalPages:2
+2026-07-04,Data,api/invoices/page-1.json,Created invoice page 1,137 lines -- first 10 paginated deal records
+2026-07-04,Data,api/invoices/page-2.json,Created invoice page 2,137 lines -- second 10 paginated deal records
+2026-07-04,Data,api/invoices.json,Added risk field to all invoices,"low or medium per record. INV-042 Asia Components 9.4% APR and INV-127 Iberian Commodities marked medium -- all others low"
+2026-07-04,Nav,en/index.html / js/en-features.js,Built mobile hamburger navigation,"Slide-in panel via transform:translateX(-100%) to 0. aria-expanded toggled on each state change"
+2026-07-04,Panels,en/index.html / js/popup.js,Converted Apply panel to popup modal,"position:fixed / aria-modal=true on modal-wrap / focus-trapped / closes on backdrop click or Escape key"
+2026-07-04,Panels,en/index.html / js/popup.js,Converted Flow panel to popup modal,Same popup treatment as Apply panel -- overlays page rather than sitting inside it
+2026-07-04,Fix,css/main.css,Fixed BtnGold rendering grey,Wrong CSS class was applied -- corrected to use the proper gold button styles
+2026-07-04,Layout,css/site.css,Fixed 5-column footer collapse,Footer columns were collapsing into a single stack -- fixed column template
+2026-07-04,Layout,css/main.css,Fixed expanding section border-radius clip,overflow:hidden on parent was clipping border-radius on expanding content sections
+2026-07-04,Layout,js/en-features.js,Fixed table/tile view toggle,Clicking the view switcher now actually changes the layout -- was not wired correctly before
+2026-07-04,Component,css/main.css / en/index.html,Added FlowBtn component,Gold outline / dark fill button used in the how-it-works section
+2026-07-04,CSS,css/main.css,Added gold scrollbar thumb styling,"::‑webkit-scrollbar-thumb set to #dca23c (gold) across all scrollable panels"
+2026-07-04,Animation,js/en-features.js / css/site.css,Added offer card reveal animation,"IntersectionObserver fires CSS class that triggers opacity and transform transition as cards enter viewport"
+2026-07-04,UI,css/main.css,Scaled down hamburger icon,Reduced size of hamburger button SVG
+2026-07-04,CSS,css/main.css,Brightened scrollbar track on dark backgrounds,Track color adjusted for better visibility on dark-background panels
+2026-07-04,Scroll,css/site.css,Added scroll lock on modal open,"html.modal-open and body.modal-open get overflow:hidden and overscroll-behavior:none -- page body no longer scrolls beneath open modal"
+2026-07-04,Team,css/main.css,Made team card photos responsive,"aspect-ratio:3/4 on desktop (portrait) / aspect-ratio:1/1 on mobile (square) -- controlled via media query"
+2026-07-04,Fix,css/main.css / en/index.html,Fixed flow section arrow alignment,Step connector arrows had been drifting out of horizontal alignment -- corrected
+2026-07-04,Modals,js/popup.js,Added backdrop click to close modal,Clicking outside the modal dispatches the close event and dismisses it
+2026-07-04,Scrollbars,css/main.css,Added mini scrollbar overlays to offer table,"Thin custom overlay tracks added -- pure overlay with no layout impact / no width taken from container"
+2026-07-04,Fix,css/main.css,Fixed scrollbar-caused layout shifts,Scrollbar CSS refactored -- scrollbar appearance was causing measurable layout shifts on render
+2026-07-04,Fix,en/index.html,Restored deal modal company banner structure,Modal banner had been broken by an earlier regression -- structure restored
+2026-07-04,Fix,css/popup.css,Re-enabled deal modal mobile scroll,overflow-y re-enabled inside fixed modal container so content scrolls on mobile
+2026-07-04,Scrollbars,css/main.css,Added mini scrollbar fade transitions,"Opacity transitions added -- fades in on hover / fades out after 1.5s idle via CSS transition"
+2026-07-05,Layout,css/main.css / en/index.html,Compacted people cards grid,Tighter gap values / reduced column count on narrow screens
+2026-07-05,a11y,en/index.html,Added aria-label to team card anchors,Every team card anchor element gets a descriptive aria-label for screen readers
+2026-07-05,Fix,css/main.css,Fixed white-on-white text in invoice table,Table cell text color was white on a white background -- corrected to dark text
+2026-07-05,Fix,css/main.css,Fixed Two Hub Model section rule centering,Section divider rule was left-aligned on narrow viewports -- margin:auto applied
+2026-07-05,Deleted,demo/index.html,Removed demo page,96 lines terminated -- demo removed from production
+2026-07-05,Data,resources/manifest.json,Created asset manifest,87 lines -- full inventory of images / fonts / icons / videos / sounds with paths and types
+2026-07-05,SEO,robots.txt,Created robots.txt,"Disallow: /demo/ -- all other paths allowed"
+2026-07-05,PWA,site.webmanifest,Created web app manifest,"name: Factor0x / theme_color: #0d0d0d / background_color: #0d0d0d / display: standalone"
+2026-07-05,SEO,sitemap.xml,Created sitemap,4 URL entries: /en/ / /ru/ / apply page / flow page
+2026-07-05,SEO,en/index.html,Added canonical link tag,"rel=canonical href=https://factor0x.com/en/ in head"
+2026-07-05,SEO,en/index.html,Added hreflang alternates to EN page,"rel=alternate hreflang=en / hreflang=ru / hreflang=x-default"
+2026-07-05,PWA,en/index.html,Added rel=manifest link,Points to site.webmanifest
+2026-07-05,PWA,en/index.html,Added apple-touch-icon link,Points to resources/logo/logo-3d-c.webp
+2026-07-05,PWA,en/index.html,Added theme-color meta tag,Content: #0d0d0d
+2026-07-05,Data,resources/manifest.json,Removed comment keys from manifest,Stripped all _note / _todo / _missing fields that had been cluttering the file
+2026-07-05,Data,resources/manifest.json,Flattened flow_steps in manifest,Changed from nested object to plain array
+2026-07-05,Caching,en/index.html / css/*.css / js/*.js,Bumped cache version to demo2,All ?v=demo1 references updated to ?v=demo2
+2026-07-05,Caching,en/index.html / css/*.css / js/*.js,Bumped cache version to demo3,All ?v=demo2 references updated to ?v=demo3
+2026-07-05,Fix,css/main.css,Fixed scrollbar selector scope,"::‑webkit-scrollbar rule was matching the mini modal internal scrollbar -- now scoped to avoid that"
+2026-07-05,Fix,css/popup.css,Fixed popup corner clipping,Parent overflow:hidden was clipping border-radius:12px on popup corners -- fixed
+2026-07-05,Assets,resources/images/opengraph-card.webp,Uploaded OG card image,18030 bytes -- used for link preview thumbnails
+2026-07-05,SEO,en/index.html,Added og:image meta tag,Points to opengraph-card.webp for Open Graph link previews
+2026-07-05,SEO,en/index.html,Added twitter:card meta tag,twitter:card=summary_large_image for Twitter / X previews
+2026-07-05,SEO,en/index.html,Added twitter:image meta tag,Points to opengraph-card.webp
+2026-07-05,SEO,en/index.html,Made OG image language-aware,EN page gets card directly -- x-default hreflang fallback covers unknown locales
+2026-07-05,Component,en/index.html / resources/manifest.json,Replaced flow step inline SVGs with webp images,"Each flow step icon changed from inline SVG to img src pointing to resources/images/flow-*.webp"
+2026-07-05,Component,en/index.html / css/main.css,Redesigned team cards as clickable anchors,Each team card wrapped in a full anchor element so the entire card is the click target
+2026-07-05,CSS,css/site.css,Added container-type to modal content wrapper,".simple-modal-content gets container-type:inline-size to enable container queries inside"
+2026-07-05,CSS,css/site.css,Replaced apply form media queries with container queries,"@container (max-width:459px) triggers 2-col / @container (max-width:299px) triggers 1-col -- adapts to modal width not window width"
+2026-07-05,CSS,css/site.css,Replaced flow panel media queries with container queries,"@container (max-width:479px) stacks flow steps vertically -- adapts to modal width not window width"
+2026-07-05,Fix,css/site.css,Restored 2-col as default apply form layout,"Container query threshold had been set wrong and was triggering 2-col too early -- corrected"
+2026-07-05,Fix,en/index.html / css/site.css,Fixed close button placement in modal,Close button was overlapping first form field -- moved into a dedicated modal-topbar div above the form
+2026-07-05,Fix,css/site.css,Fixed currency select field in apply form,"Was rendering as plain text input -- converted to proper select element with fixed width of 68px"
+2026-07-05,Fix,css/site.css,Prevented amount input overflow in narrow modal cell,min-width:0 applied to amount field input so it does not overflow its grid cell
+2026-07-05,Fix,en/index.html,Fixed modal flash on page load,"Inline style .modal-backdrop{opacity:0;pointer-events:none} added before popup.css loads -- prevents visible flash of open modal before JS initializes"
+2026-07-05,Fix,css/main.css,Fixed social icons wrapping in modal,"Social icons container changed from flex/wrap to grid with grid-template-columns:repeat(4 32px) -- forces 1x4 layout and prevents 2-row wrap"
+2026-07-05,Design,css/main.css,Flipped footer to white background,"background changed from #060606 to #fff / border-top from rgba(255 255 255 0.055) to rgba(0 0 0 0.08)"
+2026-07-05,Design,css/main.css,Updated footer logo colors for white background,"logo-factor color changed to #111 / logo-0x changed to rgba(17 17 17 0.42)"
+2026-07-05,Design,css/main.css,Updated all footer text colors for white background,"All rgba(255 255 255 ...) values inverted to equivalent rgba(0 0 0 ...) dark values across footer-legal / footer-link / footer nav"
+2026-07-05,Design,css/main.css,Updated footer focus rings for white background,"Focus outline on footer links changed from rgba(255 255 255 0.4) to rgba(0 0 0 0.3)"
+2026-07-05,Pages,404.html,Created 404 error page,91 lines -- standalone page with noindex meta
+2026-07-05,Pages,404.html,Styled 404 error code as ghost number,"err-code uses color:transparent and -webkit-text-stroke:1.5px rgba(255 255 255 0.10) -- large outlined numeral with no fill"
+2026-07-05,Pages,404.html,Added gold gradient divider to 404 page,"err-divider: 36px wide / 2px tall / linear-gradient from rgba(220 162 60 0.8) to rgba(220 162 60 0.2)"
+2026-07-05,Animation,css/site.css,Added CSS loading spinner keyframes,@keyframes spin added for 360-degree rotation used on marketplace fetch states
+2026-07-05,Animation,css/site.css / js/marketplace.js,Added loading state to invoice fetch,Spinner shown via opacity transition while invoices load from API -- hidden on resolve
+2026-07-05,a11y,css/site.css,Added .visually-hidden utility class,"position:absolute / width:1px / height:1px / overflow:hidden / clip:rect(0 0 0 0) / white-space:nowrap -- makes text available to screen readers without visible presence"
+2026-07-05,a11y,css/main.css / css/site.css,Added global focus ring baseline,:focus-visible rules added to all interactive elements site-wide
+2026-07-05,a11y,css/main.css,Set GoldBtn focus ring color,GoldBtn:focus-visible outline: 2px solid #ffd277 at offset 2px
+2026-07-05,a11y,css/main.css,Set BtnGold focus ring color,BtnGold:focus-visible outline: 2px solid #77530a at offset 2px
+2026-07-05,a11y,css/main.css,Set FlowBtn focus ring color,"FlowBtn:focus-visible outline: 2px solid rgba(255 200 50 0.8) at offset 2px"
+2026-07-05,a11y,css/main.css,Set BtnDark focus ring color,"BtnDark:focus-visible outline: 2px solid rgba(255 255 255 0.7) at offset 2px"
+2026-07-05,a11y,css/main.css,Set LightBtn focus ring color,"LightBtn:focus-visible outline: 2px solid rgba(255 255 255 0.7) at offset 2px"
+2026-07-05,a11y,css/main.css,Set PlainBtn focus ring color,"PlainBtn:focus-visible outline: 2px solid rgba(255 255 255 0.5) at offset 2px"
+2026-07-05,a11y,css/main.css,Increased all focus ring offsets from 2px to 4px,All existing :focus-visible rules updated from outline-offset:2px to outline-offset:4px for better visibility
+2026-07-05,a11y,css/main.css,Added focus ring to FAQ question buttons,"faq-q:focus-visible outline: 2px solid rgba(255 255 255 0.4) at offset 4px with border-radius:4px"
+2026-07-05,a11y,css/main.css,Added focus ring to invoice table sort buttons,"invoice-table-sort:focus-visible uses box-shadow: 0 0 0 2px rgba(220 162 60 0.85) with border-radius:2px instead of outline to avoid clipping"
+2026-07-05,a11y,css/main.css,Changed default focus ring from white to gold,"Global :focus-visible base color changed from rgba(255 255 255 0.7) to rgba(220 162 60 0.85)"
+2026-07-05,a11y,js/en-features.js / en/index.html,Made share icon always visible on offer cards,Removed hover-only opacity:0 default -- share icon now always at full opacity
+2026-07-05,a11y,en/index.html / js/en-features.js,Added inert to collapsed invoice table panel,"invoice-table-panel gets inert attribute when hidden -- eliminates phantom tab stops users would hit when tabbing past the offers section"
+2026-07-05,a11y,en/index.html,Added tabindex=0 to hero section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to invoice-cards section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to model section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to about section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to deal-transparency section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to real-yield section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to faq section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to team section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to hubs section,Section now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added tabindex=0 to footer element,Footer now reachable via keyboard Tab
+2026-07-05,a11y,css/main.css,Suppressed focus outline on sections,"section:focus-visible and footer:focus-visible set to outline:none -- sections are in tab order but do not show a visible ring"
+2026-07-05,a11y,js/en-features.js,Added scroll-to-section on keyboard focus,"document focusin listener: when focus moves into a new section / scrollIntoView({behavior:smooth / block:start}) fires. Guards with _lastSection to avoid re-firing"
+2026-07-05,a11y,en/index.html,Added tabindex=0 to hub-wrap elements,Dubai and Singapore hub cards now reachable via keyboard Tab
+2026-07-05,a11y,en/index.html,Added inert attribute to apply-modal on init,"Apply modal starts with inert attribute -- prevents tab navigation into a closed modal"
+2026-07-05,a11y,en/index.html,Added inert attribute to flow-modal on init,"Flow modal starts with inert attribute -- prevents tab navigation into a closed modal"
+2026-07-05,a11y,js/popup.js,Toggle inert on modal open and close,"inert removed from backdrop on open / inert added back on close -- this is what made the footer unreachable when a modal was closed"
+2026-07-05,a11y,en/index.html,Moved role=dialog and aria-modal from inner div to backdrop wrapper,"role=dialog / aria-modal=true moved from .simple-modal to .simple-modal-wrap so the entire backdrop is the ARIA dialog boundary"
+2026-07-05,a11y,en/index.html,Moved role=dialog and aria-modal on deal modal,"role=dialog / aria-modal=true moved from .modal-box to .modal-wrap for consistent ARIA structure"
+2026-07-05,a11y,js/popup.js,Auto-focus first focusable element on modal open via requestAnimationFrame,"Changed from immediate first.focus() to requestAnimationFrame(() => first.focus()) -- ensures DOM is ready before focus is set"
+2026-07-05,a11y,js/popup.js,Auto-focus close button when deal modal opens,"modalEl.querySelector('#m-close').focus() called on deal modal open"
+2026-07-05,a11y,js/popup.js,Built focus trap loop using document-level listener,"FOCUSABLE selector defined as all interactive elements excluding aria-hidden. trapFocus() on document keydown: Tab wraps from last focusable to first / Shift+Tab wraps back. Also handles case where focus escapes the modal via modalEl.contains(active) check"
+2026-07-05,a11y,js/popup.js,Fixed focus trap to use document listener not backdrop listener,"Was attached to backdrop.addEventListener -- changed to document.addEventListener so focus is caught even when it escapes the modal boundary"
+2026-07-05,a11y,css/main.css,Added focus ring to TVL info button,"tvl-info:focus-visible outline: 2px solid rgba(255 255 255 0.6) with border-radius:4px"
+2026-07-05,a11y,css/site.css,Added gold focus ring to Choose File button via :focus-within,".apply-form .file-field:focus-within .file-upload-ui gets outline: 2px solid rgba(220 162 60 0.85) at offset 4px with border-radius:8px -- triggers when hidden file input inside receives focus"
+2026-07-05,Animation,css/site.css,Added TVL glint animation,"@keyframes silver-shine on .tvl-shine-clip::after. Shine element parked at left:-35% off-screen. Hover triggers 0.6s ease-out sweep to left:115% -- element returns to start on unhover so re-hover always restarts cleanly"
+2026-07-05,Animation,css/site.css,Changed TVL glint from infinite loop to on-hover sweep,"Previous version: silver-shine ran 6.8s ease-in-out infinite. New version: animation only fires on :hover using 0.6s ease-out forwards -- feels deliberate not automatic"
+2026-07-05,CSS,css/site.css,Added comprehensive print stylesheet,"~354 lines. Covers: animations disabled with !important / -webkit-print-color-adjust:exact / print-color-adjust:exact / background colors overridden to white / text overridden to dark / TVL card position:static and z-index:auto / TVL icon and label colors forced dark / targeted to fit approx 2 pages"
+2026-07-05,Fix,css/popup.css,Fixed deal popup modal border-radius,"border-radius:12px applied to .modal-box-shell. Responsive: 20px on wider viewports / 16px on narrower / corners correctly split between top and bottom halves of scroll container"
+"2026-07-06","New Page","en/legal/index.html","Created legal section landing page","Lists Privacy Policy / Terms of Service / Whitepaper as navigable rows with arrow links. Uses site.css dark tokens and F0xSans. Path: en/legal/index.html. Back link to en/ homepage."
+"2026-07-06","New Page","en/legal/privacy/index.html","Created English privacy policy page","Full 14-section privacy policy ported from origin/old-site:privacy-policy.html. Replaced Google Fonts + style.css with site.css dark theme. Sections: Information We Collect (5 sub-sections) / How We Use / Legal Basis / KYC-KYB-AML / Sharing / Cookies / Retention / Security / International Transfers / Your Rights / Blockchain Data / Third-Party Links / Children / Changes."
+"2026-07-06","New Page","en/legal/terms/index.html","Created English terms of service page","Full 25-section ToS ported from origin/old-site:terms-of-service.html. Replaced Google Fonts + style.css with site.css dark theme. Covers eligibility / no-advice disclaimer / investor participation / borrower applications / verification / Web3 wallet / smart contracts / stablecoin risks / compliance / prohibited activities / fees / IP / disclaimers / limitation of liability / indemnification / suspension / governing law."
+"2026-07-06","New Page","en/legal/whitepaper/index.html","Created English whitepaper page","Full 19-section whitepaper ported from origin/old-site:whitepaper-en.html. Converted Word/Pages export classes (p.p1-p6) and Apple-tab-span bullet indentation to semantic HTML: h1 title / h2 sections / h3 subsections / ul bullet lists / ol numbered lists. Replaced Google Fonts + inline styles with site.css dark theme."
+"2026-07-06","New File","factor0x-changelog.csv","Added changelog CSV to repo root","factor0x-changelog.csv committed to agent/en-features-76f5 branch root. 178 rows covering all changes from old-site baseline (2026-06-21) through legal page additions (2026-07-06)."
