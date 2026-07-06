@@ -584,6 +584,27 @@ html, body {
   box-sizing: border-box;
   filter: brightness(0) invert(1);
 }
+.crypto-icon--dollar {
+  filter: brightness(0) invert(1);
+  object-fit: contain;
+}
+
+.drop-icon--rotating {
+  position: relative;
+  overflow: hidden;
+}
+.drop-crypto-icon {
+  position: absolute;
+  inset: 0;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  opacity: 0;
+  transition: opacity 0.38s ease;
+  pointer-events: none;
+  object-fit: contain;
+}
+.drop-crypto-icon.active { opacity: 1; }
 
 .wallet-drop::before {
   content: '';
@@ -2050,7 +2071,7 @@ video.media-loaded {
   html { scroll-behavior: auto; }
   .blur-load { animation: none; opacity: 1; }
   .site-header { animation: none; }
-  .crypto-icon, .wallet-drop, .wallet-btn,
+  .crypto-icon, .drop-crypto-icon, .wallet-drop, .wallet-btn,
   .nav-link, .globe-btn, .drop-item,
   .logo-text { transition: none; }
   #invoice-cards::before { animation: none; }

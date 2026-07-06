@@ -24,13 +24,20 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ─── Crypto icon rotator ──────────────────────────
-const icons = document.querySelectorAll('.crypto-icon');
-let current = 0;
-setInterval(() => {
-  icons[current].classList.remove('active');
-  current = (current + 1) % icons.length;
-  icons[current].classList.add('active');
-}, 1100);
+(function () {
+  function rotateGroup(selector) {
+    const icons = document.querySelectorAll(selector);
+    if (icons.length < 2) return;
+    let current = 0;
+    setInterval(() => {
+      icons[current].classList.remove('active');
+      current = (current + 1) % icons.length;
+      icons[current].classList.add('active');
+    }, 1100);
+  }
+  rotateGroup('.crypto-wrap .crypto-icon');
+  rotateGroup('.drop-crypto-icon');
+}());
 
 // ─── Button click sound (deeper + damped via WebAudio) ──
 const _clickUrl = '../resources/sounds/mouse-click.mp3?v=demo3';
