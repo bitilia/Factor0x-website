@@ -202,9 +202,15 @@
           <a href="#invoice-cards" class="BtnDark"><span>Start Investing</span></a>
         </div>
 
-        <!-- TVL mirror: visible only on mobile, decorative duplicate -->
-        <div class="tvl-card tvl-card--hero-mobile blur-load" style="animation-delay: 0.52s" aria-hidden="true">
+        <!-- TVL mirror: visible only on mobile -->
+        <div class="tvl-card tvl-card--hero-mobile blur-load" style="animation-delay: 0.52s">
           <div class="tvl-shine-clip" aria-hidden="true"></div>
+          <button class="tvl-info" type="button" aria-label="What is TVL?" aria-describedby="tvl-tooltip-text-hero">
+            <svg class="tooltip-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+              <path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM224 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm-8 64l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/>
+            </svg>
+          </button>
+          <span id="tvl-tooltip-text-hero" class="tooltip-box tvl-tooltip" role="tooltip">TVL is capital allocated to active invoice financing deals.</span>
           <div class="tvl-card-row">
             <svg class="tvl-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
               <path d="M192 80c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 352c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-352zM0 272c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 160c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48L0 272zM432 96l32 0c26.5 0 48 21.5 48 48l0 288c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48z"/>
