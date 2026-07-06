@@ -9,6 +9,8 @@
   <link rel="preload" as="font" type="font/woff2" href="../../../resources/fonts/normal/latin/normal-semibold.woff2?v=demo3" crossorigin>
   <link rel="stylesheet" href="../../../css/site.css?v=demo3">
   <style>
+    :root { --bg: #fff; --text: #111; --text-muted: #666; }
+    html, body { background: #fff; color: #111; }
     * { box-sizing: border-box; }
     .doc-wrap {
       max-width: 820px;
@@ -18,12 +20,12 @@
     .back-link {
       display: inline-block;
       margin-bottom: 48px;
-      color: var(--text-muted);
+      color: #666;
       font-size: 14px;
       text-decoration: none;
       transition: color 0.15s;
     }
-    .back-link:hover { color: var(--text); }
+    .back-link:hover { color: #111; }
     .doc-title {
       margin: 0 0 8px;
       font-size: clamp(40px, 6vw, 68px);
@@ -31,39 +33,40 @@
       line-height: 0.96;
       letter-spacing: -0.02em;
       text-wrap: balance;
+      color: #111;
     }
     .doc-meta {
       margin: 0 0 52px;
-      color: var(--text-muted);
+      color: #666;
       font-size: 14px;
     }
     p {
       margin: 0 0 16px;
       font-size: 15px;
       line-height: 1.75;
-      color: rgba(255,255,255,0.80);
+      color: #333;
     }
     h2 {
       margin: 48px 0 14px;
       padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.10);
+      border-top: 1px solid #e5e5e5;
       font-size: 24px;
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.01em;
-      color: var(--text);
+      color: #111;
     }
     h3 {
       margin: 26px 0 10px;
       font-size: 16px;
       font-weight: 600;
       line-height: 1.35;
-      color: rgba(255,255,255,0.90);
+      color: #111;
     }
     ul {
       margin: 0 0 18px;
       padding-left: 22px;
-      color: rgba(255,255,255,0.80);
+      color: #333;
     }
     li {
       margin: 5px 0;
