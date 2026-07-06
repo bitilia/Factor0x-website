@@ -74,6 +74,9 @@
       .doc-title { font-size: 38px; }
       h2 { font-size: 20px; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      .back-link { transition: none; }
+    }
     @media print {
       .back-link { display: none; }
       body { font-size: 10pt; line-height: 1.6; }

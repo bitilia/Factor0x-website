@@ -87,6 +87,11 @@
       .doc-title { font-size: 38px; }
       .legal-name { font-size: 16px; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      .back-link,
+      .legal-list li a,
+      .legal-arrow { transition: none; }
+    }
     @media print {
       .back-link { display: none; }
       body { font-size: 10pt; }
