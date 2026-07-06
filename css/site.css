@@ -1285,6 +1285,7 @@ html, body {
 @media (max-width: 768px) {
   .invoice-section-top { flex-direction: column; }
   .tvl-card { width: 100%; }
+  .tvl-card--hero-mobile { width: fit-content; }
 }
 
 @media (max-width: 560px) {
