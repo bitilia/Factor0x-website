@@ -577,12 +577,6 @@ html, body {
 }
 .crypto-icon.active { opacity: 1; }
 
-.crypto-icon--bank {
-  background: #1a5c38;
-  border-radius: 50%;
-  padding: 4px;
-  box-sizing: border-box;
-}
 .crypto-icon--dollar {
   object-fit: contain;
 }
