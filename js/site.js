@@ -7,18 +7,15 @@ document.addEventListener('keydown', function onFirstTab(e) {
 });
 
 // ─── TVL card glint — fires once per mouseenter, always completes ──
-(function () {
-  const card = document.querySelector('.tvl-card');
-  const clip = document.querySelector('.tvl-shine-clip');
-  if (!card || !clip) return;
+document.querySelectorAll('.tvl-card').forEach(card => {
+  const clip = card.querySelector('.tvl-shine-clip');
+  if (!clip) return;
   card.addEventListener('mouseenter', () => {
     if (clip.classList.contains('glinting')) return;
     clip.classList.add('glinting');
   });
-  clip.addEventListener('animationend', () => {
-    clip.classList.remove('glinting');
-  });
-}());
+  clip.addEventListener('animationend', () => clip.classList.remove('glinting'));
+});
 
 // ─── Header logo: reveal on any scroll ───────────
 const logoImg = document.querySelector('.logo-text');
