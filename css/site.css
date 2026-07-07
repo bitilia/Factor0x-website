@@ -2615,19 +2615,24 @@ body.mobile-nav-open .mobile-nav-drawer {
   opacity: 0.72;
 }
 
-.flow-step img {
+.flow-step-img {
   width: 100%;
-  max-width: 120px;
-  height: auto;
   aspect-ratio: 1;
-  object-fit: contain;
   border-radius: 12px;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.03);
-  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
-  will-change: transform;
+  flex-shrink: 0;
 }
 
-.flow-step:hover img {
+.flow-step img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.flow-step:hover .flow-step-img img {
   transform: scale(1.1);
 }
 
