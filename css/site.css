@@ -2623,6 +2623,12 @@ body.mobile-nav-open .mobile-nav-drawer {
   object-fit: contain;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform;
+}
+
+.flow-step:hover img {
+  transform: scale(1.1);
 }
 
 .flow-micro-label {
