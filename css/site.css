@@ -2586,6 +2586,7 @@ body.mobile-nav-open .mobile-nav-drawer {
   align-items: flex-start;
   justify-content: center;
   gap: clamp(4px, 0.8vw, 8px);
+  padding-block-start: 8px;
 }
 
 .flow-step {
@@ -2619,9 +2620,9 @@ body.mobile-nav-open .mobile-nav-drawer {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 12px;
-  overflow: hidden;
   background: rgba(255, 255, 255, 0.03);
   flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .flow-step img {
@@ -2629,10 +2630,10 @@ body.mobile-nav-open .mobile-nav-drawer {
   height: 100%;
   object-fit: contain;
   display: block;
-  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+  border-radius: 12px;
 }
 
-.flow-step:hover .flow-step-img img {
+.flow-step:hover .flow-step-img {
   transform: scale(1.1);
 }
 
