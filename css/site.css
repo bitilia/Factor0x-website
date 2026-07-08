@@ -2622,7 +2622,6 @@ body.mobile-nav-open .mobile-nav-drawer {
   aspect-ratio: 1;
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.03);
   flex-shrink: 0;
   transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
