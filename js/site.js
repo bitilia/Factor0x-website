@@ -218,3 +218,24 @@ document.addEventListener('click', e => {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, true);
 }());
+
+// ─── Hero CTAs: match widths when they wrap onto separate rows ───
+(function () {
+  const actions = document.querySelector('.hero-actions');
+  if (!actions) return;
+  const btns = Array.from(actions.children);
+  if (btns.length < 2) return;
+
+  function sync() {
+    btns.forEach(btn => { btn.style.width = ''; });
+
+    const stacked = btns.some(btn => btn.offsetTop !== btns[0].offsetTop);
+    if (!stacked) return;
+
+    const widest = Math.max(...btns.map(btn => btn.getBoundingClientRect().width));
+    btns.forEach(btn => { btn.style.width = `${widest}px`; });
+  }
+
+  window.addEventListener('resize', sync, { passive: true });
+  sync();
+}());

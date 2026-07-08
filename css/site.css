@@ -725,10 +725,6 @@ html, body {
   justify-content: center;
   margin-top: 8px;
 }
-.hero-actions > .GoldBtn,
-.hero-actions > .BtnDark {
-  flex: 1 1 auto;
-}
 
 /* ─── Animated gold border property ─────────────── */
 @property --border-angle {
