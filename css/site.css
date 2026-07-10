@@ -2020,6 +2020,20 @@ video.media-loaded {
   opacity: 1;
 }
 
+/* ── 404 fallback: gold spinner shown in place of missing media ── */
+.media-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  opacity: 1 !important;
+  animation: none !important;
+  filter: none !important;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
 /* ── Responsive ── */
 @media (max-width: 960px) {
   .yield-section  { height: auto; min-height: calc(100dvh - var(--header-h)); }
