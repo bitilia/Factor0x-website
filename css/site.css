@@ -2020,6 +2020,12 @@ video.media-loaded {
   opacity: 1;
 }
 
+/* ── Loading overlay: gold spinner shown over media until it's ready ── */
+.media-loading-overlay {
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* ── 404 fallback: gold spinner shown in place of missing media ── */
 .media-fallback {
   display: inline-flex;
