@@ -30,7 +30,10 @@ function makeLoader(small) {
   return loader;
 }
 
-// A spinner sized to `node`, overlaid inside its parent while the asset loads.
+// A spinner overlaid inside `node`'s parent while the asset loads. The overlay
+// is a flex box that centres the spinner, sized to the element's footprint when
+// it can be measured, otherwise covering the parent — either way the spinner
+// sits in the middle of the slot rather than its top-left corner.
 function overlayFor(node) {
   const parent = node.parentElement;
   if (!parent) return null;
@@ -43,16 +46,24 @@ function overlayFor(node) {
   const h = node.offsetHeight;
   const minSide = Math.min(w || 0, h || 0);
 
-  const loader = makeLoader(minSide > 0 && minSide < 90);
-  loader.classList.add('media-loading-overlay');
-  loader.style.position = 'absolute';
-  loader.style.left = `${node.offsetLeft}px`;
-  loader.style.top = `${node.offsetTop}px`;
-  if (w) loader.style.width = `${w}px`;
-  if (h) loader.style.height = `${h}px`;
+  const box = document.createElement('span');
+  box.className = 'media-loading-overlay';
+  box.style.position = 'absolute';
+  if (w > 0 && h > 0) {
+    // Cover the element's exact box.
+    box.style.left = `${node.offsetLeft}px`;
+    box.style.top = `${node.offsetTop}px`;
+    box.style.width = `${w}px`;
+    box.style.height = `${h}px`;
+  } else {
+    // Size not known yet (e.g. an auto-height image before it loads) — cover
+    // the whole parent so the spinner still lands centred.
+    box.style.inset = '0';
+  }
 
-  parent.appendChild(loader);
-  return loader;
+  box.appendChild(makeLoader(minSide > 0 && minSide < 90));
+  parent.appendChild(box);
+  return box;
 }
 
 // Permanent in-flow spinner that takes the place of a failed element.

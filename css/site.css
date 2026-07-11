@@ -2022,6 +2022,9 @@ video.media-loaded {
 
 /* ── Loading overlay: gold spinner shown over media until it's ready ── */
 .media-loading-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
   z-index: 2;
 }
