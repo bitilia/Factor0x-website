@@ -460,8 +460,9 @@ class InvoiceTable {
       `;
       tr.children[5].appendChild(riskBadge(inv.risk));
       const actions = tr.querySelector('.invoice-table-actions');
-      const contrib = document.createElement('button');
+      const contrib = document.createElement('a');
       contrib.className = 'BtnDark';
+      contrib.href = '../dev.html';
       contrib.setAttribute('aria-label', `Contribute to ${inv.company} invoice #${inv.id}`);
       contrib.innerHTML = '<span>Contribute</span>';
       const details = document.createElement('button');

@@ -21,18 +21,18 @@
 
     .dev-card {
       width: 100%;
-      max-width: 560px;
+      max-width: 480px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 22px;
+      gap: 20px;
       animation: blurIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     .dev-logo {
-      width: 132px;
-      height: 132px;
+      width: 120px;
+      height: 120px;
       object-fit: contain;
       pointer-events: none;
     }
@@ -40,56 +40,32 @@
     .dev-brand {
       font-family: 'F0xSans', sans-serif;
       font-weight: 700;
-      font-size: clamp(22px, 4vw, 28px);
+      font-size: clamp(20px, 4vw, 26px);
       letter-spacing: -0.03em;
       line-height: 1;
     }
 
-    .dev-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border: 1px solid rgba(220,162,60,0.35);
-      border-radius: 999px;
-      background: rgba(220,162,60,0.08);
-      color: #ffd277;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .dev-badge::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #ffd277;
-      box-shadow: 0 0 8px #ffd277;
-    }
-
     .dev-title {
-      font-size: clamp(24px, 5vw, 34px);
+      font-size: clamp(22px, 4.5vw, 30px);
       font-weight: 700;
-      line-height: 1.12;
+      line-height: 1.14;
       letter-spacing: -0.02em;
     }
 
     .dev-text {
-      max-width: 440px;
+      max-width: 380px;
       color: var(--text-muted);
-      font-size: clamp(15px, 2.4vw, 16px);
+      font-size: 15px;
       line-height: 1.6;
     }
 
     .dev-actions {
+      margin-top: 4px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      margin-top: 4px;
+      gap: 16px;
     }
 
     a.GoldBtn { text-decoration: none; }
@@ -102,46 +78,26 @@
       transition: color 0.2s ease;
     }
     .dev-back:hover { color: var(--text); }
-
-    .dev-mail {
-      margin-top: 2px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .dev-mail a {
-      color: #ffd277;
-      text-decoration: none;
-    }
-    .dev-mail a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
   <main class="dev-card">
 
-    <img class="dev-logo" src="resources/logo/logo-3d-c.webp?v=demo3" alt="Factor0x" width="132" height="132">
+    <img class="dev-logo" src="resources/logo/logo-3d-c.webp?v=demo3" alt="Factor0x" width="120" height="120">
 
     <span class="dev-brand"><span class="logo-factor">Factor</span><span class="logo-0x">0x</span></span>
 
-    <span class="dev-badge" data-i18n="badge">In development</span>
-
-    <h1 class="dev-title" data-i18n="title">We're still building Factor0x</h1>
+    <h1 class="dev-title" data-i18n="title">We're still building</h1>
 
     <p class="dev-text" data-i18n="text">
-      The platform isn't fully up and running yet — we're putting the final
-      pieces in place. In the meantime, if you'd like early access or have a
-      question, reach out and we'll get back to you.
+      Factor0x isn't fully live yet. Reach out and we'll get back to you.
     </p>
 
     <div class="dev-actions">
       <a class="GoldBtn" href="mailto:hello@factor0x.com"><span data-i18n="cta">Email us</span></a>
       <a class="dev-back" href="/" data-i18n="back">← Back to site</a>
     </div>
-
-    <p class="dev-mail">
-      <span data-i18n="reach">You can reach us at</span>
-      <a href="mailto:hello@factor0x.com">hello@factor0x.com</a>
-    </p>
 
   </main>
 
@@ -156,13 +112,10 @@
 
       document.documentElement.lang = 'ru';
       var ru = {
-        badge: 'В разработке',
-        title: 'Мы ещё дорабатываем Factor0x',
-        text: 'Платформа пока работает не в полном объёме — мы завершаем последние детали. ' +
-          'Если вам нужен ранний доступ или есть вопрос, напишите нам, и мы свяжемся с вами.',
+        title: 'Мы ещё в разработке',
+        text: 'Factor0x пока работает не в полном объёме. Напишите нам, и мы свяжемся с вами.',
         cta: 'Написать нам',
-        back: '← Вернуться на сайт',
-        reach: 'Связаться с нами можно по адресу'
+        back: '← Вернуться на сайт'
       };
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         var key = el.getAttribute('data-i18n');

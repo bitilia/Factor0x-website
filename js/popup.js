@@ -186,9 +186,9 @@ function buildModal() {
             <span class="modal-receive-val" id="m-receive"></span>
           </div>
 
-          <button class="GoldBtn modal-cta" id="m-cta" type="button">
+          <a class="GoldBtn modal-cta" id="m-cta" href="../dev.html">
             <span id="m-cta-text">${t('marketplace.contribute')}</span>
-          </button>
+          </a>
 
           <p class="modal-footer-note">
             <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">

@@ -39,7 +39,7 @@ function riskBadge(risk) {
 
 function externalLinkIcon() {
   const a = document.createElement('a');
-  a.href = '#';
+  a.href = '../dev.html';
   a.target = '_blank';
   a.rel = 'noopener';
   a.className = 'offer-newtab';
@@ -93,7 +93,8 @@ function createCard(inv) {
   card.appendChild(contribs);
 
   const actions = el('div', 'offer-actions');
-  const btnContrib = el('button', 'BtnDark');
+  const btnContrib = el('a', 'BtnDark');
+  btnContrib.href = '../dev.html';
   btnContrib.appendChild(txt('span', null, t('marketplace.contribute')));
   const btnDetails = el('button', 'LightBtn');
   btnDetails.appendChild(txt('span', null, t('marketplace.viewDetails')));
