@@ -6,6 +6,34 @@
   <title>404 — Factor0x</title>
   <meta name="robots" content="noindex">
 
+  <script>
+    // GitHub Pages serves this file for any missing path without redirecting,
+    // so location.pathname is still the URL the visitor asked for. If that
+    // path lives under /ru/ (or the browser is Russian on a locale-neutral
+    // path), render the error page in Russian. English is the default so the
+    // page still reads correctly with JavaScript disabled.
+    (function () {
+      var path = location.pathname.toLowerCase();
+      var isRu = path.indexOf('/ru/') === 0 || path === '/ru' ||
+        (path.indexOf('/en/') !== 0 && path !== '/en' &&
+          (navigator.language || navigator.userLanguage || '').toLowerCase().slice(0, 2) === 'ru');
+      if (!isRu) return;
+      document.documentElement.lang = 'ru';
+      document.addEventListener('DOMContentLoaded', function () {
+        document.title = 'Страница не найдена — Factor0x';
+        var t = document.querySelector('.err-title');
+        var s = document.querySelector('.err-sub');
+        var b = document.querySelector('.GoldBtn span');
+        if (t) t.textContent = 'Страница не найдена';
+        if (s) s.textContent = 'Такой страницы не существует или она была перемещена.';
+        if (b) b.textContent = 'На главную';
+        document.querySelectorAll('a[href="/en/"]').forEach(function (a) {
+          a.setAttribute('href', '/ru/');
+        });
+      });
+    })();
+  </script>
+
   <link rel="icon" type="image/x-icon" href="/resources/favicon.ico">
   <link rel="preload" as="font" type="font/woff2" href="/resources/fonts/normal/latin/normal-regular.woff2?v=demo3" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/resources/fonts/normal/latin/normal-semibold.woff2?v=demo3" crossorigin>
