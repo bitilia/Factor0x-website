@@ -22,27 +22,40 @@ function bindMobileNav() {
   const hamburger = document.querySelector('label[for="nav-toggle"]');
   if (!toggle || !drawer) return;
 
+  // Labels come from the markup so each locale supplies its own strings.
+  const openLabel = hamburger?.dataset.openLabel || hamburger?.getAttribute('aria-label') || 'Open menu';
+  const closeLabel = hamburger?.dataset.closeLabel || 'Close menu';
   const links = drawer.querySelectorAll('a');
-  const close = () => {
-    toggle.checked = false;
-    document.body.classList.remove('mobile-nav-open');
-    drawer.setAttribute('aria-hidden', 'true');
-    hamburger?.setAttribute('aria-label', 'Open menu');
-  };
 
-  toggle.addEventListener('change', () => {
-    const open = toggle.checked;
+  const setOpen = open => {
+    toggle.checked = open;
     document.body.classList.toggle('mobile-nav-open', open);
     drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
-    hamburger?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    hamburger?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger?.setAttribute('aria-label', open ? closeLabel : openLabel);
+  };
+
+  // Pointer input: clicking the <label> toggles the checkbox natively.
+  toggle.addEventListener('change', () => setOpen(toggle.checked));
+
+  // Keyboard input: a <label> doesn't react to Enter/Space on its own, so the
+  // hamburger (a focusable role="button") needs its own key handler.
+  hamburger?.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      setOpen(!toggle.checked);
+    }
   });
 
-  links.forEach(link => link.addEventListener('click', close));
+  links.forEach(link => link.addEventListener('click', () => setOpen(false)));
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 560) close();
+    if (window.innerWidth > 560) setOpen(false);
   });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && toggle.checked) close();
+    if (e.key === 'Escape' && toggle.checked) {
+      setOpen(false);
+      hamburger?.focus();
+    }
   });
 }
 
