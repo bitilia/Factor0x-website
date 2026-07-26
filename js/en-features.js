@@ -136,33 +136,10 @@ function bindFormModals() {
     applyModal.open();
   });
 
-  document.getElementById('apply-form')?.addEventListener('submit', async e => {
+  // Applications aren't wired up yet — send the submit to the dev page.
+  document.getElementById('apply-form')?.addEventListener('submit', e => {
     e.preventDefault();
-    const form = e.target;
-
-    // Native HTML5 constraint validation
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const contactInput = form.elements['contact'];
-    if (contactInput && contactInput.type === 'email' && contactInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactInput.value)) {
-      contactInput.setCustomValidity('Please enter a valid email address.');
-      contactInput.reportValidity();
-      contactInput.setCustomValidity('');
-      return;
-    }
-
-    const data = new FormData(form);
-    try {
-      await fetch('/api/apply', { method: 'POST', body: data });
-    } catch {
-      // placeholder endpoint
-    }
-    form.reset();
-    form.querySelectorAll('.file-selected').forEach(el => { el.textContent = 'No files selected'; });
-    applyModal.close();
+    window.location.assign('../dev.html');
   });
 
   // The file input sits inside a native <label class="file-field">, so
